@@ -24,10 +24,7 @@
 
 |Colum|Type|Options|
 |------|----|------|
-|credit_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|null: false|
-|user_id|integer|foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 ## Association
@@ -49,7 +46,7 @@
 |apartment_name|string||
 |apartment_room_number|integer||
 |phone|string|null: false, unique: true|
-|user_id|integer|foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
 
@@ -58,8 +55,8 @@
 
 |Colum|Type|Options|
 |------|----|------|
-|user_id|integer|foreign_key: true|
-|item_id|integer|foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
 - belongs_to :item
@@ -78,8 +75,8 @@
 ## Association
 - has_many: images, dependent: :destroy
 - has_one: purchase
-- has_one: brand
-- has_one: category
+- belongs_to: brand
+- belongs_to: category
 - has_one_active_hash: cost
 - has_one_active_hash: days_to_ship
 <!-- - has_one_active_hash: brand
@@ -102,16 +99,16 @@
 |------|----|------|
 |name|string|null: false|
 ## Association
-- belongs_to: item
+- has_many: items
 
 
 # categoriesテーブル
 <!-- not update table -->
 |Colum|Type|Options|
 |------|----|------|
-|category_genre|string|null: false|
+|name|string|null: false|
 ## Association
-- belongs_to: item
+- has_many: items
 
 
 
