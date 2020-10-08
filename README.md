@@ -9,23 +9,27 @@
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
-|person_id|integer|foreign_key: true|
+|real_family_name|string|null: false|
+|real_last_name|string|null: false|
+|real_family_name_kana|string|null: false|
+|real_last_name_kana|string|null: false|
+|birth|date|null: false|
 ## Association
 - has_many :purchases, dependent: :destroy
-- has_many :listings, dependent: :destroy
 - has_many  :credits, dependent: :destroy
-- has_many :deliveryAddresses, dependent: :destroy
-- belongs_to :person
+- has_many :deliveries_addresses, dependent: :destroy
 
 
 ## creditsテーブル
 
 |Colum|Type|Options|
 |------|----|------|
-|creditNumber|integer|null: false, unique: true|
-|expirationYear|integer|null: false|
-|expirationMonth|null: false|
+|credit_number|integer|null: false, unique: true|
+|expiration_year|integer|null: false|
+|expiration_month|null: false|
 |user_id|integer|foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ## Association
 - belongs_to :user
 
@@ -34,117 +38,60 @@
 
 |Colum|Type|Options|
 |------|----|------|
-|deliveryFamilyName|string|null: false|
-|deliveryLastName|string|null: false|
-|deliveryFamilyNameFurigana|string|null: false|
-|deliveryLastNameFurigana|string|null: false|
-|postalCode|integer|null: false|
+|delivery_family_name|string|null: false|
+|delivery_last_name|string|null: false|
+|delivery_family_name_kana|string|null: false|
+|delivery_last_name_kana|string|null: false|
+|postal_code|string|null: false|
 |prefecture|string|null: false|
 |municipality|string|null: false|
 |address|integer|null: false|
-|apartmentName|string||
-|apartmentRoomNumber|integer||
-|phone|integer|null: false, unique: true|
+|apartment_name|string||
+|apartment_room_number|integer||
+|phone|string|null: false, unique: true|
 |user_id|integer|foreign_key: true|
 ## Association
 - belongs_to :user
-
-
-## personsテーブル
-
-|Colum|Type|Options|
-|------|----|------|
-|realFamilyName|string|null: false|
-|realLastName|string|null: false|
-|realFamilyNameFurigana|string|null: false|
-|realLastNameFurigana|string|null: false|
-|birthYear|integer|null: false|
-|birthMonth|integer|null: false|
-|birthDay|integer|null: false|
-## Association
-- has_one :user, dependent: :destroy
 
 
 # purchasesテーブル
 
 |Colum|Type|Options|
 |------|----|------|
-|payment|integer|null: false|
 |user_id|integer|foreign_key: true|
+|item_id|integer|foreign_key: true|
 ## Association
 - belongs_to :user
-- has_many :items, dependent: :destroy
-
-
-# listingsテーブル
-
-|Colum|Type|Options|
-|------|----|------|
-|shipmentSource|string|null: false|
-|shippingCosts_daysToShips_id|integer|foreign_key: true|
-|user_id|integer|foreign_key: true|
-## Association
-- belongs_to :user
-- has_many :items, dependent: :destroy
-- belongs_to :shippingCosts_daysToShips
-
-
-# shippingCosts_daysToShipsテーブル 
-<!-- not update table -->
-|Colum|Type|Options|
-|------|----|------|
-|shippingCost_id|integer|foreign_key: true|
-|daysToShip_id|integer|foreign_key: true|
-## Association
-- belongs_to :shippingCost
-- belongs_to :daysToShip
-
-
-# shippingCostsテーブル
-<!-- not update table -->
-|Colum|Type|Options|
-|------|----|------|
-|cost|string|null: false|
-## Association
-- has_many :shippingCosts_daysToShips
-- has_many :dayToShips, through: :shippingCosts_daysToShips
-
-
-# dayToShipsテーブル
-<!-- not update table -->
-|Colum|Type|Options|
-|------|----|------|
-|days|string|null: false|
-## Association
-- has_many :shippingCosts_daysToShips
-- has_many :shippingCosts, through: :shippingCosts_daysToShips
+- belongs_to :item
 
 
 # itemsテーブル
 
 |Colum|Type|Options|
 |------|----|------|
-|itemName|string|null: false|
+|name|string|null: false|
 |text|text|null: false|
 |price|integer|null: false|
-|purchase_id|integer|foreign_key: true|
-|listing_id|integer|foreign_key: true|
+|shipment_source|string|null: false|
 |brand_id|integer|foreign_key: true|
-|statuses_categories_id|integer|foreign_key: true|
+|condition|string|null: false|
 ## Association
 - has_many: images, dependent: :destroy
-- belongs_to: purchase
-- belongs_to: listing
-- belongs_to: brand
-- belongs_to: statuses_categories
+- has_one: purchase
+- has_one: brand
+- has_one: category
+- has_one_active_hash: cost
+- has_one_active_hash: days_to_ship
+<!-- - has_one_active_hash: brand
+- has_one_active_hash: category -->
 
 
 # imagesテーブル
 
 |Colum|Type|Options|
 |------|----|------|
-|photo|integer|null: false|
-|items_id|integer|foreign_key: true|
+|photo|string|null: false|
+|item_id|integer|null: false, foreign_key: true|
 ## Association
 - belongs_to: item
 
@@ -153,40 +100,18 @@
 <!-- not update table -->
 |Colum|Type|Options|
 |------|----|------|
-|brandName|string||
+|name|string|null: false|
 ## Association
-- has_many: items
-
-
-# conditions_categoriesテーブル
-<!-- not update table -->
-|Colum|Type|Options|
-|------|----|------|
-|condition_id|integer|foreign_key: true|
-|category_id|integer|foreign_key: true|
-## Association
-- belongs_to: condition
-- belongs_to: category
-
-
-# conditionsテーブル
-<!-- not update table -->
-|Colum|Type|Options|
-|------|----|------|
-|conditionsGenre|string|null: false|
-## Association
-- has_many: conditions_categories
-- has_many: categories, through: :conditions_categories
+- belongs_to: item
 
 
 # categoriesテーブル
 <!-- not update table -->
 |Colum|Type|Options|
 |------|----|------|
-|categoryGenre|string|null: false|
+|category_genre|string|null: false|
 ## Association
-- has_many: conditions_categories
-- has_many: conditions, through: :conditions_categories
+- belongs_to: item
 
 
 
