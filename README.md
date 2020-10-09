@@ -70,8 +70,11 @@
 |text|text|null: false|
 |price|integer|null: false|
 |shipment_source|string|null: false|
-|brand_id|integer|foreign_key: true|
 |condition|string|null: false|
+|brand_id|integer|foreign_key: true|
+|category_id|integer|foreign_key: true|
+|cost_id|integer|foreign_key: true|
+|days_to_ship_id|integer|foreign_key: true|
 ## Association
 - has_many: images, dependent: :destroy
 - has_one: purchase
@@ -79,8 +82,6 @@
 - belongs_to: category
 - has_one_active_hash: cost
 - has_one_active_hash: days_to_ship
-<!-- - has_one_active_hash: brand
-- has_one_active_hash: category -->
 
 
 # imagesテーブル
