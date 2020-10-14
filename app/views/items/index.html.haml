@@ -1,0 +1,250 @@
+.Header
+  .HeaderInner
+    .Header__top
+      %h1.Header__top__icon
+        = link_to image_tag("/assets/logo.png", width: '140',height: '40',alt: "画像")
+      %form.Form__contents
+        %input.Form__contents__search{"placeholder": "キーワードから探す", "type": "text"}
+        .Form__contents__btn
+          .Btn__image
+            = link_to image_tag("/assets/icon-search 1.png",width: '19',alt: "画像")
+    .Header__under
+      .Under-left
+        = link_to "/", class: "Under-left__category" do
+          カテゴリー
+        = link_to "/", class: "Under-left__brand" do
+          ブランド
+      .Under-right
+        = link_to "/", class: "Under-right__login" do
+          ログイン
+        = link_to "/", class: "Under-right__ragistration" do
+          新規会員登録
+
+.Main
+  .showMain
+    .contentLeftqq
+    .contentRight
+      .topContent
+        .itemBox
+          .itemBox__name
+            中華そば
+          .itemBox__body
+            %ul.itemBox2
+              .itemBox3
+                =image_tag("/assets/ラーメン.jpeg",width: '560',height: '346', alt: "画像") 
+                %ul
+                =image_tag("/assets/ラーメン.jpeg",width: '140',height: '87', alt: "画像") 
+                =image_tag("/assets/ラーメン.jpeg",width: '140',height: '87', alt: "画像") 
+      
+          .itemBox__price
+            %span
+            ¥1000円
+          .itemBox__price-detail
+            %span
+            (税込)
+            %span
+            送料込み
+          .itemDetail
+            商品詳細表
+      
+          .table
+            .tbody
+              .tr
+                .th
+                  出品者
+                .td
+                  aaaa
+                  
+              .tr
+                .th
+                  カテゴリー
+                .td
+                  .td3
+                    = link_to "#" do
+                      ベビー・キッズ
+                    = link_to "#" do
+                      ベビー服(男の子用)~95㎝
+                    = link_to "#" do
+                      アウター
+                  
+                  
+              .tr
+                .th
+                  ブランド
+                .td
+                  aa
+              .tr
+                .th
+                  商品のサイズ
+                .td
+                  aa
+              .tr
+                .th
+                  商品の状態
+                .td
+                  新品/未使用
+              .tr
+                .th
+                  配送料の負担
+                .td
+                  送料込み（出品者負担）  
+              .tr
+                .th
+                  発送元の地域
+                .td
+                  .td3
+                    = link_to "#" do
+                      北海道  
+              .tr
+                .th
+                  発送日の目安
+                .td
+                  1-2日で発送
+                  
+                
+
+          .optionalArea
+            %ul.optinalArea2
+              %li.optinalArea3
+              = link_to "#",class:"optinalArea4" do
+                = icon'fas', 'star'
+                お気に入り  1
+              %li.optinalArea5
+              = link_to "#",class:"optinalArea6" do
+                = icon'fas', 'flag'
+                不適切な商品の通報
+                
+
+
+        .commentBox
+          .commentContents
+            %textarea{type: "text_area", class: "text_area"}
+           
+            
+            
+            
+          .noticeMsg
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
+          .button
+            = link_to "https://twitter.com/",class:"commnets__btn" do
+              = icon'fas', 'comment' 
+              コメントする
+            
+
+
+
+      %ul.links
+        %li.links2
+          = link_to "#",class:"links4" do
+            = icon'fas', 'angle-left'     
+            %span
+            前の商品
+        %li.links3
+          = link_to "#",class:"links5" do 
+            %span
+            後ろの商品
+            = icon'fas', 'angle-right'
+
+
+
+
+
+      .relatedItems
+        %li.relatedItems2
+          = link_to "#",class:"relatedItems3" do
+            ベビー・キッズをもっと見る
+        .puroductLists
+          .puroductList
+            = link_to "#",class:"product--img" do
+              .productList--img
+                =image_tag("/assets/ラーメン.jpeg",width: '220',height: '150', alt: "画像") 
+              .productList--body
+                product3
+                .detail
+                  %ul.detail2
+                    %li.detail3
+                      30000円
+                    %li.detail4
+                      = icon'fas', 'star' 
+                      1
+                  %p.detail5
+                    （税込)
+
+
+
+      
+
+
+
+
+.appBanner 
+  .inner
+    %h2.inner__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text
+      今すぐ無料ダウンロード
+    .innner__icon
+    = link_to image_tag("/assets/320px-Download_on_the_App_Store_Badge.svg.png", width: '180',height: '53',class: "aBtn") 
+    = link_to image_tag("/assets/Google.logo.png",width: '180',height: '53', class: "gBtn") 
+
+
+
+.footer
+  .contents
+    %ul.contents
+      %li.content
+        %h2.content__head
+          FURIMAについて
+        %ul.content__head2
+          %li.content__head3
+            = link_to "#",class:"head4" do
+              会社概要(運営会社)
+          %li.content__head3
+            = link_to "#",class:"head4" do
+              プライバシーポリシー
+          %li.content__head3
+            = link_to "#",class:"head4" do
+              FURIMA利用規約
+          %li.content__head3
+            = link_to "#",class:"head4" do
+              ポイントに関する特約
+    
+      %li.content
+        %h2.content__head
+          FURIMAを見る
+        %ul.content__head2
+          %li.content__head3
+            = link_to "#",class:"head4" do
+              カテゴリー一覧
+          %li.content__head3
+            = link_to "#",class:"head4" do
+              ブランド一覧
+          
+      
+      %li.content
+        %h2.content__head
+          ヘルプ&ガイド
+        %ul.content__head2
+          %li.content__head3
+            = link_to "#",class:"head4" do
+              FURIMAガイド
+          %li.content__head3
+            = link_to "#",class:"head4" do
+              FURIMAロゴ利用ガイドライン
+          %li.content__head3
+            = link_to "#",class:"head4" do
+              お知らせ
+        
+  .footer__logo   
+    = link_to image_tag("/assets/logo-white.png", width: '160',height: '46.34',alt: "画像")
+  %p.footer__logo2 
+    ©️ FURIMA
+  
+  .newitemBtn
+    %span
+    出品する
+    = link_to image_tag("/assets/icon_camera.png", width: '54',height: '54',class: "aBtn") 
+  
