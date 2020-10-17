@@ -101,25 +101,25 @@ body {
 
 .Main{
     background: #f8f8f8;
-    .showMain{
+    &__show{
         padding:20px;
         margin: 0 auto;
         text-align:center;
-        .contentLeftqq{
+        &__contentLeftqq{
             display: block;
         }
-        .contentRight{
+        &__contentRight{
             margin: 0 auto;
             display: block;
             list-style: none; 
             width: 700px;
             background-color: white;
-            .topContent{
+            &__topContent{
                 width: 700px;
                 margin: 0;
                 padding: 0;
                 margin: 0 auto; 
-                .itemBox{
+                &__itemBox{
                     margin: 0 auto;
                     list-style-type: disc;
                     height: 1190px;
@@ -397,7 +397,7 @@ body {
     background-size: cover;
     background-position: center;
     background-color: blue;
-    .inner{
+    &__inner{
         text-align: center;
         color:white;
         &__title  p{
@@ -443,7 +443,7 @@ body {
     background-color: #272727;
     text-align: center;
     list-style: none;
-    .contents{
+    &__contents{
         max-width: 840px;
         margin: 0 auto;
         display: flex;

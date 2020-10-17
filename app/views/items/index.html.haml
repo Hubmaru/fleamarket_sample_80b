@@ -21,14 +21,14 @@
           新規会員登録
 
 .Main
-  .showMain
-    .contentLeftqq
-    .contentRight
-      .topContent
-        .itemBox
-          .itemBox__name
+  .Main__show
+    .Main__show__contentLeftqq
+    .Main__show__contentRight
+      .Main__show__contentRight__topContent
+        .Main__show__contentRight__topContent__itemBox
+          .Main__show__contentRight__topContent__itemBox__name
             中華そば
-          .itemBox__body
+          .Main__show__contentRight__topContent__itemBox__body
             %ul.itemBox2
               .itemBox3
                 =image_tag("/assets/ラーメン.jpeg",width: '560',height: '346', alt: "画像") 
@@ -153,7 +153,7 @@
                     （税込)
 
 .appBanner 
-  .inner
+  .appBanner__inner
     %h2.inner__title
       だれでもかんたん、人生を変えるフリマアプリ
     %p.inner__text
@@ -163,7 +163,7 @@
     = link_to image_tag("/assets/Google.logo.png",width: '180',height: '53', class: "gBtn") 
 
 .footer
-  .contents
+  .footer__contents
     %ul.contents
       %li.content
         %h2.content__head
@@ -213,7 +213,6 @@
     ©️ FURIMA
   
   .newitemBtn
-    %span
     出品する
     = link_to image_tag("/assets/icon_camera.png", width: '54',height: '54',class: "aBtn") 
   
