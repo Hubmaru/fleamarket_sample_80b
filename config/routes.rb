@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root 'items#inedex'
+  resources :items do
+    collection do
+      get 'purchases'
+    end
+  end
 end
