@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  root 'items#index'
-
-  # collection do
-  #   get 'search'
-  # end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :items do
+    collection do
+      get 'purchases'
+    end
+  end
 end
