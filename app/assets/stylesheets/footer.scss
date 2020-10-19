@@ -1,4 +1,4 @@
-.appBanner {
+.AppBanner {
   background-image: url(/assets/bg-appBanner-pict.jpg);
   padding: 100px 40px;
   position: relative;
@@ -22,12 +22,12 @@
       display: flex;
       justify-content: center;
       margin: 20px auto 0;
-      .Abtn {
+      &__Abtn {
         height: 53px;
         width: 180px;
 
       }
-      .Gbtn {
+      &__Gbtn {
         height: 76px;
         width: 180px;
         margin-top: -11px;
@@ -37,88 +37,76 @@
   }
 }
 
-
-
-.footer {
+.Footer {
   padding: 60px 0;
   color: white;
   background-color: #272727;
   text-align: center;
   list-style: none;
-  .contents{
-      max-width: 840px;
-      margin: 0 auto;
+  &__contents{
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .Contents__content{ 
       display: flex;
-      .content{ 
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: calc(1 / 3 * 100%);
-          margin: 0 2% 0 0;
-          list-style:none;
-          .content__head { 
-              text-align:center;
-              margin: 0 0 20px;
-              font-size: 14px;
-              font-weight: bold;
-              padding: 0;
-              display: block;
-              margin-block-start: 0.83em;
-              margin-block-end: 0.83em;
-              margin-inline-start: 0px;
-              margin-inline-end: 0px;
-          }
-          .content__head2{
-              width: 300px;
-              padding: 0px;
-              list-style: none;
-              text-align:center;
-              // .content__head3{
-              // //     display: list-item;
-              // //     text-align :0;
-              // //     color: #fff;
-              // //     text-decoration: none;
-              // //     font-size: 12px;
-              // //     line-height: 32px;
-              // }
-              .head4{
-                  display: list-item;
-                  text-align :0;
-                  color: #fff;
-                  text-decoration: none;
-                  font-size: 12px;
-                  line-height: 32px;
-              }
-          }
+      flex-direction: column;
+      align-items: center;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      list-style:none;
+      &__head { 
+        text-align:center;
+        margin: 0 0 20px;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 0;
+        display: block;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
       }
-  }
-  .footer__logo{
-      height: 46px;
-      max-width: 160px;
-      width: 100%;
-      margin: 0 auto;
-      .img {
-          color:white;
-          vertical-align: bottom;
-          // width: 100%;
-          margin:0;
-          padding:0;
+      &__head2{
+        width: 300px;
+        padding: 0px;
+        list-style: none;
+        text-align:center;
+        &__inner{
+          display: list-item;
+          text-align :0;
+          color: #fff;
+          text-decoration: none;
+          font-size: 12px;
+          line-height: 32px;
+          &__link{
+            display: list-item;
+            text-align :0;
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 32px;
+          }
+        }
       }
+    }
   }
-  .footer__logo2{
-      font-size: 14px; 
+  &__logo{
+    height: 46px;
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    &__img {
       color:white;
+      vertical-align: bottom;
+      // width: 100%;
       margin:0;
       padding:0;
-      }
-  .newitemBtn{
-      width: 120px;
-      background: #3CCACE;
-      text-align: center;
-      border-radius: 4%;
-      bottom: 32px;
-      right: 32px;
-      position: fixed;
-      padding: 15px;
+    }
+  }
+  &__logo2{
+    font-size: 14px; 
+    color:white;
+    margin:0;
+    padding:0;
   }
 }  
