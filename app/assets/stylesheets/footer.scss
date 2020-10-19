@@ -1,0 +1,124 @@
+.appBanner {
+  background-image: url(/assets/bg-appBanner-pict.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  &__inner {
+    color: #fff;
+    text-align: center;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__icons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      .Abtn {
+        height: 53px;
+        width: 180px;
+
+      }
+      .Gbtn {
+        height: 76px;
+        width: 180px;
+        margin-top: -11px;
+        margin-left: -10px;
+      }
+    }
+  }
+}
+
+
+
+.footer {
+  padding: 60px 0;
+  color: white;
+  background-color: #272727;
+  text-align: center;
+  list-style: none;
+  .contents{
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      .content{ 
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: calc(1 / 3 * 100%);
+          margin: 0 2% 0 0;
+          list-style:none;
+          .content__head { 
+              text-align:center;
+              margin: 0 0 20px;
+              font-size: 14px;
+              font-weight: bold;
+              padding: 0;
+              display: block;
+              margin-block-start: 0.83em;
+              margin-block-end: 0.83em;
+              margin-inline-start: 0px;
+              margin-inline-end: 0px;
+          }
+          .content__head2{
+              width: 300px;
+              padding: 0px;
+              list-style: none;
+              text-align:center;
+              // .content__head3{
+              // //     display: list-item;
+              // //     text-align :0;
+              // //     color: #fff;
+              // //     text-decoration: none;
+              // //     font-size: 12px;
+              // //     line-height: 32px;
+              // }
+              .head4{
+                  display: list-item;
+                  text-align :0;
+                  color: #fff;
+                  text-decoration: none;
+                  font-size: 12px;
+                  line-height: 32px;
+              }
+          }
+      }
+  }
+  .footer__logo{
+      height: 46px;
+      max-width: 160px;
+      width: 100%;
+      margin: 0 auto;
+      .img {
+          color:white;
+          vertical-align: bottom;
+          // width: 100%;
+          margin:0;
+          padding:0;
+      }
+  }
+  .footer__logo2{
+      font-size: 14px; 
+      color:white;
+      margin:0;
+      padding:0;
+      }
+  .newitemBtn{
+      width: 120px;
+      background: #3CCACE;
+      text-align: center;
+      border-radius: 4%;
+      bottom: 32px;
+      right: 32px;
+      position: fixed;
+      padding: 15px;
+  }
+}  
