@@ -1,0 +1,215 @@
+.Header
+  .HeaderInner
+    .Header__top
+      %h1.Header__top__icon
+        = link_to image_tag("/assets/logo.png", width: '140',height: '40',alt: "画像")
+      %form.Form__contents
+        %input.Form__contents__search{"placeholder": "キーワードから探す", "type": "text"}
+        .Form__contents__btn
+          .Btn__image
+            = link_to image_tag("/assets/icon-search 1.png",width: '19',alt: "画像")
+    .Header__under
+      .Under-left
+        = link_to "/", class: "Under-left__category" do
+          カテゴリー
+        = link_to "/", class: "Under-left__brand" do
+          ブランド
+      .Under-right
+        = link_to "/", class: "Under-right__login" do
+          ログイン
+        = link_to "/", class: "Under-right__ragistration" do
+          新規会員登録
+
+.Main
+  .Main__show
+    .Main__show__contentLeftqq
+    .Main__show__contentRight
+      .Main__show__contentRight__topContent
+        .Main__show__contentRight__topContent__itemBox
+          .Main__show__contentRight__topContent__itemBox__name
+            中華そば
+          .Main__show__contentRight__topContent__itemBox__body
+            .itemBox2
+              .itemBox3
+                =image_tag("ラーメン.jpeg",width: '560',height: '346', alt: "画像") 
+                %ul
+                =image_tag("ラーメン.jpeg",width: '140',height: '87', alt: "画像") 
+                =image_tag("ラーメン.jpeg",width: '140',height: '87', alt: "画像") 
+      
+          .Main__show__contentRight__topContent__itemBox__price
+            ¥1000円
+          .Main__show__contentRight__topContent__itemBox__price-detail
+            (税込)
+            送料込み
+          .Main__show__contentRight__topContent__itemBox__itemDetail
+            商品詳細表
+      
+          .Main__show__contentRight__topContent__itemBox__table
+            .Main__show__contentRight__topContent__itemBox__table__tbody
+              .table-contents
+                .table-left
+                  出品者
+                .table-right
+                  aaaa 
+              .table-contents
+                .table-left
+                  カテゴリー
+                .table-right
+                  = link_to "#",class:"skyblue"do
+                    ベビー・キッズ
+                  = link_to "#",class:"skyblue"do
+                    ベビー服(男の子用)~95㎝
+                  = link_to "#",class:"skyblue"do
+                    アウター    
+              .table-contents
+                .table-left
+                  ブランド
+                .table-right
+                  aa
+              .table-contents
+                .table-left
+                  商品のサイズ
+                .table-right
+                  aa
+              .table-contents
+                .table-left
+                  商品の状態
+                .table-right
+                  新品/未使用
+              .table-contents
+                .table-left
+                  配送料の負担
+                .table-right
+                  送料込み（出品者負担）  
+              .table-contents
+                .table-left
+                  発送元の地域
+                .table-right
+                  = link_to "#",class:"skyblue"do
+                    北海道  
+              .table-contents
+                .table-left
+                  発送日の目安
+                .table-right
+                  1-2日で発送
+          .Main__show__contentRight__topContent__itemBox__optionalArea
+            %ul.optinalArea2
+              %li.optinalArea3
+              = link_to "#",class:"optinalArea4" do
+                = icon'fas', 'star'
+                お気に入り  1
+              %li.optinalArea5
+              = link_to "#",class:"optinalArea6" do
+                = icon'fas', 'flag'
+                不適切な商品の通報
+                
+        .commentBox
+          .commentBox__commentContents
+            %textarea{type: "text_area", class: "commentBox__commentContents__text_area"}
+          
+          .commentBox__noticeMsg
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
+          .commentBox__button
+            = link_to "https://twitter.com/",class:"commentBox__button__commnets__btn" do
+              = icon'fas', 'comment' 
+              コメントする
+            
+      %ul.Main__show__contentRight__links
+        %li.Main__show__contentRight__links__links2
+          = link_to "#",class:"before__item" do
+            = icon'fas', 'angle-left'     
+            %span
+            前の商品
+        %li.links3
+          = link_to "#",class:"after__item" do 
+            %span
+            後ろの商品
+            = icon'fas', 'angle-right'
+
+      .Main__show__contentRight__relatedItems
+        %li.Main__show__contentRight__relatedItems__relatedItems2
+          = link_to "#",class:"Main__show__contentRight__relatedItems__relatedItems2__relatedItems3" do
+            ベビー・キッズをもっと見る
+        .Main__show__contentRight__relatedItems__puroductLists
+          .Main__show__contentRight__relatedItems__puroductLists__puroductList
+            = link_to "#",class:"product--img" do
+              .productList--img
+                =image_tag("ラーメン.jpeg",width: '220',height: '150', alt: "画像") 
+              .productList--body
+                product3
+                .detail
+                  %ul.detail2
+                    %li.detail3
+                      30000円
+                    %li.detail4
+                      = icon'fas', 'star' 
+                      1
+                  %p.detail5
+                    (税込)
+
+.appBanner 
+  .appBanner__inner
+    %h2.appBanner__inner__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.appBanner__inner__text
+      今すぐ無料ダウンロード
+    .appBanner__inner__icon
+    = link_to image_tag("320px-Download_on_the_App_Store_Badge.svg.png", width: '180',height: '53',class: "appBanner__innner__icon__aBtn") 
+    = link_to image_tag("Google.logo.png",width: '180',height: '53', class: "appBanner__innner__icon__gBtn") 
+
+.footer
+  %ul.footer__contents
+    %li.content
+      %h2.content__head
+        FURIMAについて
+      %ul.content__head2
+        %li.content__head3
+          = link_to "#",class:"list" do
+            会社概要(運営会社)
+        %li.content__head3
+          = link_to "#",class:"list" do
+            プライバシーポリシー
+        %li.content__head3
+          = link_to "#",class:"list" do
+            FURIMA利用規約
+        %li.content__head3
+          = link_to "#",class:"list" do
+            ポイントに関する特約
+    
+    %li.content
+      %h2.content__head
+        FURIMAを見る
+      %ul.content__head2
+        %li.content__head3
+          = link_to "#",class:"list" do
+            カテゴリー一覧
+        %li.content__head3
+          = link_to "#",class:"list" do
+            ブランド一覧
+        
+    %li.content
+      %h2.content__head
+        ヘルプ&ガイド
+      %ul.content__head2
+        %li.content__head3
+          = link_to "#",class:"list" do
+            FURIMAガイド
+        %li.content__head3
+          = link_to "#",class:"list" do
+            FURIMAロゴ利用ガイドライン
+        %li.content__head3
+          = link_to "#",class:"list" do
+            お知らせ
+        
+  .footer__logo   
+    = link_to image_tag("logo-white.png", width: '160',height: '46.34')
+  %p.footer__logo3 
+    ©️ FURIMA
+  
+  .footer__newitemBtn
+    出品する
+    = link_to image_tag("icon_camera.png", width: '54',height: '54') 
+  

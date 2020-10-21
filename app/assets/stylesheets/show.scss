@@ -132,30 +132,7 @@ body {
                         font-weight: bold;
                     }
                     &__body{
-                        margin: 16px 0 0;
-                        display:block;
-                        &__body2{
-                            display: flex;
-                            position: relative;  
-                            .itemBox3{
-                                list-style: none;
-                                display: flex;
-                                flex-direction: column;
-                                width: 560px;
-                                align-items: center;
-                                margin: 0 auto;  
-                                .ul img {
-                                    object-fit: cover;
-                                    height: 75px;
-                                    width: 75;
-                                }
-                                .li ul li img {
-                                    object-fit: cover;
-                                    height: 60px;
-                                    list-style: none;
-                                }
-                            }
-                        }
+                        margin-top:16px;
                     }
 
                     &__price{
@@ -167,29 +144,29 @@ body {
                         text-align:center;
                         font-size: 16px;
                         }
-                    .itemDetail{
+                    &__itemDetail{
                         padding: 10px;
                         margin: 40 0 0 0px;
                         line-height: 1.5;
                         font-size: 18px;
                         font-weight: bold;
                     }
-                    .table{
+                    &__table{
                         display: flex;
                         margin: 0 auto;
                         border-collapse: collapse;
                         border: 1px solid #f8f8f8;       
-                        .tbody{
+                        &__tbody{
                             display: table-row-group;
                             vertical-align: middle;
                             border-color: inherit;  
-                            .tr{
+                            .table-contents{
                                 padding: 0 0 0 40px;
                                 margin: 0 auto;
                                 display: flex;
                                 vertical-align: inherit;
                                 border-color: inherit; 
-                                .th{
+                                .table-left{
                                     width: 152px;
                                     background-color: #eee;
                                     font-weight: 400;
@@ -198,20 +175,20 @@ body {
                                     font-size: 14px;
                                     text-align: center;  
                                 }
-                                .td{
+                                .table-right{
                                     width: 467px;
                                     padding: 15px 15px;
                                     border: 1px solid #dedede;
                                     font-size: 14px;
-                                    .td3 a{
+                                    .skyblue{
                                         color:#3CCACE;   
                                     }
                                 }
                             }
                         }
-                        }
+                    }
                 
-                    .optionalArea {
+                    &__optionalArea {
                         .optinalArea2{
                             list-style: none;
                             display: flex;
@@ -240,9 +217,6 @@ body {
                                 text-decoration: none;
                                 margin-right: 40px;
                             }
-
-
-                        
                         }
                     }  
                 } 
@@ -252,19 +226,18 @@ body {
                 margin: 0px 0;
                 text-align: center;
                 display: block;
-                .commentContents{
+                &__commentContents{
                     width: 100%;
                     height: 100px;
                     border: 1px solid black;  
-                    .text_area{
+                    &__text_area{
                         height: 100%;
                         width: 100%;
                         background-color: #fff;
                         padding: 1px;
                     }
-
                 }
-                .noticeMsg {
+                &__noticeMsg {
                     font-size: 14px;
                     background-color: #f8f8f8;
                     display:flex;
@@ -274,8 +247,8 @@ body {
                     width: 100%;
                     
                 }
-                .button {
-                    .commnets__btn {
+                &__button {
+                    &__commnets__btn {
                         font-size: 20px;
                         line-height: 60px;
                         background: #3CCACE;
@@ -290,50 +263,48 @@ body {
                 }
             }
 
-        
-
-            .links{
+            &__links{
                 background-color: white;
                 height: 70px;
                 list-style:none;
-                .links4{
+                .before__item{
                     float:left;
                     color:#3CCACE;
+                    margin-left: 20px;
                 }
-                .links5{
-                    float: right;
+                .after__item{
+                    float:right;
                     color:#3CCACE;
-                    margin-right: 30px;
+                    margin-right: 60px;
                 }
             }
 
-
-
-
-            .relatedItems{
+            &__relatedItems{
                 height: 328px;
                 background-color: #f8f8f8;
-                .relatedItems2{
-                    .relatedItems3 {
-                    background-color: #f8f8f8;
-                    padding: 0 0 20 0px;
-                    float:left;
-                    font-size:24px;
-                    display: block;
-                    color: #3CCACE;
-                    text-decoration: none;
-                    font-weight: bold;
+                &__relatedItems2{
+                    padding-bottom:20px;
+                    &__relatedItems3{
+                        background-color: #f8f8f8;
+                        float:left;
+                        font-size:24px;
+                        display: block;
+                        color: #3CCACE;
+                        text-decoration: none;
+                        font-weight: bold;
+                        padding-bottom:20px;
+                        padding-top:20px;
                     }
                 }    
             
-                .puroductLists{
+                &__puroductLists{
                     padding:20 0 0 0px;
                     background-color: white;
                     align-content: center;
                     width: 229px;
                     height: 245px;
                     text-decoration: none;
-                    .puroductList{
+                    &__puroductList{
                         .product--img{
                             text-decoration: none;
                         }
@@ -347,7 +318,7 @@ body {
                             overflow: hidden;
                             line-height: 1.5;
                             font-size: 16px;
-                            text-align: left;
+                            text-align: center;
                             text-decoration: none;
                             height: 95px;
                             width: 230px;
@@ -355,15 +326,15 @@ body {
                             .detail{
                                 color:black;
                                 .detail2{
-                                margin:0;
-                                display: flex;
-                                justify-content: space-between;
-                                text-decoration: none;
-                                padding:0;
-                                color:black;
+                                    margin:0;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    text-decoration: none;
+                                    color:black;
                                     .detail3{
                                         display: flex;
-                                        margin-right: 80px;
+                                        margin-right: 40px;
+                                        margin-left: 45px;
                                         color:black;
                                         text-decoration: none;
                                     }
@@ -372,70 +343,53 @@ body {
                                         margin-right: 10px;
                                         color:black;
                                     }
-
                                 }
-                                .detail5 {
+                                .detail5{
                                     font-size:10px;
-                                    text-align: left;
+                                    text-align: center;
                                 }
-                    
                             }
                         }
                     }
                 }
             }
-        }
-           
+        }      
     }
 }
-
 
 .appBanner{
     background-image: url(/assets/bg-appBanner-pict.jpg);
     padding: 100px 40px;
-    position: relative;
     background-size: cover;
-    background-position: center;
-    background-color: blue;
     &__inner{
         text-align: center;
         color:white;
-        &__title  p{
+        &__title{
             text-shadow: 0 0 5px rgba(0,0,0,0.4);
             font-size: 24px;
             font-weight: bold;
-            line-height: 1.4;
-            margin: 0;
-        
+            line-height: １.4;
         }
-
         &__text{
-            font-size: 35px;
+            font-size: 40px;
             text-shadow: 0 0 5px rgba(0,0,0,0.4); 
             margin:0 0 20px 0;
         }
-
         &__icon {
             width: 100%;
             display: flex;
             justify-content: center;
             margin: 20px;
-            .aBtn{
+            &__aBtn{
                 height: 100%;
             }
-            .gBtn{
+            &__gBtn{
                 width: 180px;
                 height: 100%;
-            }
-            .img{
-                height: 320px;
-                width: 100%;
-                vertical-align: bottom;  
             }
         }
     }
 }
-
 
 .footer {
     padding: 60px 0;
@@ -443,7 +397,7 @@ body {
     background-color: #272727;
     text-align: center;
     list-style: none;
-    .contents{
+    .footer__contents{
         max-width: 840px;
         margin: 0 auto;
         display: flex;
@@ -453,59 +407,47 @@ body {
             align-items: center;
             width: calc(1 / 3 * 100%);
             margin: 0 2% 0 0;
-            list-style:none;
+            list-style: none;
             &__head { 
                 text-align:center;
                 margin: 0 0 20px;
-                font-size: 14px;
+                font-size: 20px;
                 font-weight: bold;
                 padding: 0;
                 display: block;
                 margin-block-start: 0.83em;
                 margin-block-end: 0.83em;
-                margin-inline-start: 0px;
-                margin-inline-end: 0px;
-                
             }
             &__head2{
                 width: 300px;
                 padding: 0px;
                 list-style: none;
                 text-align:center;
-                .head4{
+                .list{
                     display: list-item;
                     text-align :0;
                     color: #fff;
                     text-decoration: none;
                     font-size: 12px;
                     line-height: 32px;
+                    list-style: none;
                 }
 
             }
         }
     }
     
-
-    .footer__logo{
+    &__logo{
         height: 46px;
         max-width: 160px;
         width: 100%;
-        margin: 0 auto;
-        .img {
-            color:white;
-            vertical-align: bottom;
-            margin:0;
-            padding:0;
-        }
+        margin: 0px auto;
     }
-    .footer__logo2{
+    &__logo3{
         font-size: 14px; 
-        color:white;
-        margin:0;
-        padding:0;
         }
 
-    .newitemBtn{
+    &__newitemBtn{
         width: 120px;
         background: #3CCACE;
         text-align: center;
@@ -515,7 +457,5 @@ body {
         position: fixed;
         padding: 15px;
     }
-
-
 
 }  
