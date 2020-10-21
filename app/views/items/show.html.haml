@@ -1,24 +1,5 @@
-.Header
-  .HeaderInner
-    .Header__top
-      %h1.Header__top__icon
-        = link_to image_tag("/assets/logo.png", width: '140',height: '40',alt: "画像")
-      %form.Form__contents
-        %input.Form__contents__search{"placeholder": "キーワードから探す", "type": "text"}
-        .Form__contents__btn
-          .Btn__image
-            = link_to image_tag("/assets/icon-search 1.png",width: '19',alt: "画像")
-    .Header__under
-      .Under-left
-        = link_to "/", class: "Under-left__category" do
-          カテゴリー
-        = link_to "/", class: "Under-left__brand" do
-          ブランド
-      .Under-right
-        = link_to "/", class: "Under-right__login" do
-          ログイン
-        = link_to "/", class: "Under-right__ragistration" do
-          新規会員登録
+
+= render "items/header"
 
 .Main
   .Main__show
@@ -160,56 +141,4 @@
     = link_to image_tag("320px-Download_on_the_App_Store_Badge.svg.png", width: '180',height: '53',class: "appBanner__innner__icon__aBtn") 
     = link_to image_tag("Google.logo.png",width: '180',height: '53', class: "appBanner__innner__icon__gBtn") 
 
-.footer
-  %ul.footer__contents
-    %li.content
-      %h2.content__head
-        FURIMAについて
-      %ul.content__head2
-        %li.content__head3
-          = link_to "#",class:"list" do
-            会社概要(運営会社)
-        %li.content__head3
-          = link_to "#",class:"list" do
-            プライバシーポリシー
-        %li.content__head3
-          = link_to "#",class:"list" do
-            FURIMA利用規約
-        %li.content__head3
-          = link_to "#",class:"list" do
-            ポイントに関する特約
-    
-    %li.content
-      %h2.content__head
-        FURIMAを見る
-      %ul.content__head2
-        %li.content__head3
-          = link_to "#",class:"list" do
-            カテゴリー一覧
-        %li.content__head3
-          = link_to "#",class:"list" do
-            ブランド一覧
-        
-    %li.content
-      %h2.content__head
-        ヘルプ&ガイド
-      %ul.content__head2
-        %li.content__head3
-          = link_to "#",class:"list" do
-            FURIMAガイド
-        %li.content__head3
-          = link_to "#",class:"list" do
-            FURIMAロゴ利用ガイドライン
-        %li.content__head3
-          = link_to "#",class:"list" do
-            お知らせ
-        
-  .footer__logo   
-    = link_to image_tag("logo-white.png", width: '160',height: '46.34')
-  %p.footer__logo3 
-    ©️ FURIMA
-  
-  .footer__newitemBtn
-    出品する
-    = link_to image_tag("icon_camera.png", width: '54',height: '54') 
-  
+= render "items/footer"

@@ -1,0 +1,90 @@
+.Header {
+    padding: 0 60px;
+    .HeaderInner {
+      max-width: 1040px;
+      width: 100%;
+      min-height: 82px;
+      margin: 0 auto;
+      padding: 15px 0 0;
+      .Header__top {
+        position: relative;
+        display: flex;
+        align-items: center;
+        &__icon {
+          margin-right: 30px;
+          padding-bottom: 10px;
+          border-radius: 4px;
+          font-size: 100%;
+          font-weight: normal;
+          display: block;
+        }
+        .Form__contents {
+          display: flex;
+          height: 36px;
+          margin-left: auto;
+          width: 100%;
+          margin-bottom: 10px;
+          &__search {
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          &__btn {
+            height: 36px;
+            width: 36px;
+            border: 0;
+            cursor: pointer;
+            background-color: #3CCACE;
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            .Btn__image {
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+      }
+      .Header__under {
+        font-size: 14px;
+        display: flex;
+        margin-top: 2px;
+        margin-bottom: 16px;
+        .Under-left {
+          position: relative;
+          display: flex;
+          color: black;
+          border: none;
+          list-style: none;
+          text-decoration: none;
+          &__category {
+            text-decoration: none;
+            padding: 0;
+            margin-right: 30px;
+            color: black;
+          }
+          &__brand {
+            text-decoration: none;
+            display: flex;
+            padding: 0 0 0 16px;
+            color: black;
+          }
+        }
+        .Under-right {
+          margin-left: auto;
+          display: flex;
+          &__login {
+            text-decoration: none;
+            padding: 0 0 0 16px;
+            margin-right: 15px;
+            color: black;
+          }
+          &__ragistration {
+            text-decoration: none;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+  
