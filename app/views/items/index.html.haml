@@ -1,2 +1,11 @@
 %h1 Items#index
 %p Find me in app/views/items/index.html.erb
+.head_btns
+  -# - if user_signed_in?
+  -#   = link_to ユーザーのマイページ_path, class: "Btn" do
+  -#     マイページ
+  -# - else
+  = link_to new_user_session_path, class: "Btn" do
+    ログイン
+  = link_to new_user_registration_path, class: "Btn" do
+    新規会員登録
