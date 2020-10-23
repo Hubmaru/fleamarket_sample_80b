@@ -45,20 +45,23 @@
 
 input {
   display: block;
-  line-height: 30px;
+  line-height: 40px;
   width: 650px;
-  margin: 20px;
+  margin: 0 20px;
 }
 
 body{
   background-color: whitesmoke;
 }
 
+p{
+  font-size: 20px;
+  text-decoration: underline;
+}
+
 .Contents{
   font-size: 14px;
   max-width: 700px;
-  height: auto;
-  width: 100%;
   margin: 0 auto;
   background-color: white;
   span{
@@ -70,8 +73,16 @@ body{
     border-radius: 2px;
   }
   .Goods {
+    padding-bottom: 30px;
+    border-bottom: solid 1px silver;
     &__image{
       display: block;
+    }
+    &__image p{
+      font-size: 14px;
+      text-decoration: none;
+      margin: 0;
+      // p要素で指定したCSSが&__image pでは反映されないようにこのような記述をしています。
     }
     &__image__body{
       position: relative;
@@ -79,6 +90,7 @@ body{
       width: auto;
       border: 1px dashed #000;
       background-color: whitesmoke;
+      margin: 0 20px;
       input{
         display: none;
       }
@@ -90,12 +102,15 @@ body{
       height: 24px;
       width: 24px;
     }
+    &__name{
+      margin: 15px 0;
+    }
   }
   .Details{
-    &__category{
-
-    }
+    padding-bottom: 30px;
+    border-bottom: solid 1px silver;
     &__burando{
+      margin: 15px 0;
       span{
         background-color: #bfbfbf;
         color: #fff;
@@ -106,16 +121,27 @@ body{
       }
     }
   }
+  .Delivery{
+    padding-bottom: 30px;
+    border-bottom: solid 1px silver;
+    &__area{
+      margin: 15px 0;
+    }
+  }
   .Price{
+    padding-bottom: 20px;
+    border-bottom: solid 1px silver;
     &__mark{
       display: flex;
       justify-content: center;
     }
     &__mark label{
-      line-height: 76px;
+      line-height: 30px;
     }
     &__yen input{
-      width: 300px;
+      width: 100px;
+      height: 30px;
+      text-align: right;
     }
   }
   .Listing{
