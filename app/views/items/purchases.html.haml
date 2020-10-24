@@ -1,0 +1,42 @@
+.Purchases
+  .Purchases__header
+    = image_tag 'logo.png', class: 'FurimaLogo'
+
+  .Purchases__main
+    .Purchases__main__check
+      .Purchases__main__check__title
+        購入内容の確認
+
+      .Purchases__main__check__product
+        .Purchases__main__check__product__image
+          = image_tag 'output-image1.png', alt: '写真', class: 'Purchases__main__check__product__image__photo'
+        .Purchases__main__check__product__content
+          .Purchases__main__check__product__detail
+            未使用品です。
+            ニチョリで購入しました。
+          .Purchases__main__check__product__price
+            送料込み(税込) ¥1000
+
+      .Purchases__main__check__paymentPrice
+        .Purchases__main__check__paymentPrice__title
+          支払い金額(税込)
+        .Purchases__main__check__paymentPrice__price
+          ¥1000
+
+      .Purchases__main__check__delivery
+        .Purchases__main__check__delivery__title
+          ★配送先を確認してください。
+        .Purchases__main__check__delivery__address
+          大阪府大阪市大阪町大阪ビル100階
+
+      .Purchases__main__check__btn
+        お支払い
+
+  .Purchases__footer
+    .Purchases__footer__content
+      %ul.Purchases__footer__content__list
+        %li.Purchases__footer__content__list__type プライバシーポリシー
+        %li.Purchases__footer__content__list__type FURIMA利用規約
+        %li.Purchases__footer__content__list__type 特定商取引に関する表記
+    = image_tag 'logo.png', class: 'FurimaLogo'
+    

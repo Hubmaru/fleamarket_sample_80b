@@ -4,4 +4,4 @@ Rails.application.routes.draw do
       get 'purchases'
     end
   end
-end 
+end
