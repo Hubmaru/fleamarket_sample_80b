@@ -1,0 +1,304 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+.input {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.Main{
+    background: #f8f8f8;
+    &__show{
+        padding:20px;
+        margin: 0 auto;
+        text-align:center;
+        &__contentLeftqq{
+            display: block;
+        }
+        &__contentRight{
+            margin: 0 auto;
+            display: block;
+            list-style: none; 
+            width: 700px;
+            background-color: white;
+            &__topContent{
+                width: 700px;
+                margin: 0;
+                padding: 0;
+                margin: 0 auto; 
+                &__itemBox{
+                    margin: 0 auto;
+                    list-style-type: disc;
+                    height: 1190px;
+                    width: 700px;
+                    background-color: white;
+                    &__name{
+                        padding:20px;
+                        font-size:24px;
+                        text-align:center;
+                        font-weight: bold;
+                    }
+                    &__body{
+                        margin-top:16px;
+                    }
+
+                    &__price{
+                        font-weight: bold;
+                        font-size: 46px;
+                        color:black;
+                        }
+                    &__price-detail{
+                        text-align:center;
+                        font-size: 16px;
+                        }
+                    &__itemDetail{
+                        padding: 10px;
+                        margin: 40 0 0 0px;
+                        line-height: 1.5;
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+                    &__table{
+                        display: flex;
+                        margin: 0 auto;
+                        border-collapse: collapse;
+                        border: 1px solid #f8f8f8;       
+                        &__tbody{
+                            display: table-row-group;
+                            vertical-align: middle;
+                            border-color: inherit;  
+                            .table-contents{
+                                padding: 0 0 0 40px;
+                                margin: 0 auto;
+                                display: flex;
+                                vertical-align: inherit;
+                                border-color: inherit; 
+                                .table-left{
+                                    width: 152px;
+                                    background-color: #eee;
+                                    font-weight: 400;
+                                    padding: 8px;
+                                    border: 1px solid #dedede;
+                                    font-size: 14px;
+                                    text-align: center;  
+                                }
+                                .table-right{
+                                    width: 467px;
+                                    padding: 15px 15px;
+                                    border: 1px solid #dedede;
+                                    font-size: 14px;
+                                    .skyblue{
+                                        color:#3CCACE;   
+                                    }
+                                }
+                            }
+                        }
+                    }
+                
+                    &__optionalArea {
+                        .optinalArea2{
+                            list-style: none;
+                            display: flex;
+                            color:white;
+                            text-align:center;
+                            position: relative;
+                            top:10px;
+                            display: flex;
+                            justify-content: space-between;
+                            .optinalArea4{
+                                text-decoration: none;
+                                margin-right: auto;
+                                padding: 6px 10px;
+                                border-radius: 40px;
+                                color: #3CCACE;
+                                border: 1px solid #ffb340;
+                                
+                            }
+                            .optinalArea6{
+                                text-decoration: none;
+                                padding: 6px 10px;
+                                display: inline-block;
+                                border-radius: 4px;
+                                color: black;
+                                border: 1px solid #333;
+                                text-decoration: none;
+                                margin-right: 40px;
+                            }
+                        }
+                    }  
+                } 
+            }
+            .commentBox{
+                background-color: #fff;
+                margin: 0px 0;
+                text-align: center;
+                display: block;
+                &__commentContents{
+                    width: 100%;
+                    height: 100px;
+                    border: 1px solid black;  
+                    &__text_area{
+                        height: 100%;
+                        width: 100%;
+                        background-color: #fff;
+                        padding: 1px;
+                    }
+                }
+                &__noticeMsg {
+                    font-size: 14px;
+                    background-color: #f8f8f8;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 58px;
+                    width: 100%;
+                    
+                }
+                &__button {
+                    &__commnets__btn {
+                        font-size: 20px;
+                        line-height: 60px;
+                        background: #3CCACE;
+                        border: 1px solid #3CCACE;
+                        color: #fff;
+                        border-radius: 60px;
+                        text-decoration:none;
+                        width: 600px;
+                        height: 40px;
+                        padding: 10px 90px;
+                    }
+                }
+            }
+
+            &__links{
+                background-color: white;
+                height: 70px;
+                list-style:none;
+                .before__item{
+                    float:left;
+                    color:#3CCACE;
+                    margin-left: 20px;
+                }
+                .after__item{
+                    float:right;
+                    color:#3CCACE;
+                    margin-right: 60px;
+                }
+            }
+
+            &__relatedItems{
+                height: 328px;
+                background-color: #f8f8f8;
+                &__relatedItems2{
+                    padding-bottom:20px;
+                    &__relatedItems3{
+                        background-color: #f8f8f8;
+                        float:left;
+                        font-size:24px;
+                        display: block;
+                        color: #3CCACE;
+                        text-decoration: none;
+                        font-weight: bold;
+                        padding-bottom:20px;
+                        padding-top:20px;
+                    }
+                }    
+            
+                &__puroductLists{
+                    padding:20 0 0 0px;
+                    background-color: white;
+                    align-content: center;
+                    width: 229px;
+                    height: 245px;
+                    text-decoration: none;
+                    &__puroductList{
+                        .product--img{
+                            text-decoration: none;
+                        }
+                        .productList--img{
+                            color:white;
+                            margin-top:10px;
+                            text-decoration: none;
+                        }
+                        .productList--body {
+                            background-color: white;
+                            overflow: hidden;
+                            line-height: 1.5;
+                            font-size: 16px;
+                            text-align: center;
+                            text-decoration: none;
+                            height: 95px;
+                            width: 230px;
+                            color:black;
+                            .detail{
+                                color:black;
+                                .detail2{
+                                    margin:0;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    text-decoration: none;
+                                    color:black;
+                                    .detail3{
+                                        display: flex;
+                                        margin-right: 40px;
+                                        margin-left: 45px;
+                                        color:black;
+                                        text-decoration: none;
+                                    }
+                                    .detail4{
+                                        list-style:none;
+                                        margin-right: 10px;
+                                        color:black;
+                                    }
+                                }
+                                .detail5{
+                                    font-size:10px;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }      
+    }
+}
+
+.appBanner{
+    background-image: url(/assets/bg-appBanner-pict.jpg);
+    padding: 100px 40px;
+    background-size: cover;
+    &__inner{
+        text-align: center;
+        color:white;
+        &__title{
+            text-shadow: 0 0 5px rgba(0,0,0,0.4);
+            font-size: 24px;
+            font-weight: bold;
+            line-height: １.4;
+        }
+        &__text{
+            font-size: 40px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.4); 
+            margin:0 0 20px 0;
+        }
+        &__icon {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            &__aBtn{
+                height: 100%;
+            }
+            &__gBtn{
+                width: 180px;
+                height: 100%;
+            }
+        }
+    }
+}
+
