@@ -97,7 +97,9 @@
             新規投稿商品
         .Main-category__boxs__lists
           .List
-            =link_to image_tag("/assets/a1b7eeaf5ca02fa834c7cfdf40edc88d_w.jpg",alt: "画像",class: "List__img")
+            -@images.each do |item| 
+              =link_to item_path(id: item.id)
+              =item.画像
             .List__body
               %h3.List__body__name テスト
               .List__body__details
