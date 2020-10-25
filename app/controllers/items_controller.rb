@@ -23,10 +23,5 @@ class ItemsController < ApplicationController
 
   def purchases
   end
-<<<<<<< HEAD
 
-
-=======
-  
->>>>>>> ee58c555981ccb6207f6bcf5eca2c9f343610e17
 end
