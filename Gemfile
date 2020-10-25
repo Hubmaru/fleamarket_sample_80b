@@ -67,6 +67,6 @@ end
 
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
 
-gem "font-awesome-sass", '~>5.4.1
+gem "font-awesome-sass", '~>5.4.1'
 
 
