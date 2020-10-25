@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
   end
 
@@ -23,3 +24,4 @@ class ItemsController < ApplicationController
   def purchases
   end
 end
+
