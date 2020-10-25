@@ -284,14 +284,8 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-unicorn
   capybara (>= 2.15)
-<<<<<<< HEAD
-
   devise
   font-awesome-sass (~> 5.4.1)
-
-=======
-  font-awesome-sass (~> 5.4.1)
->>>>>>> ee58c555981ccb6207f6bcf5eca2c9f343610e17
   haml-rails (>= 1.0, <= 2.0.1)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
