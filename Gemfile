@@ -65,15 +65,6 @@ group :production do
   gem 'unicorn'
 end
 
-<<<<<<< HEAD
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
 gem "font-awesome-sass", '~>5.4.1'
 gem 'devise'
-=======
-
-gem "haml-rails", ">= 1.0", '<= 2.0.1'
-
-gem "font-awesome-sass", '~>5.4.1
-
-
->>>>>>> ee58c555981ccb6207f6bcf5eca2c9f343610e17
