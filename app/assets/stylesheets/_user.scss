@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin template_style {
+  padding: 10px;
+  margin-left: 30%;
+  margin-right: 30%;
+  font-size: 15px;
+  text-align: center;
+}
+
+@mixin form_style {
+  margin-left: 20%;
+  width: 60%;
+  padding: 5px 0px;
+  font-size: 13px;
+  text-align: left;
+  font-weight: bold;
+  .Mandatory {
+    padding: 5px;
+    background-color: red;
+    color: white;
+  }
+  &__Form {
+    font-weight: initial;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px;
+    &--Field {
+      padding: 10px;
+      .FormBar {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@mixin field_style {
+  margin-top: 30px;
+  margin-left: 20%;
+  width: 60%;
+  text-align: left;
+  .FormTitle {
+    font-weight: bold;
+    display: inline;
+    font-size: 13px;
+  }
+  .FormBar {
+    width: 100%;
+    height: 10%;
+    padding: 10px;
+    margin-top: 10px;
+  }
+}
+
+.Page {
+  background-color: rgb(240, 240, 240);
+  .DeviseHead {
+    height: 15vh;
+    @include template_style();
+    .Logo {
+      width: 30%;
+      height: 55%;
+      margin-top: 20px;
+    }
+  }
+  
+  .MainContent {
+    height: calc(100% - 25vh);
+    background-color:white;
+    @include template_style();
+    &__Signin {
+      height: 40px;
+      font-size: 27px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      &__Form {
+        @include field_style();
+        .Mandatory {
+          padding: 5px;
+          background-color: red;
+          color: white;
+          margin-left: 20px;
+        }
+      }
+    }
+    &__Login {
+      height: 60%;
+      padding-top: 20px;
+      font-size: 27px;
+      font-weight: bold;
+      .Transition_SignUp {
+        padding-top: 10px;
+        padding-bottom: 40px;
+        font-size: 11px;
+        color: gray;
+        .Transition_Btn {
+          display: block;
+          width: 50%;
+          font-size: 15px;
+          text-decoration: none;
+          padding: 10px;
+          margin: 20px 0px 40px 25%;
+          color: white;
+          background-color: #3CCACE;
+          border-radius: 10px;
+        }
+      }
+      &__Form {
+        @include field_style();
+      }
+    }
+
+    .Person_Info {
+      text-align: left;
+      width: 60%;
+      margin-left: 20%;
+      padding: 40px 0px;
+      &__Head {
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+    .RealName {
+      @include form_style
+    }
+    .RealNameKana {
+      @include form_style
+    }
+
+    .Actions {
+      margin: 60px 0px;
+      .CommitBtn {
+        padding: 10px;
+        background-color: #3CCACE;
+        color: white;
+        border: none;
+      }
+    }
+  }
+
+  .DeviseFoot {
+    height: 20vh;
+    @include template_style();
+    .FooterContent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9px;
+      margin: 20px 20%;
+    }
+    .FooterLogo {
+      .Logo {
+        width: 30%;
+        height: 60%;
+      }
+    }
+    .FooterLast {
+      font-size: 15px;
+    }
+  }
+}

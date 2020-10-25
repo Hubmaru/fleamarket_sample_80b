@@ -1,53 +1,56 @@
--# .footer
--#   %ul.footer__contents
--#     %li.content
--#       %h2.content__head
--#         FURIMAについて
--#       %ul.content__head2
--#         %li.content__head3
--#           = link_to "#",class:"list" do
--#             会社概要(運営会社)
--#         %li.content__head3
--#           = link_to "#",class:"list" do
--#             プライバシーポリシー
--#         %li.content__head3
--#           = link_to "#",class:"list" do
--#             FURIMA利用規約
--#         %li.content__head3
--#           = link_to "#",class:"list" do
--#             ポイントに関する特約
-    
--#     %li.content
--#       %h2.content__head
--#         FURIMAを見る
--#       %ul.content__head2
--#         %li.content__head3
--#           = link_to "#",class:"list" do
--#             カテゴリー一覧
--#         %li.content__head3
--#           = link_to "#",class:"list" do
--#             ブランド一覧
-        
--#     %li.content
--#       %h2.content__head
--#         ヘルプ&ガイド
--#       %ul.content__head2
--#         %li.content__head3
--#           = link_to "#",class:"list" do
--#             FURIMAガイド
--#         %li.content__head3
--#           = link_to "#",class:"list" do
--#             FURIMAロゴ利用ガイドライン
--#         %li.content__head3
--#           = link_to "#",class:"list" do
--#             お知らせ
-        
--#   .footer__logo   
--#     = link_to image_tag("logo-white.png", width: '160',height: '46.34')
--#   %p.footer__logo3 
--#     ©️ FURIMA
-  
--#   .footer__newitemBtn
--#     出品する
--#     = link_to image_tag("icon_camera.png", width: '54',height: '54') 
-  
+
+.AppBanner
+  .AppBanner__inner
+    %h2.AppBanner__inner__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.AppBanner__inner__text
+      今すぐ無料ダウンロード
+    .AppBanner__inner__icons
+      =link_to image_tag("/assets/icon/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", class: "AppBanner__inner__icons__Abtn")
+      =link_to image_tag("/assets/icon/google-play-badge (1).png", class: "AppBanner__inner__icons__Gbtn")
+.Footer
+  %ul.Footer__contents
+    %li.Contents__content
+      %h2.Contents__content__head
+        FURIMAについて
+      %ul.Contents__content__head2
+        %li.Contents__content__head2__inner
+          = link_to "#",class:"Contents__content__head2__inner__link" do
+            会社概要  (運営会社)
+        %li.Contents__content__head2__inner
+          = link_to "#",class:"Contents__content__head2__inner__link" do
+            プライバシーポリシー
+        %li.Contents__content__head2__inner
+          = link_to "#",class:"Contents__content__head2__inner__link" do
+            FURIMA利用規約
+        %li.Contents__content__head2__inner
+          = link_to "#",class:"Contents__content__head2__inner__link" do
+            ポイントに関する特約
+    %li.Contents__content
+      %h2.Contents__content__head
+        FURIMAを見る
+      %ul.Contents__content__head2
+        %li.Contents__content__head2__inner
+          = link_to "#",class:"Contents__content__head2__inner__link" do
+            カテゴリー一覧
+        %li.Contents__content__head2__inner
+          = link_to "#",class:"Contents__content__head2__inner__link" do
+            ブランド一覧
+    %li.Contents__content
+      %h2.Contents__content__head
+        ヘルプ&ガイド
+      %ul.Contents__content__head2
+        %li.Contents__content__head2__inner
+          = link_to "#",class:"Contents__content__head2__inner__link" do
+            FURIMAガイド
+        %li.Contents__content__head2__inner
+          = link_to "#",class:"Contents__content__head2__inner__link" do
+            FURIMAロゴ利用ガイドライン
+        %li.Contents__content__head2__inner
+          = link_to "#",class:"Contents__content__head2__inner__link" do
+            お知らせ
+  .Footer__logo   
+    = link_to image_tag("/assets//icon/logo-white.png", width: '160',height: '46.34',alt: "画像",class: "Footer__logo__img")
+  %p.Footer__logo2 
+    ©️ FURIMA
+
