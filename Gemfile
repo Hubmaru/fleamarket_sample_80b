@@ -72,3 +72,5 @@ gem "font-awesome-sass", '~>5.4.1'
 gem 'carrierwave'
 
 gem 'rmagick'
+
+gem 'devise'
