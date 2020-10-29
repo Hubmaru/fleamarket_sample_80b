@@ -3,12 +3,13 @@
   .HeaderInner
     .Header__top
       %h1.Header__top__icon
-        = link_to image_tag("/assets/icon/logo.png", width: '140',height: '40',alt: "画像")
+        = link_to root_path do
+          = image_tag("/assets/logo.png", width: '140',height: '40',alt: "画像")
       %form.Form__contents
         %input.Form__contents__search{"placeholder": "キーワードから探す", "type": "text"}
         .Form__contents__btn
           .Btn__image
-            = link_to image_tag("/assets/icon/icon-search 1.png",width: '19',alt: "画像")
+            = link_to image_tag("/assets/icon-search 1.png",width: '19',alt: "画像")
     .Header__under
       .Under-left
         = link_to "/", class: "Under-left__category" do

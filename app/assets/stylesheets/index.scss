@@ -50,11 +50,9 @@ p {
     display: flex;
     margin: 24px 0 0 0;
     &__app {
-      margin-left: -15px;
+      margin-top: 14px;
     }
     &__google {
-      margin-top: -11px;
-      margin-left: -15px;
     }
 
   }
@@ -160,9 +158,7 @@ p {
     .Contents-btn {
       display: flex;
       &__abtn {
-        margin-right: -10px;
-        margin-left: -10px;
-        margin-top: 20px;
+        margin: 21px -10px 0 -10px;
       }  
       &__gbtn {
         margin-right: -20px;
