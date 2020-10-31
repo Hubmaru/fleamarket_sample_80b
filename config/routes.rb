@@ -6,4 +6,5 @@ Rails.application.routes.draw do
       get 'purchases'
     end
   end
+  resources :users, only: :show
 end

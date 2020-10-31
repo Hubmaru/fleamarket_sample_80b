@@ -16,8 +16,13 @@
         = link_to "/", class: "Under-left__brand" do
           ブランド
       .Under-right
-        = link_to new_user_session_path, class: "Under-right__login" do
-          ログイン
-        = link_to new_user_registration_path, class: "Under-right__ragistration" do
-          新規会員登録
-
+        - if user_signed_in?
+          = link_to destroy_user_session_path, method: :delete, class: "Under-right__login" do
+            ログアウト
+          = link_to "/users/#{current_user.id}", class: "Under-right__ragistration" do
+            マイページ
+        - else
+          = link_to new_user_session_path, class: "Under-right__login" do
+            ログイン
+          = link_to new_user_registration_path, class: "Under-right__ragistration" do
+            新規会員登録
