@@ -15,9 +15,10 @@
 |real_last_name_kana|string|null: false|
 |birth|date|null: false|
 ## Association
-- has_many :purchases, dependent: :destroy
-- has_many  :credits, dependent: :destroy
-- has_many :deliveries_addresses, dependent: :destroy
+- has_many: seller_items, foreign_key: :seller_id, class_name: :items
+- has_many: buyer_items, foreign_key: :buyer_id, class_name: :items
+- has_many: credits, dependent: :destroy
+- has_many: deliveries_addresses, dependent: :destroy
 
 
 ## creditsテーブル
@@ -28,7 +29,7 @@
 |customer_id|string|null: false|
 |card_id|string|null: false|
 ## Association
-- belongs_to :user
+- belongs_to: user
 
 
 ## deliveryAddressesテーブル
@@ -48,18 +49,7 @@
 |phone|string|null: false, unique: true|
 |user_id|integer|null: false, foreign_key: true|
 ## Association
-- belongs_to :user
-
-
-# purchasesテーブル
-
-|Colum|Type|Options|
-|------|----|------|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-## Association
-- belongs_to :user
-- belongs_to :item
+- belongs_to: user
 
 
 # itemsテーブル
@@ -75,6 +65,8 @@
 |category_id|integer|foreign_key: true|
 |cost_id|integer|foreign_key: true|
 |days_to_ship_id|integer|foreign_key: true|
+|seller_id|integer|null: false, foreign_key: true|
+|buyer_id|integer|foreign_key: true|
 ## Association
 - has_many: images, dependent: :destroy
 - has_one: purchase
@@ -82,6 +74,8 @@
 - belongs_to: category
 - has_one_active_hash: cost
 - has_one_active_hash: days_to_ship
+- belongs_to: seller, class_name: :user
+- belongs_to: buyer, class_name: :user
 
 
 # imagesテーブル
