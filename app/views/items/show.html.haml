@@ -3,19 +3,17 @@
 
 .Main
   .Main__show
-    .Main__show__contentLeftqq
     .Main__show__contentRight
       .Main__show__contentRight__topContent
         .Main__show__contentRight__topContent__itemBox
           .Main__show__contentRight__topContent__itemBox__name
             中華そば
           .Main__show__contentRight__topContent__itemBox__body
-            .itemBox2
-              .itemBox3
-                =image_tag("ラーメン.jpeg",width: '560',height: '346', alt: "画像") 
-                %ul
-                =image_tag("ラーメン.jpeg",width: '140',height: '87', alt: "画像") 
-                =image_tag("ラーメン.jpeg",width: '140',height: '87', alt: "画像") 
+            .itemBox3
+              =image_tag("/images/product-image-06.jpeg",width: '450',height: '400', alt: "画像") 
+              %ul
+              =image_tag("/images/product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
+              =image_tag("/images/product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
       
           .Main__show__contentRight__topContent__itemBox__price
             ¥1000円
@@ -94,7 +92,7 @@
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
 
           .commentBox__button
-            = link_to "https://twitter.com/",class:"commentBox__button__commnets__btn" do
+            = link_to "/",class:"commentBox__button__commnets__btn" do
               = icon'fas', 'comment' 
               コメントする
             
@@ -118,7 +116,7 @@
           .Main__show__contentRight__relatedItems__puroductLists__puroductList
             = link_to "#",class:"product--img" do
               .productList--img
-                =image_tag("ラーメン.jpeg",width: '220',height: '150', alt: "画像") 
+                =image_tag("/images/product-image-06.jpeg",width: '200',height: '170', alt: "画像") 
               .productList--body
                 product3
                 .detail
@@ -130,15 +128,5 @@
                       1
                   %p.detail5
                     (税込)
-
-.appBanner 
-  .appBanner__inner
-    %h2.appBanner__inner__title
-      だれでもかんたん、人生を変えるフリマアプリ
-    %p.appBanner__inner__text
-      今すぐ無料ダウンロード
-    .appBanner__inner__icon
-    = link_to image_tag("320px-Download_on_the_App_Store_Badge.svg.png", width: '180',height: '53',class: "appBanner__innner__icon__aBtn") 
-    = link_to image_tag("Google.logo.png",width: '180',height: '53', class: "appBanner__innner__icon__gBtn") 
 
 = render "items/footer"
