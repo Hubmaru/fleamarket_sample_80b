@@ -1,0 +1,12 @@
+.Page
+  .HeadContent
+    = render "devise/shared/header"
+
+  .MainContent
+    %h2
+      登録が完了しました
+    = link_to "/", class: "to_index_btn" do
+      トップへ戻る
+
+  .FootContent
+    = render "devise/shared/footer"

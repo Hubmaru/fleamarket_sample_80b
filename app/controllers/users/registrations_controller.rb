@@ -5,14 +5,37 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(sign_up_params)
+    unless @user.valid?
+      flash.now[:alert] = @user.errors.full_messages
+      render :new and return
+    end
+    session["devise.regist_data"] = { user: @user.attributes }
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @delivery_address = @user.build_delivery_address
+    render :new_delivery_address
+  end
+
+  def create_delivery_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @delivery_address = DeliveryAddress.new(delivery_address_params)
+    # @delivery_address.user_id = @user.id
+    # binding.pry
+    unless @delivery_address.valid?
+      flash.now[:alert] = @delivery_address.errors.full_messages
+      render :new_delivery_address and return
+    end
+    @user.build_delivery_address(@delivery_address.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+  end
 
   # GET /resource/edit
   # def edit
@@ -59,4 +82,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  protected
+
+  def delivery_address_params
+    params.require(:delivery_address).permit(:delivery_family_name, :delivery_last_name, :delivery_family_name_kana, :delivery_last_name_kana, :postal_code, :prefecture, :municipality, :address, :phone, :apartment_name, :apartment_room_number)
+  end
+
 end
