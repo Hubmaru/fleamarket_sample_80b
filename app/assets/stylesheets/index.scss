@@ -259,7 +259,6 @@ p {
       .List {
         width: 220px;
         display: inline-block;
-        float: left;
         &__img {
           background-color: #fff;
           display: inline-block;
@@ -288,7 +287,6 @@ p {
               justify-content: space-between;
               li {
                 display: list-item;
-                text-align: -webkit-match-parent;
               }
             }
             &__icon::after{
@@ -332,4 +330,8 @@ p {
     border: 0;
     text-align: center;
   }
+}
+
+a {
+  text-decoration: none;
 }

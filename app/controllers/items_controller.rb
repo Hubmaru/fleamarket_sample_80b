@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @images =Image.all
-    @items =Item.all
+    @items = Item.all
   end
 
   def show

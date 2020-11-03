@@ -10,27 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_25_090421) do
+ActiveRecord::Schema.define(version: 2020_10_26_151140) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "画像"
-    t.string "商品ID"
+    t.string "photo"
+    t.integer "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "商品名"
-    t.text "説明文"
-    t.integer "価格"
-    t.string "発送地"
-    t.string "プランドID"
-    t.string "状態"
-    t.string "送料負担ID"
-    t.string "発送までの日数ID"
-    t.string "カテゴリID"
+    t.string "name"
+    t.text "text"
+    t.integer "price"
+    t.string "shipment_sorce"
+    t.string "condition"
+    t.integer "brand_id"
+    t.integer "category_id"
+    t.integer "cost_id"
+    t.integer "days_to_ship_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
