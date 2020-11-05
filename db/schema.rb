@@ -20,13 +20,14 @@ ActiveRecord::Schema.define(version: 2020_11_01_132808) do
     t.string "postal_code", null: false
     t.string "prefecture", null: false
     t.string "municipality", null: false
-    t.integer "address", null: false
+    t.string "address", null: false
     t.string "apartment_name"
-    t.integer "apartment_room_number"
+    t.string "apartment_room_number"
     t.string "phone", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_delivery_addresses_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,4 +54,5 @@ ActiveRecord::Schema.define(version: 2020_11_01_132808) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "delivery_addresses", "users"
 end

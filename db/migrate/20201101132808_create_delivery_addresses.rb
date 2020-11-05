@@ -8,11 +8,11 @@ class CreateDeliveryAddresses < ActiveRecord::Migration[6.0]
       t.string "postal_code", null: false
       t.string "prefecture", null: false
       t.string "municipality", null: false
-      t.integer "address", null: false
+      t.string "address", null: false
       t.string "apartment_name"
-      t.integer "apartment_room_number"
+      t.string "apartment_room_number"
       t.string "phone", null: false, unique: true
-      t.integer "user_id", null: false
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end

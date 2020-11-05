@@ -6,7 +6,7 @@
 
 |Colum|Type|Options|
 |------|----|------|
-|nickname|string|null: false|
+|nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 |real_family_name|string|null: false|
@@ -45,9 +45,9 @@
 |municipality|string|null: false|
 |address|string|null: false|
 |apartment_name|string||
-|apartment_room_number|integer||
+|apartment_room_number|string||
 |phone|string|null: false, unique: true|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
 ## Association
 - belongs_to: user
 

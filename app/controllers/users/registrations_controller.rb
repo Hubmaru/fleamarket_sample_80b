@@ -25,8 +25,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_delivery_address
     @user = User.new(session["devise.regist_data"]["user"])
     @delivery_address = DeliveryAddress.new(delivery_address_params)
-    # @delivery_address.user_id = @user.id
-    # binding.pry
     unless @delivery_address.valid?
       flash.now[:alert] = @delivery_address.errors.full_messages
       render :new_delivery_address and return

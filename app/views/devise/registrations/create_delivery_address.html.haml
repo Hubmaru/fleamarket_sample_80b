@@ -2,11 +2,12 @@
   .HeadContent
     = render "devise/shared/header"
 
-  .MainContent
-    %h2
+  .MainSpace
+    .MainSpace__Signin
       登録が完了しました
-    = link_to "/", class: "to_index_btn" do
-      トップへ戻る
+    .Actions
+      = link_to "/", class: "CommitBtn" do
+        トップへ戻る
 
   .FootContent
     = render "devise/shared/footer"
