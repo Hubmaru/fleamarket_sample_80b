@@ -123,9 +123,8 @@
         %ul.Main-category__boxs__lists
           %li.List
           - @items.each do |item| 
-            = link_to item_path(id: item.id) ,class: "main__item__brand__item_box__lists--list, item_list" do
-              - ft_image = item.images.first
-              = image_tag ft_image.photo, class: "List__img"
+            = link_to item_path(id: item.id), class: "List__link" do
+              = image_tag item.images.first.photo, class: "List__img"
               .List__body
                 %h3.List__body__name
                   = item.name
@@ -136,7 +135,10 @@
                       = "円"
                     %li.List__body__details__icon
                       = icon 'fas', 'star'
-                  %p.List__body__details__tax (税込)  
+                  %p.List__body__details__tax (税込)
+              - if item.condition.present?
+                .List__sold
+                  .List__sold__inner SOLD
   = render "items/footer"
   .New-createBtn
     %span.New-createBtn__text 出品する
