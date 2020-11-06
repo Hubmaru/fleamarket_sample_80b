@@ -1,5 +1,5 @@
 .AppBanner {
-  background-image: url(/assets/bg-appBanner-pict.jpg);
+  background-image: url(/images/bg-appBanner-pict.jpg);
   padding: 100px 40px;
   position: relative;
   background-size: cover;
@@ -23,13 +23,14 @@
       justify-content: center;
       margin: 20px auto 0;
       &__Abtn {
-        height: 53px;
-        width: 180px;
+        height: 51px;
+        width: 170px;
+        margin-top: 1px;
 
       }
       &__Gbtn {
         height: 76px;
-        width: 180px;
+        width: 190px;
         margin-top: -11px;
         margin-left: -10px;
       }
