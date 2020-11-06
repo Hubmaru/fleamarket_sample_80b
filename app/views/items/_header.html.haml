@@ -12,15 +12,15 @@
             = link_to image_tag("/images/icon-search 1.png",width: '19',alt: "画像")
     .Header__under
       .Under-left
-        = link_to "/", class: "Under-left__category" do
+        = link_to root_path, class: "Under-left__category" do
           カテゴリー
-        = link_to "/", class: "Under-left__brand" do
+        = link_to root_path, class: "Under-left__brand" do
           ブランド
       .Under-right
         - if user_signed_in?
           = link_to destroy_user_session_path, method: :delete, class: "Under-right__login" do
             ログアウト
-          = link_to "/users/#{current_user.id}", class: "Under-right__ragistration" do
+          = link_to user_path(current_user.id), class: "Under-right__ragistration" do
             マイページ
         - else
           = link_to new_user_session_path, class: "Under-right__login" do
