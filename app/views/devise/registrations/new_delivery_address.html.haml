@@ -37,11 +37,10 @@
         = f.text_field :apartment_room_number, placeholder: "777", autofocus: true, class: 'FormBar'
         .MainContent__Signin__Form
         = f.label :電話番号, class: 'FormTitle'
-        = f.label :必須, class: 'Mandatory'
         %br/
         = f.text_field :phone, placeholder: "000-0000-0000", autofocus: true, class: 'FormBar'
       .RealName
-        送付先 氏名
+        送付先 氏名(全角)
         = f.label :必須, class: 'Mandatory'
         .RealName__Form
           .RealName__Form--Field
@@ -49,7 +48,7 @@
           .RealName__Form--Field
             = f.text_field :delivery_last_name, placeholder: "例）太郎", class: 'FormBar'
       .RealNameKana
-        送付先 氏名カナ
+        送付先 氏名カナ(全角)
         = f.label :必須, class: 'Mandatory'
         .RealNameKana__Form
           .RealNameKana__Form--Field

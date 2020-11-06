@@ -46,7 +46,7 @@
 |address|string|null: false|
 |apartment_name|string||
 |apartment_room_number|string||
-|phone|string|null: false, unique: true|
+|phone|string||
 |user_id|reference|null: false, foreign_key: true|
 ## Association
 - belongs_to: user

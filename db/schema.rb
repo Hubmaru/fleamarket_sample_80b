@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_11_01_132808) do
     t.string "address", null: false
     t.string "apartment_name"
     t.string "apartment_room_number"
-    t.string "phone", null: false
+    t.string "phone"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

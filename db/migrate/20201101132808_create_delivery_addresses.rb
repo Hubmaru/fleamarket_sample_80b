@@ -11,7 +11,7 @@ class CreateDeliveryAddresses < ActiveRecord::Migration[6.0]
       t.string "address", null: false
       t.string "apartment_name"
       t.string "apartment_room_number"
-      t.string "phone", null: false, unique: true
+      t.string "phone"
       t.references :user, null: false, foreign_key: true
       t.timestamps
     end
