@@ -97,7 +97,7 @@
             新規投稿商品
         %ul.Main-category__boxs__lists
           %li.List
-          - @items.each do |item| 
+          - @items.first(5).each do |item| 
             = link_to item_path(id: item.id), class: "List__link" do
               = image_tag item.images.first.photo, class: "List__img"
               .List__body
@@ -122,7 +122,7 @@
             アーカイバ
         %ul.Main-category__boxs__lists
           %li.List
-          - @items.each do |item| 
+          - @items.first(5).each do |item| 
             = link_to item_path(id: item.id), class: "List__link" do
               = image_tag item.images.first.photo, class: "List__img"
               .List__body
