@@ -69,7 +69,6 @@
 |buyer_id|integer|foreign_key: true|
 ## Association
 - has_many: images, dependent: :destroy
-- has_one: purchase
 - belongs_to: brand
 - belongs_to: category
 - has_one_active_hash: cost
