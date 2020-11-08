@@ -4,8 +4,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :name
       t.text :text
       t.integer :price
-      t.string :shipment_sorce
-      t.string :condition
+      t.string :shipment_sorce_id
+      t.string :condition_id
       t.integer :brand_id
       t.integer :category_id
       t.integer :cost_id
