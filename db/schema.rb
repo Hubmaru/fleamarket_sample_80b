@@ -30,7 +30,25 @@ ActiveRecord::Schema.define(version: 2020_11_01_132808) do
     t.index ["user_id"], name: "index_delivery_addresses_on_user_id"
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "photo"
+    t.integer "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "text"
+    t.integer "price"
+    t.string "shipment_sorce_id"
+    t.string "condition_id"
+    t.integer "brand_id"
+    t.integer "category_id"
+    t.integer "cost_id"
+    t.integer "days_to_ship_id"
+    t.integer "seller_id"
+    t.integer "buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
