@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2020_11_01_132808) do
     t.integer "category_id"
     t.integer "cost_id"
     t.integer "days_to_ship_id"
+    t.integer "seller_id"
+    t.integer "buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
