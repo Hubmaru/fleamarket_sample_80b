@@ -185,110 +185,117 @@
     }
   }
 
-
   .MiddleContents {
-    background-color: white;
-    padding: 10px;
-    margin-left: 15%;
-    margin-right: 15%;
-    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
     text-align: center;
-    &__Head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: bold;
-      &__Left {
-        font-size: 20px;
-      }
-      &__Right {
-        background-color: #3CCACE;
-        border-radius: 20px;
-        .linkBtn {
-          text-decoration: none;
-          color: white;
-          padding: 10px;
+    margin-left: 10vw;
+    .Sidebar {
+      width: 20%;
+      background-color: white;
+      margin: 20px 10px 20px 0px;
+      &__Top {
+        padding: 20px 0px;
+        margin-top: 10px;
+        &__Title {
+          font-size: 19px;
+          font-weight: bold;
+          padding: 4px;
+          text-align: left;
+          margin-left: 30px;
         }
-      }
-    }
-    &__Neck {
-      padding: 20px 0px;
-      &__Business {
-        display: flex;
-        justify-content: center;
-        li {
-          padding: 5px;
-        }
-      }
-      &__Profile {
-        border: solid 1px #3CCACE;
-        text-align: left;
-        padding: 10px;
-      }
-    }
-    &__Body {
-      padding: 20px 0px;
-      &__Title {
-        width: 70%;
-        margin-left: 15%;
-        font-size: 19px;
-        font-weight: bold;
-        padding: 4px;
-        color: white;
-        background-color: #3CCACE;
-        border-radius: 5px;
-      }
-      .ItemsList {
-        display: flex;
-        justify-content: center;
-        .item {
-          width: 250px;
-          height: 300px;
-          padding: 10px;
-          &__image {
-            .image {
-              width: 200px;
-              height: 190px;
+        .ConfigurationList {
+          li {
+            padding: 10px;
+            margin: 20px;
+            font-weight: bold;
+            border: solid 1px rgb(173, 167, 167);
+            border-radius: 10px;
+            text-align: left;
+            .linkBtn {
+              display: block;
+              text-decoration: none;
+              color: black;
             }
           }
-          &__name {
-            font-weight: bolder;
-          }
-          &__info {
-            display: flex;
-            justify-content: space-between;
-            margin-left: 20%;
-            margin-right: 20%;
-          }
         }
       }
     }
-    &__Foot {
-      padding: 20px 0px;
-      &__Title {
-        width: 70%;
-        margin-left: 15%;
-        font-size: 19px;
-        font-weight: bold;
-        padding: 4px;
-      }
-      .ConfigurationList {
-        margin-left: 20%;
-        margin-right: 20%;
+    .MainContents {
+      background-color: white;
+      padding: 10px;
+      width: 80%;
+      font-size: 15px;
+      text-align: center;
+      margin: 20px 0px 20px 10px;
+      &__Head {
         display: flex;
-        justify-content: center;
-        li {
-          display: inline-block;
-          width: 30%;
-          padding: 10px;
-          margin: 20px;
-          font-weight: bold;
-          background-color: rgb(173, 167, 167);
-          border: solid 1px rgb(240, 240, 240);
-          border-radius: 10px;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        &__Left {
+          font-size: 20px;
+        }
+        &__Right {
+          background-color: #3CCACE;
+          border-radius: 20px;
           .linkBtn {
             text-decoration: none;
             color: white;
+            padding: 10px;
+          }
+        }
+      }
+      &__Neck {
+        padding: 20px 0px;
+        &__Business {
+          display: flex;
+          justify-content: center;
+          li {
+            padding: 5px;
+          }
+        }
+        &__Profile {
+          border: solid 1px #3CCACE;
+          text-align: left;
+          padding: 10px;
+        }
+      }
+      &__Body {
+        padding: 20px 0px;
+        &__Title {
+          font-size: 19px;
+          font-weight: bold;
+          padding: 4px;
+          color: white;
+          background-color: #3CCACE;
+          border-radius: 5px;
+        }
+        .ItemsList {
+          display: flex;
+          justify-content: center;
+          .item {
+            width: 200px;
+            height: 250px;
+            padding: 10px;
+            border: solid 1px #3CCACE;
+            margin: 1px;
+            &__image {
+              .image {
+                width: 150px;
+                height: 140px;
+              }
+            }
+            &__name {
+              font-weight: bolder;
+            }
+            &__info {
+              display: flex;
+              justify-content: space-between;
+              margin-left: 20%;
+              margin-right: 20%;
+            }
           }
         }
       }
