@@ -21,7 +21,7 @@
 - has_one: delivery_address, dependent: :destroy
 
 
-## creditsテーブル
+## cardsテーブル
 
 |Colum|Type|Options|
 |------|----|------|
