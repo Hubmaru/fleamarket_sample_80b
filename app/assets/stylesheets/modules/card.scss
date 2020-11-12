@@ -1,10 +1,10 @@
-.credit-form {
-  
-  .number {
-    padding: 20px;
+.credit_icons {
+  width: 60%;
+  margin: 10px 20%;
+  display: flex;
+  justify-content: space-between;
+  .credit_icon {
+    display: block;
+    margin: 10px;
   }
-}
-.label {
-  font-size: 15px;
-
 }
