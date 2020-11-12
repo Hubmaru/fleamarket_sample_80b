@@ -36,8 +36,10 @@
             = link_to root_path, class: 'linkBtn' do
               お届け先・発送元編集
           %li.ConfigurationList__Btn
-            = link_to card_new_path, class: 'linkBtn' do
-              支払い方法
+            = link_to card_post_path, class: 'linkBtn' do
+              お支払い方法の追加
+            -# = link_to card_index_path, class: 'linkBtn' do
+            -#   お支払い方法の確認/追加/削除
           %li.ConfigurationList__Btn
             = link_to root_path, class: 'linkBtn' do
               本人情報
