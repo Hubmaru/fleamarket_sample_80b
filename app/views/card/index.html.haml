@@ -1,20 +1,25 @@
 .mypage-main
   %h2.header_title
-    支払い方法
+    お支払い方法
   .single-container
     %section.creditcard_section
       %h3 クレジットカード一覧
       - if @card.present?
         .container
           .creditcard-info
-            = image_tag "creditcards/#{@card_image}",width:'34',height:'20', alt:'cradit-card'
+            = icon 'fad', 'fad fa-credit-card-blank fa-3x', class: 'credit-icon'
             %p.creditcard-info__number
+              登録クレジットカードナンバー
               = "**** **** **** " + @card_info.last4
             %p.creditcard-info__period 
+              有効期限
             = @exp_month + " / " + @exp_year
+
             = button_to "削除する", card_path(@card), method: :delete, class:"creditcard-info__delete"
       - else
         .new-card
-          = link_to new_card_path, class:"new-card-btn" do
+          = link_to new_card_path, class:"linkBtn" do
             %i.far.fa-credit-card 
             クレジットカードを追加する
+      = link_to destroy_user_session_path, method: :delete, class: 'linkBtn' do
+        ログアウト
