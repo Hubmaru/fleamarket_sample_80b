@@ -29,7 +29,6 @@ $(function() {
         let token = response.id;
         form.append($('<input type="hidden" name="payjpToken" />').val(token));
         form.get(0).submit();
-        alert("登録が完了しました"); 
       };
     });
     e.preventDefault();
