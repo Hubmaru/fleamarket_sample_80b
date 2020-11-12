@@ -14,5 +14,9 @@
       %input{ type: "hidden", name: "card_id", value: "" }
       %button 削除する
 
+    -# = form_with model: card, method: :post, id: 'charge-form', name: "inputForm", local: true do |f|
+    -#   = f.input type: "hiden", :name, "card_id", value: "" 
+    -#   = f.button 削除する
+
   .FootContent
     = render "devise/shared/footer"
