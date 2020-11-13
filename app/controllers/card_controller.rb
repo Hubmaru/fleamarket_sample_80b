@@ -7,26 +7,7 @@ class CardController < ApplicationController
     if @card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
-
       @card_info = customer.cards.retrieve(customer.default_card)
-      @card_icon = @card_info.brand
-      @exp_month = @card_info.exp_month.to_s
-      @exp_year = @card_info.exp_year.to_s.slice(2,3) 
-
-      case @card_icon
-      when "Visa"
-        @card_image = "visa.svg"
-      when "JCB"
-        @card_image = "jcb.svg"
-      when "MasterCard"
-        @card_image = "master-card.svg"
-      when "American Express"
-        @card_image = "american_express.svg"
-      when "Diners Club"
-        @card_image = "dinersclub.svg"
-      when "Discover"
-        @card_image = "discover.svg"
-      end
     end
   end
 
@@ -98,7 +79,7 @@ class CardController < ApplicationController
         redirect_to controller: 'items', action: 'show', id: @item.id
       else
         flash[:alert] = '購入に失敗しました。'
-        redirect_to controller: 'items', action: 'show', id: @item.id
+        redirect_to controller: 'items', action: 'show', id: @it.id
       end
     end
   end
