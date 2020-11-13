@@ -18,10 +18,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   resources :card, only: [:index, :new, :create, :destroy] do
-    # collection do
-    #   post 'show', to: 'card#show'
-    #   post 'pay', to: 'card#pay'
-    #   post 'delete', to: 'card#delete'
-    # end
+    collection do
+      post 'pay', to: 'card#pay'
+    end
   end
 end
