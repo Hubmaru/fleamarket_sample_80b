@@ -12,7 +12,7 @@
             = link_to root_path, class: 'linkBtn' do
               トップページへ
           %li.ConfigurationList__Btn
-            = link_to root_path, class: 'linkBtn' do
+            = link_to user_path(current_user.id), class: 'linkBtn' do
               マイページへ
           %li.ConfigurationList__Btn
             = link_to root_path, class: 'linkBtn' do
@@ -69,7 +69,8 @@
             2
             -# = @user.items(buyer_id).length
         .MainContents__Neck__Profile
-          = safe_join(@user.introduction.split("\n"),tag(:br))
+          - if @user.introduction
+            = safe_join(@user.introduction.split("\n"),tag(:br))
 
       .MainContents__Body
         .MainContents__Body__Title

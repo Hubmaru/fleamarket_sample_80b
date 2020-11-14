@@ -1,10 +1,145 @@
 .Credit_Icons {
-  width: 60%;
-  margin: 10px 20%;
+  width: 100%;
+  margin: 5% 0%;
   display: flex;
   justify-content: space-between;
   .credit_icon {
     display: block;
-    margin: 10px;
+    margin: 10%;
+  }
+}
+
+.MainSpace {
+  height: 65vh;
+  background-color:white;
+  @include template_style();
+  &__Title {
+    height: 40px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+    // 以下はクレジットカード一覧画面のscss
+  .Card_Section {
+    &__Info {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 5%;
+      margin-right: 5%;
+      &__Number {
+        padding-top: 5%;
+        font-weight: bold;
+      }
+      &__Period  {
+        padding-top: 5%;
+        font-weight: bold;
+      }
+      .CardActions {
+        padding-top: 5%;
+        .CommitBtn {
+          padding: 10px;
+          background-color: #3CCACE;
+          color: white;
+          border: none;
+          text-decoration: none;
+          border-radius: 10px;
+        }
+      }
+    }
+    .NewCard {
+      margin: 5%;
+      .NewCardBtn {
+        padding: 10px;
+        background-color: #ac3cce;
+        color: white;
+        border: none;
+        text-decoration: none;
+        border-radius: 10px;
+      }
+    }
+  }
+  // 以下はクレジットカード登録画面のscss
+  &__Contents {
+    .form {
+      .Form__CardInfo--Num {
+        margin-top: 30px;
+        margin-left: 20%;
+        width: 60%;
+        text-align: left;
+        .FormTitle {
+          font-weight: bold;
+          display: inline;
+          font-size: 13px;
+        }
+        .Mandatory {
+          padding: 5px;
+          background-color: red;
+          color: white;
+          margin-left: 20px;
+        }
+        .input-default {
+          width: 100%;
+          height: 10%;
+          padding: 10px;
+          margin-top: 10px;
+        }
+      }
+      .Form__CardInfo--Priodo {
+        margin-top: 30px;
+        margin-left: 20%;
+        width: 60%;
+        text-align: left;
+        .FormTitle {
+          font-weight: bold;
+          display: inline;
+          font-size: 13px;
+        }
+        .Mandatory {
+          padding: 5px;
+          background-color: red;
+          color: white;
+          margin-left: 20px;
+        }
+        &__Form {
+          display: flex;
+          justify-content: space-between;
+          .input-default-harf {
+            display: block;
+            width: 40%;
+            height: 10%;
+            padding: 10px;
+            margin-top: 10px;
+          }
+          .span {
+            font-weight: bold;
+            padding: 10px;
+            margin-top: 10px;
+          }
+        }
+      }
+      .Form__CardInfo {
+        margin-top: 30px;
+        margin-left: 20%;
+        width: 60%;
+        text-align: left;
+        .FormTitle {
+          font-weight: bold;
+          display: inline;
+          font-size: 13px;
+        }
+        .Mandatory {
+          padding: 5px;
+          background-color: red;
+          color: white;
+          margin-left: 20px;
+        }
+        .input-default {
+          width: 100%;
+          height: 10%;
+          padding: 10px;
+          margin-top: 10px;
+        }
+      }
+    }
   }
 }

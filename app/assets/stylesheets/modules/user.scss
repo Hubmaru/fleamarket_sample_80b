@@ -24,8 +24,10 @@
     justify-content: space-between;
     margin: 5px 0px;
     &--Field {
+      width: 50%;
       padding: 10px;
       .FormBar {
+        width: 100%;
         padding: 10px;
       }
     }
@@ -88,6 +90,12 @@
       margin-bottom: 40px;
       &__Form {
         @include field_style();
+        .FormBarText {
+          width: 100%;
+          height: 400px;
+          padding: 10px;
+          margin-top: 10px;
+        }
         .Mandatory {
           padding: 5px;
           background-color: red;
@@ -135,6 +143,7 @@
     }
     .RealName {
       @include form_style
+
     }
     .RealNameKana {
       @include form_style
@@ -272,29 +281,30 @@
           border-radius: 5px;
         }
         .ItemsList {
+          height: 330px;
           display: flex;
           justify-content: center;
           margin-bottom: 50px;
           .item {
-            width: 200px;
-            height: 250px;
-            padding: 10px;
+            width: 20%;
+            height: 100%;
+            padding: 5px;
             border: solid 1px #3CCACE;
             margin: 5px;
             &__image {
               .image {
-                width: 150px;
-                height: 140px;
+                width: 100%;
+                height: 190px;
               }
             }
             &__name {
               font-weight: bolder;
+              margin-top: 10%;
             }
             &__info {
               display: flex;
               justify-content: space-between;
-              margin-left: 20%;
-              margin-right: 20%;
+              margin: 10% 20%;
             }
           }
         }

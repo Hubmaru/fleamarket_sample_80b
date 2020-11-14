@@ -8,24 +8,30 @@
     .MainSpace__Contents
       .MainSpace__Contents__Title
         クレジットカード一覧
-        .Card_Section
-          - if @card.present?
-            .Card_Section__Info
-              -# = icon 'fad', 'fa-credit-card-blank fa-3x', class: 'credit-icon'
-              .Card_Section__Info__Number
-                登録クレジットカードナンバー
-                = "**** **** **** " + @card_info.last4
-              .Card_Section__Info__Period 
-                有効期限
-                = @card_info.exp_month.to_s + " / " + @card_info.exp_year.to_s.slice(2,3)
-                = button_to "削除する", card_path(@card), method: :delete, class:"creditcard-info__delete"
-          - else
-            .NewCard
-              = link_to new_card_path, class:"linkBtn" do
-                = icon 'far', 'fa-credit-card' 
-                クレジットカードを追加する
-          = link_to destroy_user_session_path, method: :delete, class: 'linkBtn' do
-            ログアウト
+      .Card_Section
+        - if @card.present?
+          .Card_Section__Info
+            -# = icon 'fad', 'fa-credit-card-blank fa-3x', class: 'credit-icon'
+            .Card_Section__Info__Number
+              登録クレジットカードナンバー
+              %br
+              = "**** **** **** " + @card_info.last4
+            .Card_Section__Info__Period
+              有効期限
+              = @card_info.exp_month.to_s + " / " + @card_info.exp_year.to_s.slice(2,3)
+            .CardActions
+              = button_to "削除する", card_path(@card), method: :delete, class:"CommitBtn"
+        - else
+          .NewCard
+            = link_to new_card_path, class:"NewCardBtn" do
+              = icon 'far', 'fa-credit-card' 
+              クレジットカードを追加する
+      .Actions
+        = link_to user_path(current_user.id), class: 'CommitBtn' do
+          マイページへ
+      .Actions
+        = link_to destroy_user_session_path, method: :delete, class: 'CommitBtn' do
+          ログアウト
 
   .FootContent
     = render "devise/shared/footer"
