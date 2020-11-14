@@ -4,7 +4,7 @@
 
   .MainSpace
     .MainSpace__Title
-      支払い方法
+      クレジットカード登録
     .MainSpace__Contents
       = form_with url:card_index_path, method: :post, html: {class: "form"}, local: true do |f|
         .Form__CardInfo
@@ -35,8 +35,8 @@
         .Form__CardInfo
           = f.label :セキュリティーコード
           = f.label :必須, class: 'Mandatory'
-          = f.text_field :cvc, name: "cvc", id:"cvc", class:"cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', maxlength: "16"
-        = f.submit '次へ進む', class: 'btn-default', id: "charge-form"
+          = f.text_field :cvc, name: "cvc", id:"cvc", class:"cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', maxlength: "4"
+        = f.submit '登録', class: 'btn-default', id: "charge-form"
 
   .FootContent
     = render "devise/shared/footer"

@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 @mixin template_style {
   padding: 10px;
   margin-left: 30%;
@@ -69,7 +65,7 @@
 .Page {
   background-color: rgb(240, 240, 240);
 
-
+// 以下はトップページのheaderとは違うheaderのscss
   .DeviseHead {
     height: 15vh;
     @include template_style();
@@ -80,7 +76,7 @@
     }
   }
 
-
+// 以下はユーザー新規登録とログイン画面のscss
   .MainContent {
     height: calc(100% - 25vh);
     background-color:white;
@@ -148,6 +144,8 @@
       @include btn_style
     }
   }
+
+// 以下はログアウト画面と新規登録完了画面のscss
   .MainSpace {
     height: 65vh;
     background-color:white;
@@ -163,7 +161,7 @@
     }
   }
 
-
+// 以下はトップページのfooterとは違うfooterのscss
   .DeviseFoot {
     height: 20vh;
     @include template_style();
@@ -185,6 +183,7 @@
     }
   }
 
+  // 以下はユーザーマイページのscss
   .MiddleContents {
     display: flex;
     justify-content: space-between;
@@ -303,6 +302,8 @@
     }
   }
 }
+
+// 以下はユーザー登録時にエラーが出たときのエラーメッセージのscss
 .check_point {
   color: red;
   text-align: center;

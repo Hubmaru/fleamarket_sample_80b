@@ -1,14 +1,40 @@
+.Page
+  .HeadContent
+    = render "devise/shared/header"
 
-  .AccountPage__form
+  .MainContent
+    .MainContent__Signin
+      プロフィール編集
     = form_for(current_user) do |f|
-      .FormField
-        .FormField__label--normal
-          = f.label :nickname
-        .FormField__input--normal
-          = f.text_field :nickname, autofocus: true
-      .FormField
-        .FormField__label--normal
-          = f.label :introduction
-        .FormField__input--normal
-          = f.text_field :introduction
-      = f.submit "Update", class: 'Button UserButton'
+      .MainContent__Signin__Form
+        = f.label :ニックネーム, class: 'FormTitle'
+        %br/
+        = f.text_field :nickname, autofocus: true, class: 'FormBar'
+      .MainContent__Signin__Form
+        = f.label :紹介文, class: 'FormTitle'
+        %br/
+        = f.text_field :introduction, placeholder: "例）こんにちは。よろしくお願いします", autofocus: true, class: 'FormBar'
+      .MainContent__Signin__Form
+        = f.label :Eメール, class: 'FormTitle'
+        %br/
+        = f.email_field :email, autocomplete: "email", class: 'FormBar'
+      .Actions
+        = f.submit "編集完了", class: 'CommitBtn'
+
+  .FootContent
+    = render "devise/shared/footer"
+  
+
+  -# .AccountPage__form
+  -#   = form_for(current_user) do |f|
+  -#     .FormField
+  -#       .FormField__label--normal
+  -#         = f.label :nickname
+  -#       .FormField__input--normal
+  -#         = f.text_field :nickname, autofocus: true
+  -#     .FormField
+  -#       .FormField__label--normal
+  -#         = f.label :introduction
+  -#       .FormField__input--normal
+  -#         = f.text_field :introduction
+  -#     = f.submit "Update", class: 'Button UserButton'
