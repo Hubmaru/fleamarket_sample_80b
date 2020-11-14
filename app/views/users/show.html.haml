@@ -30,7 +30,7 @@
             = link_to root_path, class: 'linkBtn' do
               購入一覧（取引完了）
           %li.ConfigurationList__Btn
-            = link_to root_path, class: 'linkBtn' do
+            = link_to edit_user_path(current_user), class: 'linkBtn' do
               プロフィール編集
           %li.ConfigurationList__Btn
             = link_to root_path, class: 'linkBtn' do
@@ -38,9 +38,6 @@
           %li.ConfigurationList__Btn
             = link_to card_index_path, class: 'linkBtn' do
               お支払い方法の変更
-          %li.ConfigurationList__Btn
-            = link_to root_path, class: 'linkBtn' do
-              本人情報
           %li.ConfigurationList__Btn
             = link_to root_path, class: 'linkBtn' do
               ガイド
@@ -58,7 +55,7 @@
           = @user.nickname
           さん
         .MainContents__Head__Right
-          = link_to root_path, class: 'linkBtn' do
+          = link_to edit_user_path(current_user), class: 'linkBtn' do
             プロフィール編集
 
       .MainContents__Neck
@@ -72,27 +69,13 @@
             2
             -# = @user.items(buyer_id).length
         .MainContents__Neck__Profile
-          = @user.introduction
-          -# こんにちは。ここには、他のユーザーが、あなたのマイページにアクセスしたときに、あなたのことを知ってもらう他に自己紹介文を記述しましょう。
-          -# %br
-          -# これからの実装メモ
-          -# %br
-          -# プロフィールカラムをユーザーテーブルに追加。
-          -# %br
-          -# ユーザー編集機能にて、ニックネームとプロフィール文編集を追加、本人情報やクレジット編集、送付先住所編集を実装する。尚、これらの機能は本人にのみ許可する。
-          -# %br
-          -# プロフィール文を改行、空欄ありで表示。
-          -# %br
-          -# クレジット登録機能そ実装するため、gem 'Pay JP'をインストール。クレジットカードのテーブル、ユーザーとのアソシエーションを作成する。
-          -# %br
-          -# 出品・購入した商品のトップ画像をマイページに表示する。
-          -# %br
-          -# 新たなビューとして、ユーザー編集、クレカ登録、送付先住所編集、ログアウト画面を実装する。
+          = safe_join(@user.introduction.split("\n"),tag(:br))
 
       .MainContents__Body
         .MainContents__Body__Title
           最近出品した商品
         %ul.ItemsList
+          -# この部分は部分テンプレートにすることを検討する
           -# - @items.each do |item|
           %li.item
             .item__image
@@ -112,69 +95,47 @@
           %li.item
             .item__image
               = link_to image_tag("/images/product-image-04.jpg",alt: "画像",class: "image"), root_path
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
             .item__name
               仮商品名（出品）
-              -# = item.name
             .item__info
               .item__info__price
                 400
                 円
-                -# = item.price
               .item__info__like
                 = icon('fa', 'star', class: "like__icon")
           %li.item
             .item__image
               = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
             .item__name
               仮商品名（出品）
-              -# = item.name
             .item__info
               .item__info__price
                 400
                 円
-                -# = item.price
               .item__info__like
                 = icon('fa', 'star', class: "like__icon")
           %li.item
             .item__image
               = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
             .item__name
               仮商品名（出品）
-              -# = item.name
             .item__info
               .item__info__price
                 400
                 円
-                -# = item.price
               .item__info__like
                 = icon('fa', 'star', class: "like__icon")
           %li.item
             .item__image
               = link_to image_tag("/images/product-image-01.jpg",alt: "画像",class: "image"), root_path
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
             .item__name
               仮商品名（出品）
-              -# = item.name
             .item__info
               .item__info__price
                 400
                 円
-                -# = item.price
               .item__info__like
                 = icon('fa', 'star', class: "like__icon")
-
-        -# %ul.ItemsList
-        -#   - @user.items.each do |item|
-        -#   %li.itemsimage= item.images.image
-        -#   %li.itemsinfo= item.name
-        -#   %li.itemsinfo= item.price
 
         .MainContents__Body__Title
           最近購入した商品
@@ -182,6 +143,8 @@
           %li.item
             .item__image
               = link_to image_tag("/images/product-image-05.jpg",alt: "画像",class: "image"), root_path
+              -# 以下は部分テンプレートにすることを検討する
+              -# = @items.each do |item|
               -# root_path >> item_show_view
               -# = item.images.photo.select[1]
             .item__name
@@ -195,55 +158,39 @@
           %li.item
             .item__image
               = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
             .item__name
               仮商品名（購入）
-              -# = item.name
             .item__info
               .item__info__price
                 400
                 円
-                -# = item.price
           %li.item
             .item__image
               = link_to image_tag("/images/product-image-02.jpg",alt: "画像",class: "image"), root_path
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
             .item__name
               仮商品名（購入）
-              -# = item.name
             .item__info
               .item__info__price
                 400
                 円
-                -# = item.price
           %li.item
             .item__image
               = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
             .item__name
               仮商品名（購入）
-              -# = item.name
             .item__info
               .item__info__price
                 400
                 円
-                -# = item.price
           %li.item
             .item__image
               = link_to image_tag("/images/product-image-01.jpg",alt: "画像",class: "image"), root_path
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
             .item__name
               仮商品名（購入）
-              -# = item.name
             .item__info
               .item__info__price
                 400
                 円
-                -# = item.price
 
   .ButtomContents
     = render "items/footer"

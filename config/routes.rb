@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'purchases'
     end
   end
-  resources :users, only: :show
+  resources :users, only: [:show, :edit, :update]
   resources :card, only: [:index, :new, :create, :destroy] do
     collection do
       post 'pay', to: 'card#pay'
