@@ -9,8 +9,8 @@
   }
 }
 
-.MainSpace {
-  height: 65vh;
+.MainSpaceCard {
+  height: 75vh;
   background-color:white;
   @include template_style();
   &__Title {
@@ -57,6 +57,9 @@
         border-radius: 10px;
       }
     }
+  }
+  .ActionsCard {
+    @include btn_style
   }
   // 以下はクレジットカード登録画面のscss
   &__Contents {
@@ -139,6 +142,9 @@
           padding: 10px;
           margin-top: 10px;
         }
+      }
+      .ActionsCard {
+        @include btn_style
       }
     }
   }

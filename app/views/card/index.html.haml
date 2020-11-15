@@ -2,11 +2,11 @@
   .HeadContent
     = render "devise/shared/header"
 
-  .MainSpace
-    .MainSpace__Title
+  .MainSpaceCard
+    .MainSpaceCard__Title
       お支払い方法
-    .MainSpace__Contents
-      .MainSpace__Contents__Title
+    .MainSpaceCard__Contents
+      .MainSpaceCard__Contents__Title
         クレジットカード一覧
       .Card_Section
         - if @card.present?
@@ -26,10 +26,10 @@
             = link_to new_card_path, class:"NewCardBtn" do
               = icon 'far', 'fa-credit-card' 
               クレジットカードを追加する
-      .Actions
+      .ActionsCard
         = link_to user_path(current_user.id), class: 'CommitBtn' do
           マイページへ
-      .Actions
+      .ActionsCard
         = link_to destroy_user_session_path, method: :delete, class: 'CommitBtn' do
           ログアウト
 

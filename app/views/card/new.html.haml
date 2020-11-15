@@ -2,10 +2,10 @@
   .HeadContent
     = render "devise/shared/header"
 
-  .MainSpace
-    .MainSpace__Title
+  .MainSpaceCard
+    .MainSpaceCard__Title
       クレジットカード登録
-    .MainSpace__Contents
+    .MainSpaceCard__Contents
       = form_with url:card_index_path, method: :post, html: {class: "form"}, local: true do |f|
         .Form__CardInfo--Num
           = f.label :カード番号, class: 'FormTitle'
@@ -37,7 +37,7 @@
           = f.label :セキュリティーコード, class: 'FormTitle'
           = f.label :必須, class: 'Mandatory'
           = f.text_field :cvc, name: "cvc", id:"cvc", class:"cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', maxlength: "4"
-        .Actions
+        .ActionsCard
           = f.submit '登録', class: 'CommitBtn', id: "charge-form"
 
   .FootContent
