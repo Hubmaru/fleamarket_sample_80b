@@ -1,5 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
 @import "reset";
-@import "user";
+@import "modules/user";
+@import "modules/card";
 @import "header";
 @import "index";
 @import "footer";

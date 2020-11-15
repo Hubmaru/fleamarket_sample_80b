@@ -17,11 +17,11 @@
 ## Association
 - has_many: seller_items, foreign_key: :seller_id, class_name: :items
 - has_many: buyer_items, foreign_key: :buyer_id, class_name: :items
-- has_many: credits, dependent: :destroy
+- has_one: card, dependent: :destroy
 - has_one: delivery_address, dependent: :destroy
 
 
-## creditsテーブル
+## cardsテーブル
 
 |Colum|Type|Options|
 |------|----|------|
@@ -69,7 +69,6 @@
 |buyer_id|integer|foreign_key: true|
 ## Association
 - has_many: images, dependent: :destroy
-- has_one: purchase
 - belongs_to: brand
 - belongs_to: category
 - has_one_active_hash: cost
