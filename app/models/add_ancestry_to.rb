@@ -1,0 +1,2 @@
+class AddAncestryTo < ApplicationRecord
+end

@@ -7,80 +7,125 @@
       .Main__show__contentRight__topContent
         .Main__show__contentRight__topContent__itemBox
           .Main__show__contentRight__topContent__itemBox__name
-            中華そば
+            = @item.name
           .Main__show__contentRight__topContent__itemBox__body
             .itemBox3
-              =image_tag("product-image-06.jpeg",width: '450',height: '400', alt: "画像") 
+            - @item.images.each do |image|
+              = image_tag image.photo, size: '450x400'
+              
               %ul
-              =image_tag("product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
-              =image_tag("product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
-      
+              - @item.images.each do |image|
+                = image_tag image.photo, size: '100x100'
+              - @item.images.each do |image|
+                = image_tag image.photo, size: '100x100'
+
           .Main__show__contentRight__topContent__itemBox__price
-            ¥1000円
+            = @item.price
+            円
           .Main__show__contentRight__topContent__itemBox__price-detail
             (税込)
             送料込み
           .Main__show__contentRight__topContent__itemBox__itemDetail
             商品詳細表
-      
           .Main__show__contentRight__topContent__itemBox__table
             .Main__show__contentRight__topContent__itemBox__table__tbody
               .table-contents
                 .table-left
                   出品者
                 .table-right
-                  aaaa 
+                  = @user.nickname
               .table-contents
                 .table-left
                   カテゴリー
                 .table-right
                   = link_to "#",class:"skyblue"do
-                    ベビー・キッズ
+                    =@item.category.root.name
+                    = icon'fas', 'angle-left'
                   = link_to "#",class:"skyblue"do
-                    ベビー服(男の子用)~95㎝
+                    =@item.category.parent.name
+                    = icon'fas', 'angle-left'
                   = link_to "#",class:"skyblue"do
-                    アウター    
+                    =@item.category.name
+                    
+
               .table-contents
                 .table-left
                   ブランド
                 .table-right
-                  aa
+                  = @item.brand.name
               .table-contents
                 .table-left
                   商品のサイズ
                 .table-right
-                  aa
+                  =@item.size.value
               .table-contents
                 .table-left
                   商品の状態
                 .table-right
-                  新品/未使用
+                  = @item.condition.value
               .table-contents
                 .table-left
                   配送料の負担
                 .table-right
-                  送料込み（出品者負担）  
+                  = @item.cost.value
               .table-contents
                 .table-left
                   発送元の地域
                 .table-right
                   = link_to "#",class:"skyblue"do
-                    北海道  
+                    = @item.shipment_source.name
               .table-contents
                 .table-left
                   発送日の目安
                 .table-right
-                  1-2日で発送
+                  = @item.days_to_ship.value
+
+          
+            -if @item.buyer_id.blank? && @item.seller_id == current_user.id
+              = link_to '編集画面に進む',edit_item_path(@item), class:'itembuy-price-box', id:'itembuy-price-box__decoration'
+            - else
+              = link_to '購入画面に進む',purchases_items_path(@item), class:'itembuy-price-box', id:'itembuy-price-box__decoration'
+        
+          
+
           .Main__show__contentRight__topContent__itemBox__optionalArea
             %ul.optinalArea2
               %li.optinalArea3
-              = link_to "#",class:"optinalArea4" do
-                = icon'fas', 'star'
-                お気に入り  1
-              %li.optinalArea5
-              = link_to "#",class:"optinalArea6" do
-                = icon'fas', 'flag'
-                不適切な商品の通報
+               
+                -# -if !@item.likes.include?(current_user)
+                = link_to likes_path(item_id: @item.id),class:"optinalArea4", method: :post do
+                  = icon'fas', 'star',class:"like-btn"
+                  お気に入り
+                  = @item.likes.count
+                -# - else
+                -#   = link_to likes_path(item_id: item.id), method: :delete do 
+                -#     = icon'fas', 'star',class:"unlike-btn"
+               
+                
+    
+  
+              
+
+
+
+
+
+              -# %li.optinalArea5
+              -# = link_to "#",class:"optinalArea6" do
+              -#   = icon'fas', 'flag'
+              -#   不適切な商品の通報
+              
+              
+              -# = link_to "",class:"optinalArea6" do
+              -#   = icon'fas', 'flag'
+              -#     不適切な商品の通報
+              -#     .overlay
+              -#       .modalWindow
+              -#         .modal-message-box
+              -#           %div 確認
+              -#           %div 本当に通報しますか？
+              -#         .modal-close-btn キャンセル
+              -#         .delete-comformation-btn 通報する
                 
         .commentBox
           .commentBox__commentContents
@@ -95,38 +140,48 @@
             = link_to "/",class:"commentBox__button__commnets__btn" do
               = icon'fas', 'comment' 
               コメントする
-            
-      %ul.Main__show__contentRight__links
-        %li.Main__show__contentRight__links__links2
-          = link_to "#",class:"before__item" do
-            = icon'fas', 'angle-left'     
-            %span
-            前の商品
-        %li.links3
-          = link_to "#",class:"after__item" do 
-            %span
-            後ろの商品
-            = icon'fas', 'angle-right'
+              
 
-      .Main__show__contentRight__relatedItems
+           
+        %ul.Main__show__contentRight__links
+          %li.Main__show__contentRight__links__links2
+            - if @prev_item3.present? 
+              = link_to purchases_items_path(@prev_product),class:"before__item" do  
+                = icon'fas', 'angle-left'   
+                = @prev_item3.name
+    
+          %li.links3
+            - if @next_item3.present?  
+              = link_to purchases_items_path(@next_product),class:"after__item" do 
+                = @next_item3.name
+                = icon'fas', 'angle-right'
+
+      
         %li.Main__show__contentRight__relatedItems__relatedItems2
-          = link_to "#",class:"Main__show__contentRight__relatedItems__relatedItems2__relatedItems3" do
-            ベビー・キッズをもっと見る
+          = link_to "items_path",class:"Main__show__contentRight__relatedItems__relatedItems2__relatedItems3" do
+            →その他の商品をもっと見る
+            
+      .Main__show__contentRight__relatedItems
         .Main__show__contentRight__relatedItems__puroductLists
-          .Main__show__contentRight__relatedItems__puroductLists__puroductList
-            = link_to "#",class:"product--img" do
-              .productList--img
-                =image_tag("product-image-06.jpeg",width: '200',height: '170', alt: "画像") 
-              .productList--body
-                product3
-                .detail
-                  %ul.detail2
-                    %li.detail3
-                      30000円
-                    %li.detail4
-                      = icon'fas', 'star' 
-                      1
-                  %p.detail5
-                    (税込)
-
+          -@items.first(2).each do |item|
+            .Main__show__contentRight__relatedItems__puroductLists__puroductList
+              = link_to item_path(id: @item.id),class:"product--img" do
+                = image_tag item.images.first.photo, size: '200x170'
+                .productList--img
+                .productList--body
+                  = item.name
+                  .detail
+                    %ul.detail2
+                      %li.detail3
+                        = item.price
+                        円
+                      %li.detail4
+                        = icon'fas', 'star',class:"like-btn" 
+                        = @item.likes.count
+                    %p.detail5
+                      (税込)
+          
 = render "items/footer"
+.New-createBtn
+  %span.New-createBtn__text 出品する
+  = link_to image_tag("icon_camera.png",width: '54',alt: "画像",class: "New-createBtn__icon")

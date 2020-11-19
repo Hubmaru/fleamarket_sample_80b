@@ -70,3 +70,8 @@ gem "font-awesome-sass", '~>5.4.1'
 gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
+
+gem 'active_hash', '~> 2.3.0' 
+gem 'ancestry'
+
+gem 'jquery-rails'

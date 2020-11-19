@@ -97,6 +97,35 @@ body {
                         }
                     }
                 
+                    .itembuy-price-box{
+                        font-size: 24px;
+                        line-height: 60px;
+                        display: block;
+                        background: #ea352d;
+                        color: #fff;
+                        text-align: center;
+                        font-weight: 600;
+                    }
+
+                    .itembuy-price-box2{
+                        font-size: 24px;
+                        line-height: 60px;
+                        display: block;
+                        margin-top: 16px;
+                        background: #aaa;
+                        color: blue;
+                        text-align: center;
+                        font-weight: 600;
+                    }
+
+
+                
+
+
+
+
+
+
                     &__optionalArea {
                         .optinalArea2{
                             list-style: none;
@@ -110,8 +139,22 @@ body {
                                 border-radius: 40px;
                                 color: #3CCACE;
                                 border: 1px solid #ffb340;
-                                margin: 0 300px 0 40px
-                                
+                                margin: 0 300px 0 40px;
+
+                                .like-btn {
+                                    width: 15px;
+                                    height: 10px;
+                                    font-size: 15px;
+                                    color: yellow; 
+                                    margin-left: 20px;
+                                } 
+                                .unlike-btn {
+                                    width: 15px;
+                                    height: 10px;
+                                    font-size: 15px;
+                                    color: #e54747;
+                                    margin-left: 20px;
+                                } 
                             }
                             .optinalArea6{
                                 text-decoration: none;
@@ -189,40 +232,42 @@ body {
 
             &__relatedItems{
                 height: 328px;
-                background-color: #f8f8f8;
                 &__relatedItems2{
                     padding-bottom:20px;
                     &__relatedItems3{
-                        background-color: #f8f8f8;
                         float:left;
-                        font-size:24px;
+                        font-size:20px;
                         display: block;
                         color: #3CCACE;
                         text-decoration: none;
                         font-weight: bold;
-                        padding-bottom:20px;
-                        padding-top:20px;
+                        padding-bottom:40px;
+                        padding-top:-30px;
                     }
                 }    
             
                 &__puroductLists{
                     padding:20 0 0 0px;
-                    background-color: white;
-                    align-content: center;
                     width: 229px;
                     height: 245px;
                     text-decoration: none;
+                    display:flex;
+
+
                     &__puroductList{
+                        display:flex;
+                        justify-content: space-around;
                         .product--img{
                             text-decoration: none;
+                            
                         }
                         .productList--img{
                             color:white;
-                            margin-top:10px;
+                            margin-top:50px;
                             text-decoration: none;
                         }
                         .productList--body {
-                            background-color: white;
+                            // background-color: white;
                             overflow: hidden;
                             line-height: 1.5;
                             font-size: 16px;
@@ -236,7 +281,7 @@ body {
                                 .detail2{
                                     margin:0;
                                     display: flex;
-                                    justify-content: space-between;
+                                    justify-content: center;
                                     text-decoration: none;
                                     color:black;
                                     .detail3{
@@ -255,10 +300,15 @@ body {
                                 .detail5{
                                     font-size:10px;
                                     text-align: center;
+                    
                                 }
                             }
                         }
-                    }
+                    } 
+
+                    
+
+                    
                 }
             }
         }      
