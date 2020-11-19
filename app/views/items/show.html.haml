@@ -92,41 +92,12 @@
             %ul.optinalArea2
               %li.optinalArea3
                
-                -# -if !@item.likes.include?(current_user)
+                
                 = link_to likes_path(item_id: @item.id),class:"optinalArea4", method: :post do
                   = icon'fas', 'star',class:"like-btn"
                   お気に入り
                   = @item.likes.count
-                -# - else
-                -#   = link_to likes_path(item_id: item.id), method: :delete do 
-                -#     = icon'fas', 'star',class:"unlike-btn"
-               
-                
-    
-  
-              
-
-
-
-
-
-              -# %li.optinalArea5
-              -# = link_to "#",class:"optinalArea6" do
-              -#   = icon'fas', 'flag'
-              -#   不適切な商品の通報
-              
-              
-              -# = link_to "",class:"optinalArea6" do
-              -#   = icon'fas', 'flag'
-              -#     不適切な商品の通報
-              -#     .overlay
-              -#       .modalWindow
-              -#         .modal-message-box
-              -#           %div 確認
-              -#           %div 本当に通報しますか？
-              -#         .modal-close-btn キャンセル
-              -#         .delete-comformation-btn 通報する
-                
+                     
         .commentBox
           .commentBox__commentContents
             %textarea{type: "text_area", class: "commentBox__commentContents__text_area"}
