@@ -1,0 +1,44 @@
+.Page
+  .HeadContent
+    = render "devise/shared/header"
+
+  .MainSpaceCard
+    .MainSpaceCard__Title
+      クレジットカード登録
+    .MainSpaceCard__Contents
+      = form_with url:card_index_path, method: :post, html: {class: "form"}, local: true do |f|
+        .Form__CardInfo--Num
+          = f.label :カード番号, class: 'FormTitle'
+          = f.label :必須, class: 'Mandatory'
+          = f.text_field :card_number, name: "card_number", id:"card_number", type: "text", placeholder: '半角数字のみ', autofocus: true, class: 'input-default', maxlength: "16"
+          %ul.Credit_Icons
+            %li
+              = icon 'fab', 'fab fa-cc-jcb fa-3x', class: 'credit-icon'
+            %li
+              = icon 'fab', 'fab fa-cc-mastercard fa-3x', class: 'credit-icon'
+            %li
+              = icon 'fab', 'fab fa-cc-visa fa-3x', class: 'credit-icon'
+            %li
+              = icon 'fab', 'fab fa-cc-diners-club fa-3x', class: 'credit-icon'
+            %li
+              = icon 'fab', 'fab fa-cc-discover fa-3x', class: 'credit-icon'
+            %li
+              = icon 'fab', 'fab fa-cc-amex fa-3x', class: 'credit-icon'
+
+        .Form__CardInfo--Priodo
+          = f.label :有効期限, class: 'FormTitle'
+          = f.label :必須, class: 'Mandatory'
+          .Form__CardInfo--Priodo__Form
+            = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], {}, class: 'input-default-harf', name: "exp_year", id:"exp_year"
+            .span 年
+            = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, class: 'input-default-harf', name: "exp_month", id:"exp_month"
+            .span 月
+        .Form__CardInfo
+          = f.label :セキュリティーコード, class: 'FormTitle'
+          = f.label :必須, class: 'Mandatory'
+          = f.text_field :cvc, name: "cvc", id:"cvc", class:"cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', maxlength: "4"
+        .ActionsCard
+          = f.submit '登録', class: 'CommitBtn', id: "charge-form"
+
+  .FootContent
+    = render "devise/shared/footer"

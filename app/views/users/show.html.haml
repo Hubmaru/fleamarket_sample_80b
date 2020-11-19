@@ -1,0 +1,201 @@
+.Page
+  .TopContents
+    = render "items/header"
+
+  .MiddleContents
+    .Sidebar
+      .Sidebar__Top
+        .Sidebar__Top__Title
+          設定
+        %ul.ConfigurationList
+          %li.ConfigurationList__Btn
+            = link_to root_path, class: 'linkBtn' do
+              トップページへ
+          %li.ConfigurationList__Btn
+            = link_to user_path(current_user.id), class: 'linkBtn' do
+              マイページへ
+          %li.ConfigurationList__Btn
+            = link_to root_path, class: 'linkBtn' do
+              出品一覧
+          %li.ConfigurationList__Btn
+            = link_to root_path, class: 'linkBtn' do
+              出品一覧（取引中）
+          %li.ConfigurationList__Btn
+            = link_to root_path, class: 'linkBtn' do
+              出品一覧（売却済み）
+          %li.ConfigurationList__Btn
+            = link_to root_path, class: 'linkBtn' do
+              購入一覧（取引中）
+          %li.ConfigurationList__Btn
+            = link_to root_path, class: 'linkBtn' do
+              購入一覧（取引完了）
+          %li.ConfigurationList__Btn
+            = link_to edit_user_path(current_user), class: 'linkBtn' do
+              プロフィール編集
+          %li.ConfigurationList__Btn
+            = link_to root_path, class: 'linkBtn' do
+              お届け先変更
+          %li.ConfigurationList__Btn
+            = link_to card_index_path, class: 'linkBtn' do
+              お支払い方法の変更
+          %li.ConfigurationList__Btn
+            = link_to root_path, class: 'linkBtn' do
+              ガイド
+          %li.ConfigurationList__Btn
+            = link_to root_path, class: 'linkBtn' do
+              お問い合わせ
+          %li.ConfigurationList__Btn
+            = link_to destroy_user_session_path, method: :delete, class: 'linkBtn' do
+              ログアウト
+
+    .MainContents
+      .MainContents__Head
+        .MainContents__Head__Left
+          ようこそ
+          = @user.nickname
+          さん
+        .MainContents__Head__Right
+          = link_to edit_user_path(current_user), class: 'linkBtn' do
+            プロフィール編集
+
+      .MainContents__Neck
+        %ul.MainContents__Neck__Business
+          %li
+            出品数：
+            3
+            -# = @user.items(seller_id).length
+          %li
+            購入数：
+            2
+            -# = @user.items(buyer_id).length
+        .MainContents__Neck__Profile
+          - if @user.introduction
+            = safe_join(@user.introduction.split("\n"),tag(:br))
+
+      .MainContents__Body
+        .MainContents__Body__Title
+          最近出品した商品
+        %ul.ItemsList
+          -# この部分は部分テンプレートにすることを検討する
+          -# - @items.each do |item|
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-05.jpg",alt: "画像",class: "image"), root_path
+              -# root_path >> item_show_view
+              -# = item.images.photo.select[1]
+            .item__name
+              仮商品名（出品）
+              -# = item.name
+            .item__info
+              .item__info__price
+                400
+                円
+                -# = item.price
+              .item__info__like
+                = icon('fa', 'star', class: "like__icon")
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-04.jpg",alt: "画像",class: "image"), root_path
+            .item__name
+              仮商品名（出品）
+            .item__info
+              .item__info__price
+                400
+                円
+              .item__info__like
+                = icon('fa', 'star', class: "like__icon")
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
+            .item__name
+              仮商品名（出品）
+            .item__info
+              .item__info__price
+                400
+                円
+              .item__info__like
+                = icon('fa', 'star', class: "like__icon")
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
+            .item__name
+              仮商品名（出品）
+            .item__info
+              .item__info__price
+                400
+                円
+              .item__info__like
+                = icon('fa', 'star', class: "like__icon")
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-01.jpg",alt: "画像",class: "image"), root_path
+            .item__name
+              仮商品名（出品）
+            .item__info
+              .item__info__price
+                400
+                円
+              .item__info__like
+                = icon('fa', 'star', class: "like__icon")
+
+        .MainContents__Body__Title
+          最近購入した商品
+        %ul.ItemsList
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-05.jpg",alt: "画像",class: "image"), root_path
+              -# 以下は部分テンプレートにすることを検討する
+              -# = @items.each do |item|
+              -# root_path >> item_show_view
+              -# = item.images.photo.select[1]
+            .item__name
+              仮商品名（購入）
+              -# = item.name
+            .item__info
+              .item__info__price
+                400
+                円
+                -# = item.price
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
+            .item__name
+              仮商品名（購入）
+            .item__info
+              .item__info__price
+                400
+                円
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-02.jpg",alt: "画像",class: "image"), root_path
+            .item__name
+              仮商品名（購入）
+            .item__info
+              .item__info__price
+                400
+                円
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
+            .item__name
+              仮商品名（購入）
+            .item__info
+              .item__info__price
+                400
+                円
+          %li.item
+            .item__image
+              = link_to image_tag("/images/product-image-01.jpg",alt: "画像",class: "image"), root_path
+            .item__name
+              仮商品名（購入）
+            .item__info
+              .item__info__price
+                400
+                円
+
+  .ButtomContents
+    = render "items/footer"
+
+  .New-createBtn
+    %span.New-createBtn__text 出品する
+    = link_to image_tag("/images/icon_camera.png",width: '54',alt: "画像",class: "New-createBtn__icon")

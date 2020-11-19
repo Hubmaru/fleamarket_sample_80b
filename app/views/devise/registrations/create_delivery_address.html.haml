@@ -1,0 +1,13 @@
+.Page
+  .HeadContent
+    = render "devise/shared/header"
+
+  .MainSpace
+    .MainSpace__Signin
+      登録が完了しました
+    .Actions
+      = link_to root_path, class: "CommitBtn" do
+        トップへ戻る
+
+  .FootContent
+    = render "devise/shared/footer"

@@ -17,11 +17,11 @@
 ## Association
 - has_many: seller_items, foreign_key: :seller_id, class_name: :items
 - has_many: buyer_items, foreign_key: :buyer_id, class_name: :items
-- has_many: credits, dependent: :destroy
-- has_many: deliveries_addresses, dependent: :destroy
+- has_one: card, dependent: :destroy
+- has_one: delivery_address, dependent: :destroy
 
 
-## creditsテーブル
+## cardsテーブル
 
 |Colum|Type|Options|
 |------|----|------|
@@ -43,11 +43,11 @@
 |postal_code|string|null: false|
 |prefecture|string|null: false|
 |municipality|string|null: false|
-|address|integer|null: false|
+|address|string|null: false|
 |apartment_name|string||
-|apartment_room_number|integer||
-|phone|string|null: false, unique: true|
-|user_id|integer|null: false, foreign_key: true|
+|apartment_room_number|string||
+|phone|string||
+|user_id|reference|null: false, foreign_key: true|
 ## Association
 - belongs_to: user
 
@@ -69,7 +69,6 @@
 |buyer_id|integer|foreign_key: true|
 ## Association
 - has_many: images, dependent: :destroy
-- has_one: purchase
 - belongs_to: brand
 - belongs_to: category
 - has_one_active_hash: cost

@@ -12,7 +12,7 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
+# gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -39,6 +39,10 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -66,6 +70,7 @@ group :production do
 end
 
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
+
 gem "font-awesome-sass", '~>5.4.1'
 gem 'devise'
 gem 'carrierwave'
@@ -73,5 +78,8 @@ gem 'fog-aws'
 
 gem 'active_hash', '~> 2.3.0' 
 gem 'ancestry'
-
-gem 'jquery-rails'
+gem 'payjp'
+gem 'dotenv-rails'
+gem "jquery-rails"
+gem 'rmagick'
+gem 'mini_magick'
