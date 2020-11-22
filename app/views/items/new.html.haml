@@ -58,24 +58,24 @@
         %p1 商品の状態
         %p2 必須
         .Details__cindition__text
-          = collection_select :item, :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, {class: 'Details__condition__select'}
+          = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, {class: 'Details__condition__select'}
     .Delivery
       .Delivery__title 配送について
       .Delivery__cost
         %p1 配送料の負担
         %p2 必須
         .Delivery__cost__text
-          = collection_select :item, :cost_id, Cost.all, :id, :name, {prompt: "選択してください"}, {class: 'Delivery__cost__select'}
+          = f.collection_select :cost_id, Cost.all, :id, :name, {prompt: "選択してください"}, {class: 'Delivery__cost__select'}
       .Delivery__area
         %p1 配送元の地域
         %p2 必須
         .Delivery__area__text
-          = collection_select :item, :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: 'Delivery__area__select'}
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: 'Delivery__area__select'}
       .Delivery__date
         %p1 配送までの日数
         %p2 必須
         .Delivery__date__text
-          = collection_select :item, :days_id, Days.all, :id, :name, {prompt: "選択してください"}, {class: 'Delivery__date__select'}
+          = f.collection_select :days_id, Days.all, :id, :name, {prompt: "選択してください"}, {class: 'Delivery__date__select'}
     .Price
       .Price__title 価格
       .Price__selling
@@ -86,7 +86,7 @@
         = f.text_field :price, placeholder: "100~9,999,999", maxlength: "9", class: 'Price__yen__input'
     .Listing
       = f.submit '出品する', class: "Listing__sell"
-      = link_to root_path(), class: "Listing__tpo" do
+      = link_to root_path(current_user), class: "Listing__tpo" do
         トップページに戻る
         
 %footer
