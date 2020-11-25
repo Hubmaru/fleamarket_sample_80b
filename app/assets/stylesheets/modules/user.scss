@@ -66,6 +66,7 @@
 
 .Page {
   background-color: rgb(240, 240, 240);
+  width: 100%;
 
 // 以下はトップページのheaderとは違うheaderのscss
   .DeviseHead {
@@ -193,6 +194,10 @@
   }
 
   // 以下はユーザーマイページのscss
+  .TopContents {
+    display: flex;
+    justify-content: center;
+  }
   .MiddleContents {
     display: flex;
     justify-content: space-between;
