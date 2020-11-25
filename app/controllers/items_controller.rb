@@ -13,10 +13,10 @@ class ItemsController < ApplicationController
     @user = User.find(params[:id])
 
     
-    @next_item = Item.where("id > ?", @next_item).order("id ASC").first
+    @next_item = Item.where("id > ?", @item).order("id ASC").first
     
     
-    @prev_item =Item.where("id < ?", @prev_item).order("id DESC").first
+    @prev_item =Item.where("id < ?", @item).order("id DESC").first
     
   end
 

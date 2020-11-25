@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :items, only: [:index, :create]
   
+  resources :items do
+
+    collection do
+    resources :likes, only: [:index, :create]
+    end
+  end
 
   get 'card/new'
   get 'card/show'
