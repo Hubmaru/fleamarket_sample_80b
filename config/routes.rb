@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  get  'likes/index'
-  post '/likes', to: 'likes#create'
+  resources :items, only: [:index, :create]
   
 
   get 'card/new'

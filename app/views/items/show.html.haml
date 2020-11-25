@@ -119,15 +119,15 @@
            
         %ul.Main__show__contentRight__links
           %li.Main__show__contentRight__links__links2
-            - if @prev_item3.present? 
+            - if @prev_item.present? 
               = link_to purchases_items_path(@prev_product),class:"before__item" do  
                 = icon'fas', 'angle-left'   
-                = @prev_item3.name
+                = @prev_item.name
     
           %li.links3
-            - if @next_item3.present?  
+            - if @next_item.present?  
               = link_to purchases_items_path(@next_product),class:"after__item" do 
-                = @next_item3.name
+                = @next_item.name
                 = icon'fas', 'angle-right'
 
       

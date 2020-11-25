@@ -5,20 +5,18 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.new
 
     @item = Item.find(params[:id])
-
+  
     @items = Item.all
 
-    @user = User.new
     @user = User.find(params[:id])
 
-    @next_item2 = @item.id
-    @next_item3 = Item.where("id > ?", @next_item2).order("id ASC").first
     
-    @prev_item2 = @item.id
-    @prev_item3 =Item.where("id < ?", @prev_item2).order("id DESC").first
+    @next_item = Item.where("id > ?", @next_item).order("id ASC").first
+    
+    
+    @prev_item =Item.where("id < ?", @prev_item).order("id DESC").first
     
   end
 
