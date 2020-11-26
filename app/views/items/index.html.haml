@@ -95,8 +95,7 @@
           %li.List
           - @items.first(5).each do |item| 
             = link_to item_path(id: item.id), class: "List__link" do
-              -# -if item.images.first.photo.present?
-              = image_tag item.images.photo.url class: "List__img"
+              = image_tag item.images.first.photo.url, class: "List__img"
               .List__body
                 %h3.List__body__name
                   = item.name
@@ -121,7 +120,7 @@
           %li.List
           - @items.first(5).each do |item| 
             = link_to item_path(id: item.id), class: "List__link" do
-              = image_tag item.images.first.photo, class: "List__img"
+              = image_tag item.images.first.photo.url, class: "List__img"
               .List__body
                 %h3.List__body__name
                   = item.name
