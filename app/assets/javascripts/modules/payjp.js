@@ -16,8 +16,13 @@ $(function() {
     Payjp.createToken(card, function(status, response) {
       if (response.error){
         // エラーがある場合処理しない。
-        form.find('.payment-errors').text(response.error.message);
-        form.find('button').prop('disabled', false);
+        alert('入力項目が正しくありません。')
+        // form.find('.payment-errors').text(response.error.message);
+        $("#card_number").val('');
+        $("#cvc").val('');
+        $("#exp_month").val('');
+        $("#exp_year").val('');
+        $('.CommitBtn').prop('disabled', false);
       }   
       else {
         // エラーなく進めた場合
