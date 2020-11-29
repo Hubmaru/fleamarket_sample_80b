@@ -2,7 +2,7 @@ $(function() {
   Payjp.setPublicKey('pk_test_4ae4a6da796eb254743e6bda');
 
   $(".form").on('submit', function(e) {
-
+    e.preventDefault();
     let form = $(".form");
     // formで入力された、カード情報を取得します。
     let card = {
@@ -37,6 +37,5 @@ $(function() {
         form.get(0).submit();
       };
     });
-    e.preventDefault();
   });
 });

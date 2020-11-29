@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe DeliveryAddress do
+describe DeliveryAddress, type: :model do
   describe '#create' do
     it "is valid with a delivery_family_name, delivery_last_name, delivery_family_name_kana, delivery_last_name_kana, postal_code, prefecture, municipality, address, user_id" do
       delivery_address = build(:delivery_address)
