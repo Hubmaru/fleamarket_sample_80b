@@ -1,21 +1,18 @@
 class Item < ApplicationRecord
+  has_many :images, dependent: :destroy
+  belongs_to :buyer, class_name: "User", optional: true
+  belongs_to :seller, class_name: "User"
+  belongs_to :category
+  accepts_nested_attributes_for :images, allow_destroy: true
+  validates :name, :text, :prefecture_id, :condition_id, :cost_id, :days_id, :seller_id, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 100, less_than_or_equal_to: 9999999 }
+  validates :images, presence: true, length: {minimum: 1, maximum: 10}
+  has_many :likes
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :cost
+  belongs_to_active_hash :days
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :size
 
-    has_many :images, dependent: :destroy
-    belongs_to :buyer, class_name: :user 
-    belongs_to :seller, class_name: :user
-    has_one :purchase
-    belongs_to :brand
-    accepts_nested_attributes_for :images, allow_destroy: true
-    belongs_to :category
-    extend ActiveHash::Associations::ActiveRecordExtensions
-    belongs_to_active_hash :condition
-    belongs_to_active_hash :size
-    belongs_to_active_hash :shipment_source
-    belongs_to_active_hash :days_to_ship
-    belongs_to_active_hash :status
-    belongs_to :user
-    belongs_to_active_hash :cost
-    has_many :likes
-    validates :name, :text, :price, :shipment_source, :condition, presence: true
-    
 end

@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_11_18_114509) do
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "customer_id", null: false
@@ -27,10 +21,11 @@ ActiveRecord::Schema.define(version: 2020_11_18_114509) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "delivery_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -62,15 +57,25 @@ ActiveRecord::Schema.define(version: 2020_11_18_114509) do
     t.string "name", null: false
     t.text "text", null: false
     t.integer "price", null: false
-    t.integer "shipment_source_id", null: false
+    t.integer "prefecture_id", null: false
     t.integer "condition_id", null: false
-    t.integer "brand_id", null: false
+    t.string "brand"
     t.integer "category_id", null: false
     t.integer "cost_id", null: false
-    t.integer "days_to_ship_id", null: false
-    t.integer "seller_id", null: false
-    t.integer "buyer_id", null: false
+    t.integer "days_id", null: false
+    t.integer "seller_id"
+    t.integer "buyer_id"
     t.integer "size_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["brand"], name: "index_items_on_brand"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["condition_id"], name: "index_items_on_condition_id"
+    t.index ["cost_id"], name: "index_items_on_cost_id"
+    t.index ["days_id"], name: "index_items_on_days_id"
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

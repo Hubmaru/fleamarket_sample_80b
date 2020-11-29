@@ -21,4 +21,3 @@ class User < ApplicationRecord
   
   has_one :card, dependent: :destroy
 end
-

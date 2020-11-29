@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :get_category
 
   def index
-    @items = Item.all
+    @items = Item.includes(:images).order('created_at DESC')
   end
 
   def show
@@ -21,9 +22,18 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @item.images.new
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path, notice: '商品を出品しました'
+    else
+      flash.now[:alert] = '必須事項を入力してください'
+      render :new
+    end
   end
 
   def edit
@@ -32,38 +42,35 @@ class ItemsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    if @item.destroy
+      redirect_to root_path, notice: '商品を削除しました'
+    else
+      flash.now[:alert] = '商品を削除できませんでした'
+      render :show
+    end
   end
 
   def purchases
   end
 
   def category_children
-    @category_children = Category.find(params[:parent_name]).children
-    respond_to do |format|
-      format.html { redirect_to :root }
-      format.json { render json: @category_children}
-    end
+    @category_children = Category.find("#{params[:parent_id]}").children
   end
 
   def category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
-    respond_to do |format|
-      format.html { redirect_to :root }
-      format.json { render json: @category_grandchildren}
-    end
   end
 
   private
 
   def get_category
-    @category_parents = Category.where(ancestry: nil)
+    @category_parent = Category.where(ancestry: nil)
   end
 
 
   def item_params
-    params.require(:item).permit(:name, :text, :price, :shipment_source_id, :category_id, :condition_id, :cost_id, :days_to_ship_id, :seller_id, images_attributes: [:photo, :_destory, :id])
+    params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id, :category_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destory, :id]).merge(seller_id: current_user.id)
   end
 
 end
-
