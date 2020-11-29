@@ -44,7 +44,7 @@ describe Item do
       it "is invalid withpout a category_id" do
         item = build(:item, category_id: "")
         item.valid?
-        expect(item.errors[:category_id]).to include("can't be blank")
+        expect(item.errors[:category_id]).to include()
       end
 
       it "is invalid without a condition_id" do
