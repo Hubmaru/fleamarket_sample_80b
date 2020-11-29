@@ -2,7 +2,7 @@ $(function() {
   Payjp.setPublicKey('pk_test_4ae4a6da796eb254743e6bda');
 
   $(".form").on('submit', function(e) {
-
+    e.preventDefault();
     let form = $(".form");
     // formで入力された、カード情報を取得します。
     let card = {
@@ -16,8 +16,13 @@ $(function() {
     Payjp.createToken(card, function(status, response) {
       if (response.error){
         // エラーがある場合処理しない。
-        form.find('.payment-errors').text(response.error.message);
-        form.find('button').prop('disabled', false);
+        alert('入力項目が正しくありません。')
+        // form.find('.payment-errors').text(response.error.message);
+        $("#card_number").val('');
+        $("#cvc").val('');
+        $("#exp_month").val('');
+        $("#exp_year").val('');
+        $('.CommitBtn').prop('disabled', false);
       }   
       else {
         // エラーなく進めた場合
@@ -27,10 +32,10 @@ $(function() {
         $("#exp_month").removeAttr("name");
         $("#exp_year").removeAttr("name");
         let token = response.id;
+        console.log(token);
         form.append($('<input type="hidden" name="payjpToken" />').val(token));
         form.get(0).submit();
       };
     });
-    e.preventDefault();
   });
 });
