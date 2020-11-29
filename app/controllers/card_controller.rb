@@ -13,7 +13,7 @@ class CardController < ApplicationController
 
   def new
     @card = Card.find_by(user_id: current_user.id)
-    redirect_to action: "index" if @card.present?    
+    redirect_to action: "index" if @card.present?
   end
 
   def create
@@ -65,7 +65,7 @@ class CardController < ApplicationController
       # フラッシュメッセージを導入する
       flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
-      # 購入者もいないし、クレジットカードもあるし、決済処理に移行
+      # 購入者なし、クレジットカードもあるし、決済処理に移行
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       # 請求を発行
       Payjp::Charge.create(
