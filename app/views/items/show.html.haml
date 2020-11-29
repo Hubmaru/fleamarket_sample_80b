@@ -55,7 +55,7 @@
                 .table-left
                   ブランド
                 .table-right
-                  = @item.brand.name
+                  = @item.brand
               .table-contents
                 .table-left
                   商品のサイズ
@@ -76,12 +76,12 @@
                   発送元の地域
                 .table-right
                   = link_to "#",class:"skyblue"do
-                    = @item.shipment_source.name
+                    = @item.prefecture.name
               .table-contents
                 .table-left
                   発送日の目安
                 .table-right
-                  = @item.days_to_ship.value
+                  = @item.days.value
 
           
             -if @item.buyer_id.blank? && @item.seller_id == current_user.id
