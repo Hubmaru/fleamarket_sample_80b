@@ -137,7 +137,9 @@
                     (税込)
 
 = render "items/footer"
-.New-createBtn
-  %span.New-createBtn__text 購入する
-  = link_to new_item_path, class:"path" do
-    = image_tag "/images/icon_camera.png",width: '54',alt: "画像",class: "New-createBtn__icon"
+
+- unless @item.buyer.present? 
+  .New-createBtn
+    %span.New-createBtn__text 購入する
+    = link_to new_item_path, class:"path" do
+      = image_tag "/images/icon_camera.png",width: '54',alt: "画像",class: "New-createBtn__icon"
