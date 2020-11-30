@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  
+  resources :items do
+    resources :comments, only: :create
+  end
+
   resources :items do
     collection do
     resources :likes, only: [:index, :create]

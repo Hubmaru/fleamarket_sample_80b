@@ -12,13 +12,13 @@
             .itemBox3
 
             - @item.images.each do |image|
-              = image_tag image.photo, size: '450x400'
+              = image_tag image.photo.url, size: '450x400'
               
               %ul
               - @item.images.each do |image|
-                = image_tag image.photo, size: '100x100'
+                = image_tag image.photo.url, size: '100x100'
               - @item.images.each do |image|
-                = image_tag image.photo, size: '100x100'
+                = image_tag image.photo.url, size: '100x100'
 
 
 
@@ -65,12 +65,12 @@
                 .table-left
                   商品の状態
                 .table-right
-                  = @item.condition.value
+                  = @item.condition.name
               .table-contents
                 .table-left
                   配送料の負担
                 .table-right
-                  = @item.cost.value
+                  = @item.cost.name
               .table-contents
                 .table-left
                   発送元の地域
@@ -81,7 +81,7 @@
                 .table-left
                   発送日の目安
                 .table-right
-                  = @item.days.value
+                  = @item.days.name
 
           
             -if @item.buyer_id.blank? && @item.seller_id == current_user.id
@@ -103,7 +103,8 @@
                      
         .commentBox
           .commentBox__commentContents
-            %textarea{type: "text_area", class: "commentBox__commentContents__text_area"}
+            -# = form_for model: [@item, @commnet], html: {class: "Form"}, local: true do |f|
+              -# = f.textarea, class: "commentBox__commentContents__text_area"
           
           .commentBox__noticeMsg
             相手のことを考え丁寧なコメントを心がけましょう。
@@ -111,12 +112,22 @@
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
 
           .commentBox__button
-            = link_to "/",class:"commentBox__button__commnets__btn" do
-              = icon'fas', 'comment' 
-              コメントする
+            
+            -# = f.submit,'コメントする',item_path(item_id: @item.id),class:"commentBox__button__commnets__btn" do
+            -#   = icon'fas', 'comment' 
+          
+
+              
+               
               
 
-           
+          .comments
+            コメント一覧
+          -if @comments.present?
+            - @comments.each do |comment|
+              = link_to comment.user.nickname, "/users/#{comment.user_id}" 
+              = comment.text 
+        
         %ul.Main__show__contentRight__links
           %li.Main__show__contentRight__links__links2
             - if @prev_item.present? 
@@ -141,7 +152,7 @@
           -@items.first(2).each do |item|
             .Main__show__contentRight__relatedItems__puroductLists__puroductList
               = link_to item_path(id: @item.id),class:"product--img" do
-                = image_tag item.images.first.photo, size: '200x170'
+                = image_tag item.images.first.photo.url, size: '200x170'
                 .productList--img
                 .productList--body
                   = item.name

@@ -13,11 +13,13 @@ class ItemsController < ApplicationController
 
     @user = User.find(params[:id])
 
-    
     @next_item = Item.where("id > ?", @item).order("id ASC").first
     
-    
     @prev_item =Item.where("id < ?", @item).order("id DESC").first
+
+
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
     
   end
 
