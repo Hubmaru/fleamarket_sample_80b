@@ -141,5 +141,11 @@
 - unless @item.buyer.present? 
   .New-createBtn
     %span.New-createBtn__text 購入する
-    = link_to new_item_path, class:"path" do
+    = link_to purchases_item_path(@item.id), class:"path" do
       = image_tag "/images/icon_camera.png",width: '54',alt: "画像",class: "New-createBtn__icon"
+
+      -# if @item.seller_id == current.user_id  その商品詳細ページを開いている人が出品者であること
+      -#   編集（削除）画面へ
+      -# elsif @item.buyer.blunk?  購入者が存在していないこと
+      -#   購入画面へ
+      -# end
