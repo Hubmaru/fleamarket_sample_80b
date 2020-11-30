@@ -170,12 +170,47 @@ body{
         padding: 2px;
       }
 
+      &__size {
+        padding: 5px 0 5px 10px;
+
+        &__parent {
+          
+          #parent_size {
+            width: 49%;
+            padding: 5px;
+            margin-top: 10px;
+          }
+        }
+
+        &__children {
+
+          #children_size {
+            width: 49%;
+            padding: 5px;
+            margin-top: 10px;
+          }
+        }
+      }
+
+      &__size p1 {
+        font-size: 15px;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+
+      &__size p2 {
+        background-color: #3ccace;
+        color: #fff;
+        font-size: 15px;
+        border-radius: 2px;
+        padding: 2px;
+      }
+
       &__brand {
         padding: 5px 0 5px 10px;
 
         &__text {
           
-
           #item_brand {
             padding: 5px;
             margin-top: 10px;
