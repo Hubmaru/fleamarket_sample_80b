@@ -1,3 +1,4 @@
+
 class Size < ActiveHash::Base
     include ActiveHash::Associations
     self.data = [
@@ -164,3 +165,5 @@ class Size < ActiveHash::Base
     ]
   end
   
+
+

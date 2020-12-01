@@ -10,7 +10,7 @@
         .Form__CardInfo--Num
           = f.label :カード番号, class: 'FormTitle'
           = f.label :必須, class: 'Mandatory'
-          = f.text_field :card_number, name: "card_number", id:"card_number", type: "text", placeholder: '半角数字のみ', autofocus: true, class: 'input-default', maxlength: "16"
+          = f.text_field :card_number, name: "card_number", id:"card_number", type: "text", placeholder: '半角数字のみ', class: 'input-default', maxlength: "16"
           %ul.Credit_Icons
             %li
               = icon 'fab', 'fab fa-cc-jcb fa-3x', class: 'credit-icon'

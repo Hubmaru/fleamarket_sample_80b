@@ -31,7 +31,7 @@ $(function(){
     if (parentId != "") {
       $.ajax( {
         type: 'GET',
-        url: 'category_children',
+        url: '/items/:id/category_children',
         data: { parent_id: parentId },
         dataType: 'json'
       })
@@ -43,8 +43,6 @@ $(function(){
           insertHTML += appendOption(child);
         });
         appendChildrenBox(insertHTML);
-        
-        
       })
 
       .fail(function() {
@@ -61,7 +59,7 @@ $(function(){
     let childId = $('#children_category').val();
     if (childId != "" && childId != 22 && childId != 38 && childId != 49 && childId != 61 && childId != 74 && childId != 84 && childId != 94 && childId != 103 && childId != 111 && childId != 119 && childId != 127 && childId != 136){
       $.ajax({
-        url: 'category_grandchildren',
+        url: '/items/:id/category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         datatype: 'json'

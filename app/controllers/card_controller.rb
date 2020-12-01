@@ -5,7 +5,7 @@ class CardController < ApplicationController
 
   def index
     if @card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.retrieve(customer.default_card)
     end
@@ -13,15 +13,15 @@ class CardController < ApplicationController
 
   def new
     @card = Card.find_by(user_id: current_user.id)
-    redirect_to action: "index" if @card.present?    
+    redirect_to action: "index" if @card.present?
   end
 
   def create
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     # jsで作成したpayjpTokenがちゃんと入っているか？
     if params['payjpToken'].blank?
       # トークンが空なら戻す
+      # binding.pry
       render "new"
     else
       # トークンがちゃんとあれば進めて、PAY.JPに登録されるユーザーを作成します。
@@ -45,7 +45,7 @@ class CardController < ApplicationController
   def destroy     
     # 今回はクレジットカードを削除するだけでなく、PAY.JPの顧客情報も削除する。
     # PAY.JPの秘密鍵をセットして、PAY.JPから情報をする。
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     # PAY.JPの顧客情報を取得
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
@@ -65,8 +65,8 @@ class CardController < ApplicationController
       # フラッシュメッセージを導入する
       flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
-      # 購入者もいないし、クレジットカードもあるし、決済処理に移行
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      # 購入者なし、クレジットカードもあるし、決済処理に移行
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       # 請求を発行
       Payjp::Charge.create(
       amount: @item.price,

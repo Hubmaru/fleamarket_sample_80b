@@ -475,3 +475,65 @@ etc_stationery.children.create([{:name => "筆記具"}, {:name => "ノート/メ
   {:name => "その他"}])
 etc_office.children.create([{:name => "オフィス用品一般"}, {:name => "オフィス家具"}, {:name => "店舗用品"},
   {:name => "OA機器"}, {:name => "ラッピング/包装"}, {:name => "その他"}])
+
+
+
+clothes = Size.create(:name => "洋服のサイズ")
+ladys_shoes = Size.create(:name => "レディース靴のサイズ")
+mens_shoes = Size.create(:name => "メンズ靴のサイズ")
+skirts = Size.create(:name => "スカートのサイズ")
+kids_clothes = Size.create(:name => "キッズ服のサイズ")
+kids_shoes = Size.create(:name => "ベビー・キッズ靴のサイズ")
+babies_clothes = Size.create(:name => "ベビー服のサイズ")
+tvs = Size.create(:name => "テレビのサイズ")
+cameras = Size.create(:name => "カメラレンズのサイズ")
+automobiles = Size.create(:name => "オートバイのサイズ")
+helmets = Size.create(:name => "ヘルメットのサイズ")
+tires = Size.create(:name => "タイヤのサイズ")
+skies = Size.create(:name => "スキーのサイズ")
+snow_board = Size.create(:name => "スノーボードのサイズ")
+
+clothes_size = clothes.children.create([{:name => "XXS以下"}, {:name => "XS(SS)"}, {:name => "S"},
+  {:name => "M"}, {:name => "L"}, {:name => "XL(LL)"}, {:name => "2XL(3L)"},
+  {:name => "3XL(4L)"}, {:name => "4XL(5L)以上"}, {:name => "FREE SIZE"}])
+ladys_shoes_size = ladys_shoes.children.create([{:name => "20cm以下"}, {:name => "20.5cm"}, {:name => "21cm"},
+  {:name => "21.5cm"}, {:name => "22cm"}, {:name => "22.5cm"}, {:name => "23cm"},
+  {:name => "23.5cm"}, {:name => "24cm"}, {:name => "24.5cm"}, {:name => "25cm"},
+  {:name => "25.5cm"}, {:name => "26cm"}, {:name => "26.5cm"}, {:name => "27cm"},
+  {:name => "27.5cm以上"}])
+mens_shoes_size = mens_shoes.children.create([{:name => "23.5cm以下"}, {:name => "24cm"}, {:name => "24.5cm"},
+  {:name => "25cm"}, {:name => "25.5cm"}, {:name => "26cm"}, {:name => "26.5cm"},
+  {:name => "27m"}, {:name => "27.5cm"}, {:name => "28cm"}, {:name => "28.5cm"},
+  {:name => "29cm"}, {:name => "29.5cm"}, {:name => "30cm"}, {:name => "30.5cm"},
+  {:name => "31cm以上"}])
+skirts_size = skirts.children.create([{:name => "60cm以下"}, {:name => "~70cm"}, {:name => "~80cm"},
+  {:name => "~90cm"}, {:name => "90cm以上"}])
+kids_clothes_size = kids_clothes.children.create([{:name => "100cm"}, {:name => "110cm"}, {:name => "120cm"},
+  {:name => "130cm"}, {:name => "140cm"}, {:name => "150cm"},
+  {:name => "160cm"}])
+kids_shoes_size = kids_shoes.children.create([{:name => "10.5cm以下"}, {:name => "11cm/11.5cm"}, {:name => "12cm/12.5cm"},
+  {:name => "13cm/13.5cm"}, {:name => "14cm/14.5cm"}, {:name => "15cm/15.5cm"}, {:name => "16cm/16.5cm"},
+  {:name => "17cm以上"}])
+babies_clothes_size = babies_clothes.children.create([{:name => "60cm以下"}, {:name => "~70cm"}, {:name => "~80cm"},
+  {:name => "~90cm"}, {:name => "95cm"}])
+tvs_size = tvs.children.create([{:name => "~20インチ"}, {:name => "20~26インチ"}, {:name => "26~32インチ"},
+  {:name => "32~37インチ"}, {:name => "37~40インチ"}, {:name => "40~42インチ"}, {:name => "42~46インチ"},
+  {:name => "46~52インチ"}, {:name => "52~60インチ"}, {:name => "60インチ~"}])
+cameras_size = cameras.children.create([{:name => "ニコンFマウント"}, {:name => "キヤノンEFマウント"}, {:name => "ペンタックスKマウント"},
+  {:name => "ペンタックスQマウント"}, {:name => "フォーサーズマウント"}, {:name => "マイクロフォーサーズマウント"}, {:name => "α Aマウント"},
+  {:name => "α Eマウント"}, {:name => "ニコン1マウント"}, {:name => "キヤノンEF-Mマウント"}, {:name => "Xマウント"},
+  {:name => "シグマSAマウント"}])
+automobiles_size = automobiles.children.create([{:name => "50cc以下"}, {:name => "51cc-125cc"}, {:name => "126cc-250cc"},
+  {:name => "251cc-400cc"}, {:name => "401cc-750cc"}, {:name => "751cc以上"}])
+helmets_size = helmets.children.create([{:name => "XSサイズ以下"}, {:name => "Sサイズ"}, {:name => "Mサイズ"},
+  {:name => "Lサイズ"}, {:name => "XLサイズ"}, {:name => "XXLサイズ以上"},
+  {:name => "フリーサイズ"}, {:name => "子ども用"}])
+tires_size = tires.children.create([{:name => "12インチ"}, {:name => "13インチ"}, {:name => "14インチ"},
+  {:name => "15インチ"}, {:name => "16インチ"}, {:name => "17インチ"}, {:name => "18インチ"},
+  {:name => "19インチ"}, {:name => "20インチ"}, {:name => "21インチ"}, {:name => "22インチ"},
+  {:name => "23インチ"}, {:name => "24インチ"}])
+skies_size = skies.children.create([{:name => "140cm～"}, {:name => "150cm～"}, {:name => "160cm～"},
+  {:name => "170cm～"}, {:name => "子供用"}])
+snow_board_size = snow_board.children.create([{:name => "135cm-140cm未満"}, {:name => "140cm-145cm未満"}, {:name => "145cm-150cm未満"},
+  {:name => "150cm-155cm未満"}, {:name => "155cm-160cm未満"}, {:name => "160cm-165cm未満"},
+  {:name => "165cm-170cm未満"}, {:name => "子ども用"}])
