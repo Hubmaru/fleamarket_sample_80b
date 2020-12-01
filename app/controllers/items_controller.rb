@@ -17,10 +17,6 @@ class ItemsController < ApplicationController
     
     @prev_item =Item.where("id < ?", @item).order("id DESC").first
 
-
-    @comment = Comment.new
-    @comments = @item.comments.includes(:user)
-    
   end
 
   def new
