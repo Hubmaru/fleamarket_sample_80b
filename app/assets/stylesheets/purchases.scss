@@ -14,7 +14,7 @@
 
   &__header {
     width: 100vw;
-    height: calc(100vh - 90vh);
+    height: 10vh;
     background-color: whitesmoke;
     display: flex;
     align-items: center;
@@ -23,14 +23,15 @@
 
   &__main {
     width: 100vw;
-    height: calc(100vh - 20vh);
+    // height: calc(100vh - 20vh);
+    height: 100vh;
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
 
     &__check {
       width: 520px;
-      height: 560px;
+      // height: 560px;
       padding: 20px 0;
       background-color: white;
       display: flex;
@@ -126,7 +127,7 @@
 
   &__footer {
     width: 100vw;
-    height: calc(100vh - 90vh);
+    height: 10vh;
     background-color: whitesmoke;
     display: flex;
     align-items: center;
