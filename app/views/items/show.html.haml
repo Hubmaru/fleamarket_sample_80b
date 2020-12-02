@@ -11,6 +11,7 @@
           .Main__show__contentRight__topContent__itemBox__body
             .itemBox3
 
+
             - @item.images.each do |image|
               = image_tag image.photo.url, size: '450x400'
               
@@ -25,6 +26,15 @@
           .Main__show__contentRight__topContent__itemBox__price
             = @item.price
             円
+
+              = image_tag @item.images.first.photo.url, class: "List__img", width: '450', height: '400', alt: '画像'
+              -# %ul
+              -# - if @item.images.second.photo.url.present?
+              -#   = image_tag @item.images.second.photo.url, class: "List__img", width: '100', height: '100', alt: '画像'
+
+          .Main__show__contentRight__topContent__itemBox__price
+            = @item.price
+
           .Main__show__contentRight__topContent__itemBox__price-detail
             (税込)
             送料込み
@@ -122,6 +132,7 @@
       .Main__show__contentRight__relatedItems
         .Main__show__contentRight__relatedItems__puroductLists
 
+
           -@items.first(2).each do |item|
             .Main__show__contentRight__relatedItems__puroductLists__puroductList
               = link_to item_path(id: @item.id),class:"product--img" do
@@ -146,4 +157,30 @@
   %span.New-createBtn__text 出品する
   = link_to new_item_path(current_user) do
     = image_tag("icon_camera.png",width: '54',alt: "画像",class: "New-createBtn__icon")
+
+
+= render "items/footer"
+
+- if @item.buyer.blank?
+  - if user_signed_in?
+    - if @item.seller_id == current_user.id
+      .Edit_Item_Btn
+        %span.Edit_Item_Btn__Text 編集する
+        = link_to root_path do
+          = icon 'fas', 'fas fa-cog fa-3x', class: 'Edit_Item_Btn__Icon'
+    - else
+      .Purchase_Item_Btn
+        %span.Purchase_Item_Btn__Text 購入する
+        = link_to purchase_item_buyer_path("item_id": @item.id, "user_id": current_user.id) do
+          = icon 'fas', 'fas fa-shopping-cart fa-3x', class: 'Purchase_Item_Btn__Icon'
+  - else
+    .Sign_Item_Btn
+      %span.Sign_Item_Btn__Text 新規登録して購入する
+      = link_to new_user_registration_path do
+        = icon 'fas', 'fas fa-sign-in-alt fa-3x', class: 'Sign_Item_Btn__Icon'
+- else
+  .NoPurchase_Item_Btn
+    %span.NoPurchase_Item_Btn__Text 売却済
+    = link_to root_path do
+      = icon 'far', 'far fa-times-circle fa-3x', class: 'Purchase_Item_Btn__Icon'
 

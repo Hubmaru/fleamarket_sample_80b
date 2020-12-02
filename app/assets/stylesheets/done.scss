@@ -1,0 +1,45 @@
+.Page {
+  .MainSpaceDone {
+    height: 70vh;
+    background-color:white;
+    @include template_style();
+    .Done__Title {
+      font-size: 20px;
+      color: white;
+      background-color: red;
+      border-radius: 20px;
+      padding: 5px;
+    }
+    .BuyItem {
+      &__Image {
+        margin: 5px;
+      }
+      &__Detail {
+        font-weight: bold;
+        padding: 8px;
+        &__Name {
+          font-size: 20px;
+        }
+        &__Price {
+          span {
+          }
+        }
+      }
+      &__Money {
+        width: 20%;
+        font-weight: bold;
+        padding: 8px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0% 40%;
+        &__Left {
+        }
+        &__Right {
+        }
+      }
+      .Actions {
+        @include btn_style
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
 
+
   resources :items do
     collection do
     resources :likes, only: [:index, :create]
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'card/new'
   get 'card/show'
+
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -24,6 +26,13 @@ Rails.application.routes.draw do
 
   root 'items#index'
   resources :items do
+    resources :buyers, only: :index do
+      member do
+        get 'purchase', to: 'buyers#purchase'
+        get 'done', to: 'buyers#done'
+        post 'pay', to: 'buyers#pay'
+      end
+    end
     member do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
@@ -32,10 +41,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
-  resources :card, only: [:index, :new, :create, :destroy] do
-    collection do
-      post 'pay', to: 'card#pay'
-    end
-  end
+
+  resources :card, only: [:index, :new, :create, :destroy]
 
 end

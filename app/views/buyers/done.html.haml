@@ -1,0 +1,29 @@
+.Page
+  .HeadContent
+    = render "devise/shared/header"
+
+  .MainSpaceDone
+    .MainSpace__Signin
+      発送をお待ちください
+    .Done__Title
+      購入が完了しました
+    .BuyItem
+      .BuyItem__Image
+        = image_tag @item.images.first.photo.url, class: "List__img", width: '40%', height: '70%', alt: '画像'
+      .BuyItem__Detail
+        .BuyItem__Detail__Name
+          = @item.name
+        .BuyItem__Detail__Price
+          %span 
+            = "¥#{@item.price.to_s}" + "（税込み） 送料込み"
+      .BuyItem__Money
+        .BuyItem__Money__Left
+          支払金額
+        .BuyItem__Money__Right
+          = "¥#{@item.price.to_s}"
+      .Actions
+        = link_to root_path, class: "CommitBtn" do
+          トップへ戻る
+
+  .FootContent
+    = render "devise/shared/footer"
