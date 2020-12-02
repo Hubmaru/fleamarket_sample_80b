@@ -1,0 +1,61 @@
+.Purchases
+  .Purchases__header
+    = image_tag '/images/logo.png', class: 'FurimaLogo'
+
+  .Purchases__main
+    .Purchases__main__check
+      .Purchases__main__check__title
+        購入内容の確認
+
+      .Purchases__main__check__product
+        .Purchases__main__check__product__image
+          = image_tag @item.images.first.photo.url, class: "List__img", width: '50%', height: '45%', alt: '画像'
+          .Purchases__main__check__product__name
+            = @item.name
+          .Purchases__main__check__product__text
+            = @item.text
+          .Purchases__main__check__product__price
+            = "¥#{@item.price.to_s}" + "円（税込み・送料込み）"
+
+      .Purchases__main__check__paymentPrice
+        .Purchases__main__check__paymentPrice__title
+          支払い金額(税込)
+        .Purchases__main__check__paymentPrice__price
+          = "¥#{@item.price.to_s}"
+
+      .Purchases__main__check__delivery
+        .Purchases__main__check__delivery__title
+          ★配送先を確認してください。
+        .Purchases__main__check__delivery__address
+          = "#{@prefecture}" + "#{@municipality}" + "#{@address}"
+        .Purchases__main__check__delivery__address
+          = "#{@delivery_family_name}" + "#{@delivery_last_name}"
+
+      .Purchases__main__check__How
+        支払い方法
+      .PayCard_Info
+        .Card_Num
+          登録クレジットカードナンバー
+          %br
+          = "**** **** **** " + "#{@default_card_information.last4}"
+        .Card_Exp
+          有効期限
+          = "#{@exp_month}" + " / " + "#{@exp_year}"
+        .Card_Edit
+          = link_to card_index_path, class: 'CardEditBtn' do
+            変更する
+
+      .BuyAction
+        -# = form_tag(action: :pay, method: :post) do
+        -#   %button.buy-button{type:"submit"} 購入する
+        = link_to pay_item_buyer_path, method: :post, class: 'BuyBtn' do
+          購入する
+
+  .Purchases__footer
+    .Purchases__footer__content
+      %ul.Purchases__footer__content__list
+        %li.Purchases__footer__content__list__type プライバシーポリシー
+        %li.Purchases__footer__content__list__type FURIMA利用規約
+        %li.Purchases__footer__content__list__type 特定商取引に関する表記
+    = image_tag '/images/logo.png', class: 'FurimaLogo'
+    

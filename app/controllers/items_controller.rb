@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -38,8 +39,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def purchases
-  end
+  # def purchases
+  #   @item = Item.find(params[:item_id])
+  # end
 
   def category_children
     @category_children = Category.find("#{params[:parent_id]}").children
