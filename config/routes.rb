@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     member do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
+      get 'size_children', defaults: { format: 'json' }
     end
   end
   resources :users, only: [:show, :edit, :update]

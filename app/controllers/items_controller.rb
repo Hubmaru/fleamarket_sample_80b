@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :get_category
+  before_action :get_category, :get_size
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -51,15 +51,23 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def size_children
+    @size_children = Size.find("#{params[:parent_id]}").children
+  end
+
   private
 
   def get_category
     @category_parent = Category.where(ancestry: nil)
   end
 
+  def get_size
+    @size_parent = Size.where(ancestry: nil)
+  end
+
 
   def item_params
-    params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id, :category_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destory, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id, :category_id, :size_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destory, :id]).merge(seller_id: current_user.id)
   end
 
 end
