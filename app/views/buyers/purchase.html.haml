@@ -9,14 +9,13 @@
 
       .Purchases__main__check__product
         .Purchases__main__check__product__image
-          = image_tag @item.images.first.photo.url, class: "List__img", width: '200', height: '150', alt: '画像'
-          .Purchases__main__check__product__detail
+          = image_tag @item.images.first.photo.url, class: "List__img", width: '50%', height: '45%', alt: '画像'
+          .Purchases__main__check__product__name
             = @item.name
-          .Purchases__main__check__product__detail
-            未使用品です。
-            ニチョリで購入しました。
+          .Purchases__main__check__product__text
+            = @item.text
           .Purchases__main__check__product__price
-            = "¥#{@item.price.to_s} + 円（税込み・送料込み）"
+            = "¥#{@item.price.to_s}" + "円（税込み・送料込み）"
 
       .Purchases__main__check__paymentPrice
         .Purchases__main__check__paymentPrice__title
@@ -28,25 +27,29 @@
         .Purchases__main__check__delivery__title
           ★配送先を確認してください。
         .Purchases__main__check__delivery__address
-          大阪府大阪市大阪町大阪ビル100階
+          = "#{@prefecture}" + "#{@municipality}" + "#{@address}"
+        .Purchases__main__check__delivery__address
+          = "#{@delivery_family_name}" + "#{@delivery_last_name}"
 
-      .Purchases__main__check__btn
+      .Purchases__main__check__How
         支払い方法
-      .user-info-update
-        = link_to "変更する", "#", calss:"update-btn"
-        .user-info-text
-        - if @default_card_information.blank?
-          %br /
-        - else
+      .PayCard_Info
+        .Card_Num
+          登録クレジットカードナンバー
+          %br
           = "**** **** **** " + "#{@default_card_information.last4}"
-          %br
-          - exp_month = @default_card_information.exp_month.to_s
-          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-          = "有効期限 " + exp_month + " / " + exp_year
-          %br
-      .Btn
-        = form_tag(action: :pay, method: :post) do
-          %button.buy-button{type:"submit"} 購入する
+        .Card_Exp
+          有効期限
+          = "#{@exp_month}" + " / " + "#{@exp_year}"
+        .Card_Edit
+          = link_to card_index_path, class: 'CardEditBtn' do
+            変更する
+
+      .BuyAction
+        -# = form_tag(action: :pay, method: :post) do
+        -#   %button.buy-button{type:"submit"} 購入する
+        = link_to pay_item_buyer_path, method: :post, class: 'BuyBtn' do
+          購入する
 
   .Purchases__footer
     .Purchases__footer__content

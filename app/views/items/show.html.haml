@@ -11,17 +11,10 @@
           .Main__show__contentRight__topContent__itemBox__body
             .itemBox3
               = image_tag @item.images.first.photo.url, class: "List__img", width: '450', height: '400', alt: '画像'
-              %ul
-              - if @item.images.second.photo.url.present?
-                = image_tag @item.images.second.photo.url, class: "List__img", width: '100', height: '100', alt: '画像'
-              -# - if @item.images.third.photo.url.present?
-              -#   = image_tag @item.images.third.photo.url, class: "List__img", width: '100', height: '100', alt: '画像'
-
-              -# =image_tag("/images/product-image-06.jpeg",width: '450',height: '400', alt: "画像") 
               -# %ul
-              -# =image_tag("/images/product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
-              -# =image_tag("/images/product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
-      
+              -# - if @item.images.second.photo.url.present?
+              -#   = image_tag @item.images.second.photo.url, class: "List__img", width: '100', height: '100', alt: '画像'
+
           .Main__show__contentRight__topContent__itemBox__price
             = @item.price
           .Main__show__contentRight__topContent__itemBox__price-detail
