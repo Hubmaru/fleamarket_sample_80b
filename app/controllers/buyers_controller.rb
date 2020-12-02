@@ -1,6 +1,7 @@
 class BuyersController < ApplicationController
   require 'payjp'
-  before_action :set_card, :set_item
+  before_action :set_item
+  before_action :set_card, only:[:purchase, :pay]
 
   def purchase
     if @item.buyer.present? 
@@ -59,6 +60,7 @@ class BuyersController < ApplicationController
   end
 
   def done
+    @item.update( buyer_id: current_user.id)
   end
 
   private
