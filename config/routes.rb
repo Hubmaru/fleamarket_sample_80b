@@ -17,10 +17,6 @@ Rails.application.routes.draw do
         post 'pay', to: 'buyers#pay'
       end
     end
-    collection do
-      get 'category_children', defaults: { format: 'json' }
-      get 'category_grandchildren', defaults: { format: 'json' }
-    end
     member do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
