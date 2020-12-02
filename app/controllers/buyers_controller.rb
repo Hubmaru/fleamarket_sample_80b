@@ -15,7 +15,7 @@ class BuyersController < ApplicationController
       @default_card_information = customer.cards.retrieve(@card.card_id)
       @exp_month = @default_card_information.exp_month.to_s
       @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-      @user = User.find(params[:id])
+      @user = User.find(params[:user_id])
       @prefecture = @user.delivery_address.prefecture
       @municipality = @user.delivery_address.municipality
       @address = @user.delivery_address.address

@@ -1,5 +1,8 @@
 .Page {
-  .MainSpace {
+  .MainSpaceDone {
+    height: 70vh;
+    background-color:white;
+    @include template_style();
     .Done__Title {
       font-size: 20px;
       color: white;
@@ -33,6 +36,9 @@
         }
         &__Right {
         }
+      }
+      .Actions {
+        @include btn_style
       }
     }
   }

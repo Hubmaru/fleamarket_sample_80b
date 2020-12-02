@@ -131,14 +131,24 @@
 
 = render "items/footer"
 
-- unless @item.buyer.present? 
-  .New-createBtn
-    %span.New-createBtn__text 購入する
-    = link_to purchase_item_buyer_path(@item.id), class:"path" do
-      = image_tag "/images/icon_camera.png",width: '54',alt: "画像",class: "New-createBtn__icon"
-
-      -# if @item.seller_id == current.user_id  その商品詳細ページを開いている人が出品者であること
-      -#   編集（削除）画面へ
-      -# elsif @item.buyer.blunk?  購入者が存在していないこと
-      -#   購入画面へ
-      -# end
+- if @item.buyer.blank?
+  - if user_signed_in?
+    - if @item.seller_id == current_user.id
+      .Edit_Item_Btn
+        %span.Edit_Item_Btn__Text 編集する
+        = link_to root_path do
+          = icon 'fas', 'fas fa-cog fa-3x', class: 'Edit_Item_Btn__Icon'
+    - else
+      .Purchase_Item_Btn
+        %span.Purchase_Item_Btn__Text 購入する
+          = icon 'fas', 'fas fa-shopping-cart fa-3x', class: 'Purchase_Item_Btn__Icon'
+  - else
+    .Sign_Item_Btn
+      %span.Sign_Item_Btn__Text 新規登録して購入する
+      = link_to new_user_registration_path do
+        = icon 'fas', 'fas fa-sign-in-alt fa-3x', class: 'Sign_Item_Btn__Icon'
+- else
+  .NoPurchase_Item_Btn
+    %span.NoPurchase_Item_Btn__Text 売却済
+    = link_to root_path do
+      = icon 'far', 'far fa-times-circle fa-3x', class: 'Purchase_Item_Btn__Icon'
