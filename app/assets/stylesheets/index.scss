@@ -257,20 +257,23 @@ p {
         .List {
           width: 220px;
           display: inline-block;
+          &__link {
+            position: relative;
+          }
           &__img {
             background-color: #fff;
             display: inline-block;
             width: 220px;
             height: 150px;
-            position: relative;
             overflow: hidden;
             margin: 0;
-            z-index: auto;
+            z-index: 10;
           }
           &__body {
             background-color: white;
             color: #333;
             padding: 16px;
+            height: 150px;
             &__name {
               overflow: hidden;
               line-height: 1.5;
@@ -308,6 +311,29 @@ p {
   }
 }
 
+@mixin style_of_icon {
+  width: 120px;
+  text-align: center;
+  border-radius: 10%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  color: white;
+  &__Text {
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__Icon {
+    color: white;
+    width: 80%;
+    vertical-align: bottom;
+    border: 0;
+  }
+}
+
 .New-createBtn {
   width: 120px;
   background: #3CCACE;
@@ -336,7 +362,43 @@ p {
     text-align: center;
   }
 }
+.Edit_Item_Btn {
+  background-color: orange;
+  @include style_of_icon
+}
+.Purchase_Item_Btn {
+  background-color: red;
+  @include style_of_icon
+}
+.NoPurchase_Item_Btn {
+  background-color: blue;
+  @include style_of_icon
+}
+.Sign_Item_Btn {
+  background-color: yellowgreen;
+  @include style_of_icon
+}
 
 a {
   text-decoration: none;
+}
+
+.List__sold{
+  width: 0;
+  height: 0;
+  border-top: 50px solid #EA352D ;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 50px solid #EA352D ;
+  z-index:100;
+  position: absolute;
+  top: 0px;
+  left:-1px;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 25px;
+    margin:-25px 0px 0px -45px;
+    color: #fff;
+    font-weight: 600;
+  }
 }
