@@ -14,9 +14,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :cost
   belongs_to_active_hash :days
   belongs_to_active_hash :condition
-  belongs_to_active_hash :size
-  validates :text, presence: true
   belongs_to :user
-  has_many :comments  # commentsテーブルとのアソシエーション
+  
 
 end

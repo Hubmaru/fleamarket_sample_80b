@@ -1,5 +1,0 @@
-class Comment < ApplicationRecord
-    belongs_to :item # tweetsテーブルとのアソシエーション
-    belongs_to :user
-end
-

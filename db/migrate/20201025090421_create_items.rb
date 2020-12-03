@@ -13,7 +13,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :days_id, index: true, foreign_key: true, null: false
       t.integer :seller_id, index: true
       t.integer :buyer_id, index: true
-      t.integer :size_id, index: true
       t.timestamps
     end
   end

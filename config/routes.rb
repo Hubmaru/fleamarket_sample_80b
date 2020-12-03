@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-
-  resources :items do
-    collection do
-    resources :likes, only: [:index, :create]
-    end
-  end
-
   get 'card/new'
   get 'card/show'
 
@@ -28,6 +19,9 @@ Rails.application.routes.draw do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
       get 'size_children', defaults: { format: 'json' }
+    end
+    collection do
+      resources :likes, only: [:index, :create]
     end
   end
 

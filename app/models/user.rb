@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :likes
   has_many :comments
 
-  validates :nickname, :real_family_name, :real_last_name, :real_family_name_kana, :real_last_name_kana, :birth, presence: true
+  
   validates :real_family_name, :real_last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/}
   validates :real_family_name_kana, :real_last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
   has_one :delivery_address, dependent: :destroy

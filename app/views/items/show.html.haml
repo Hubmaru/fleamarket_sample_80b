@@ -60,7 +60,11 @@
                 .table-left
                   商品のサイズ
                 .table-right
-                  =@item.size.value
+                  = link_to "#",class:"skyblue"do
+                    =@item.size.root.name
+                    = icon'fas', 'angle-left'
+                  = link_to "#",class:"skyblue"do
+                    =@item.size.name
               .table-contents
                 .table-left
                   商品の状態
