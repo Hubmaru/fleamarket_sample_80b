@@ -40,8 +40,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def purchases
-  end
+  # def purchases
+  #   @item = Item.find(params[:item_id])
+  # end
 
   def category_children
     @category_children = Category.find("#{params[:parent_id]}").children
