@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 
   validates :nickname, presence: true, uniqueness: true
-
+  validates :real_family_name, :real_last_name, :real_family_name_kana, :real_last_name_kana, :birth, presence: true
   has_many :seller_items, foreign_key: :seller_id, class_name: :items
   has_many :buyer_items, foreign_key: :buyer_id, class_name: :items
   has_many :credits, dependent: :destroy
