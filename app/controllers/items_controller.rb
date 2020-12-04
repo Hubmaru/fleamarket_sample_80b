@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-<
+
 
     @item = Item.find(params[:id])
   
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     
     @prev_item =Item.where("id < ?", @item).order("id DESC").first
 
-=
+
   end
 
   def new

@@ -14,7 +14,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :cost
   belongs_to_active_hash :days
   belongs_to_active_hash :condition
-  belongs_to :user
+  
   
 
 end
