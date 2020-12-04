@@ -6,7 +6,19 @@ class ItemsController < ApplicationController
   end
 
   def show
+
+
     @item = Item.find(params[:id])
+  
+    @items = Item.all
+
+    @user = User.find(params[:id])
+
+    @next_item = Item.where("id > ?", @item).order("id ASC").first
+    
+    @prev_item =Item.where("id < ?", @item).order("id DESC").first
+
+
   end
 
   def new
