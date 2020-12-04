@@ -7,16 +7,17 @@
       .Main__show__contentRight__topContent
         .Main__show__contentRight__topContent__itemBox
           .Main__show__contentRight__topContent__itemBox__name
-            中華そば
+            = @item.name
           .Main__show__contentRight__topContent__itemBox__body
             .itemBox3
-              =image_tag("/images/product-image-06.jpeg",width: '450',height: '400', alt: "画像") 
-              %ul
-              =image_tag("/images/product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
-              =image_tag("/images/product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
+              = image_tag @item.images.first.photo.url, class: "List__img", width: '450', height: '400', alt: '画像'
+              -# =image_tag("/images/product-image-06.jpeg",width: '450',height: '400', alt: "画像") 
+              -# %ul
+              -# =image_tag("/images/product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
+              -# =image_tag("/images/product-image-06.jpeg",width: '100',height: '100', alt: "画像") 
       
           .Main__show__contentRight__topContent__itemBox__price
-            ¥1000円
+            = @item.price
           .Main__show__contentRight__topContent__itemBox__price-detail
             (税込)
             送料込み
@@ -130,3 +131,9 @@
                     (税込)
 
 = render "items/footer"
+.New-createBtn
+  %span.New-createBtn__text 削除する
+  - if user_signed_in?
+    = link_to image_tag("/images/icon_camera.png", width: '54'), item_path(@item.id), method: :delete, class:"path"
+  - else
+    = link_to image_tag("/images/icon_camera.png", width: '54'), new_user_session_path, class:"path"

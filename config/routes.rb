@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   resources :items do
+    delete 'item', to: 'items#destroy'
     member do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
