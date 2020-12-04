@@ -131,9 +131,3 @@
                     (税込)
 
 = render "items/footer"
-.New-createBtn
-  %span.New-createBtn__text 削除する
-  - if user_signed_in?
-    = link_to image_tag("/images/icon_camera.png", width: '54'), item_path(@item.id), method: :delete, class:"path"
-  - else
-    = link_to image_tag("/images/icon_camera.png", width: '54'), new_user_session_path, class:"path"
