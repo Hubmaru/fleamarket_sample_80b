@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   before_action :get_category, :get_size
+  before_action :get_item, only: [:show, :destroy, :edit]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def new
@@ -25,14 +25,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.destroy
       redirect_to root_path, notice: '商品を削除しました'
     else
@@ -41,6 +39,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def get_item
+    @item = Item.find(params[:id])
+  end
   # def purchases
   #   @item = Item.find(params[:item_id])
   # end
