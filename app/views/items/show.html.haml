@@ -153,7 +153,7 @@
     - if @item.seller_id == current_user.id
       .Edit_Item_Btn
         %span.Edit_Item_Btn__Text 編集する
-        = link_to root_path do
+        = link_to edit_item_path(@item.id) do
           = icon 'fas', 'fas fa-cog fa-3x', class: 'Edit_Item_Btn__Icon'
     - else
       .Purchase_Item_Btn
