@@ -49,6 +49,14 @@
         
         .Details__category__grandchildren#grandchildren_box
 
+      .Details__size#size_box
+        %p1 サイズ
+        %p2 任意
+        .Details__size__parent#size_parent_box
+          = f.collection_select :size_id, @size_parent, :id, :name, {include_blank: "選択してください"}, { class: "Details__szie__parent", id: "parent_size"}
+        .Details__size__children#size_children_box
+
+
       .Details__brand
         %p1 ブランド
         %p2 任意
