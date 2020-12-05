@@ -477,6 +477,7 @@ etc_office.children.create([{:name => "オフィス用品一般"}, {:name => "�
   {:name => "OA機器"}, {:name => "ラッピング/包装"}, {:name => "その他"}])
 
 
+
 clothes = Size.create(:name => "洋服のサイズ")
 ladys_shoes = Size.create(:name => "レディース靴のサイズ")
 mens_shoes = Size.create(:name => "メンズ靴のサイズ")
