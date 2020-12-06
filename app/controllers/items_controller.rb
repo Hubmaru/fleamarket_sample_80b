@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :get_category, :get_size
-  before_action :get_item, only: [:show, :destroy, :edit]
+  before_action :get_category, only: [:new, :create, :edit, :update]
+  before_action :get_size, only: [:new, :create, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -35,9 +36,16 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path, notice: '商品を編集しました'
+    else
+      flash.now[:alert] = '必須事項を入力してください'
+      render :edit
+    end
   end
 
   def destroy
@@ -48,13 +56,6 @@ class ItemsController < ApplicationController
       render :show
     end
   end
-
-  def get_item
-    @item = Item.find(params[:id])
-  end
-  # def purchases
-  #   @item = Item.find(params[:item_id])
-  # end
 
   def category_children
     @category_children = Category.find("#{params[:parent_id]}").children
@@ -69,6 +70,10 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def get_category
     @category_parent = Category.where(ancestry: nil)
