@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_153603) do
     t.integer "condition_id", null: false
     t.string "brand"
     t.integer "category_id", null: false
+    t.integer "size_id"
     t.integer "cost_id", null: false
     t.integer "days_id", null: false
     t.integer "seller_id"
@@ -75,6 +76,13 @@ ActiveRecord::Schema.define(version: 2020_11_29_153603) do
     t.index ["days_id"], name: "index_items_on_days_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

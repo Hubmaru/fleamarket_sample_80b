@@ -8,11 +8,13 @@ class Item < ApplicationRecord
   validates :name, :text, :prefecture_id, :condition_id, :cost_id, :days_id, :seller_id, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 100, less_than_or_equal_to: 9999999 }
   validates :images, presence: true, length: {minimum: 1, maximum: 10}
-  
+  has_many :likes
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :cost
   belongs_to_active_hash :days
   belongs_to_active_hash :condition
   
+  
+
 end
