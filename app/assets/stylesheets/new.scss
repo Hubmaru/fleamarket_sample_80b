@@ -5,15 +5,19 @@ body{
   align-items: center;
 }
 
-  .Contents {
+  .NewContents {
     background-color: white;
     width: 600px;
     display: flex;
     justify-content: center;
     
     &__title {
-      font-size: 30px;
+      font-size: 25px;
       font-weight: bold;
+      color: white;
+      background-color: #3ccace;
+      border-radius: 20px;
+      padding: 5px;
       margin: 10px 0;
     }
   }
