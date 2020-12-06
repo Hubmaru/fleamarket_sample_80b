@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if @item.update(edit_params)
       redirect_to root_path, notice: '商品を編集しました'
     else
       flash.now[:alert] = '必須事項を入力してください'
@@ -86,6 +86,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id, :category_id, :size_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destory, :id]).merge(seller_id: current_user.id)
+  end
+
+  def edit_params
+    params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id, :size_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destory, :id]).merge(seller_id: current_user.id)
   end
 
 end
