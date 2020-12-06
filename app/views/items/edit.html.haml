@@ -4,7 +4,7 @@
     = image_tag '/images/logo.png', class: 'FurimaLogo'
 %body
   .Contents
-    .Contents__title 出品内容
+    .Contents__title 出品内容の編集
   = form_for @item do |f|
     .Goods
       .Goods__image
@@ -14,8 +14,8 @@
         %div#image-box
           %div#previews
             -if @item.persisted?
-              = @item.images.each_with_index do |image, i|
-                = image_tag image.photo.url, data: {index: i}, width: '100', height: '100'
+              - @item.images.each_with_index do |image, i|
+                = image_tag image.photo.url, data: {index: i }, width: '100', height: '100'
 
           = f.fields_for :images do |image|
             %div.js-file_group{ data: { index: 'image.index'}}
@@ -43,15 +43,54 @@
       .Details__category#category_box
         %p1 カテゴリー
         %p2 必須
+      .Details__category__current
+        %p3 登録されているカテゴリー
+        .Details__category__current__name
+          - @category_parent.each do |parent|
+            -if @item.category_id == parent.id
+              = parent.name
+              
+            - parent.children.each do |child|
+              -if @item.category_id == child.id
+                = parent.name
+                　>>　
+                = child.name
+                
+              - child.children.each do |grandchild|
+                -if @item.category_id == grandchild.id
+                  = parent.name
+                  　>>　
+                  = child.name
+                  　>>　
+                  = grandchild.name
+              
+        .Details__category__change カテゴリーの変更
         .Details__category__parent#parent_box
           = f.collection_select :category_id, @category_parent, :id, :name, {include_blank: "選択してください"}, { class: "Details__category__parent", id: "parent_category"}
         .Details__category__children#children_box
-        
+          
         .Details__category__grandchildren#grandchildren_box
+
+
+        
 
       .Details__size#size_box
         %p1 サイズ
         %p2 任意
+      .Details__size__current
+        %p3 登録されているサイズ
+        .Details__size__current__name
+          - @size_parent.each do |parent|
+            -if @item.size_id == parent.id
+              = parent.name
+              
+            - parent.children.each do |child|
+              -if @item.size_id == child.id
+                = parent.name
+                　>>　
+                = child.name
+        
+        .Details__size__change サイズの変更
         .Details__size__parent#size_parent_box
           = f.collection_select :size_id, @size_parent, :id, :name, {include_blank: "選択してください"}, { class: "Details__size__parent", id: "parent_size"}
         .Details__size__children#size_children_box
@@ -92,7 +131,7 @@
         %p1 ￥
         = f.text_field :price, placeholder: "100~9,999,999", maxlength: "9", class: 'Price__yen__input'
     .Listing
-      = f.submit '出品する', class: "Listing__sell"
+      = f.submit '編集する', class: "Listing__sell"
       = link_to root_path(current_user), class: "Listing__tpo" do
         トップページに戻る
         
