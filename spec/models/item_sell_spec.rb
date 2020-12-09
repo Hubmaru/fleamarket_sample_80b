@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Item do
-  describe '#create' do
+  describe '#create, #update' do
     let(:user){create(:user)}
     let(:category){create(:category)}
 
