@@ -8,7 +8,6 @@
   = form_for @item do |f|
     .Goods
       .Goods__image
-        %p3 登録されている画像
         %div#image-box
           %div#previews
             -if @item.persisted?
@@ -39,7 +38,6 @@
       .Details__title 商品の詳細
       .Details__category#category_box
         %p1 カテゴリー
-        %p2 任意
       .Details__category__current
         %p3 登録されているカテゴリー
         .Details__category__current__name
@@ -61,7 +59,9 @@
                   　>>　
                   = grandchild.name
               
-        .Details__category__change カテゴリーの変更
+        .Details__category__change
+          カテゴリーの変更
+          %p2 任意
         .Details__category__parent#parent_box
           = f.collection_select :category_id, @category_parent, :id, :name, {include_blank: "選択してください"}, { class: "Details__category__parent", id: "parent_category"}
         .Details__category__children#children_box
@@ -73,7 +73,6 @@
 
       .Details__size#size_box
         %p1 サイズ
-        %p2 任意
       .Details__size__current
         %p3 登録されているサイズ
         .Details__size__current__name
@@ -87,7 +86,9 @@
                 　>>　
                 = child.name
         
-        .Details__size__change サイズの変更
+        .Details__size__change
+          サイズの変更
+          %p2 任意
         .Details__size__parent#size_parent_box
           = f.collection_select :size_id, @size_parent, :id, :name, {include_blank: "選択してください"}, { class: "Details__size__parent", id: "parent_size"}
         .Details__size__children#size_children_box
@@ -140,3 +141,9 @@
         %li.Purchases__footer__content__list__type FURIMA利用規約
         %li.Purchases__footer__content__list__type 特定商取引に関する表記
     = image_tag '/images/logo.png', class: 'FurimaLogo'
+
+.Delete-ItemBtn
+  %span.Delete-ItemBtn__text 削除する
+  = link_to item_path,method: :delete do
+    = icon 'fas' , 'fas fa-trash-alt fa-3x', class: 'Delete-ItemBtn__Icon'
+    
