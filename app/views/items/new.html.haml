@@ -3,8 +3,8 @@
   .Purchases__header
     = image_tag '/images/logo.png', class: 'FurimaLogo'
 %body
-  .Contents
-    .Contents__title 出品内容
+  .NewContents
+    .NewContents__title 出品内容
   = form_for @item do |f|
     .Goods
       .Goods__image
@@ -18,13 +18,13 @@
                 = image_tag image.photo.url, data: {index: i}, width: '100', height: '100'
 
           = f.fields_for :images do |image|
-            %div.js-file_group{ data: { index: 'image.index'}}
+            %div.js-file_group{ data: { index: image.index}}
               = image.file_field :photo, class: 'js-file'
               %span.js-remove 削除
             -if @item.persisted?
               = image.check_box :_destroy, data:{index: image.index}, class: 'hidden-destroy'
           -if @item.persisted?
-            %div.js-file_group{ data: { index: '@item.image.count'}}
+            %div.js-file_group{ data: { index: @item.image.count}}
               = file_field_tag :photo, name: "item[images_attributes][#{@item.images.count}][photo]", class: 'js-file'
               %div.js-remove 削除
         

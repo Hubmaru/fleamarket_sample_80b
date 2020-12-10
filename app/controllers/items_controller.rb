@@ -1,23 +1,19 @@
 class ItemsController < ApplicationController
-  before_action :get_category, only: [:new, :create, :edit, :update]
-  before_action :get_size, only: [:new, :create, :edit, :update]
+  before_action :get_category, only: [:new, :create, :edit, :show, :update]
+  before_action :get_size, only: [:new, :create, :show, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_current_user, only:[:edit, :update]
+
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
   end
 
   def show
-  
-    @items = Item.all
-
-    @user = User.find(params[:id])
-
+    @user = User.find(@item.seller_id)
+    @items = Item.includes(:images).order('created_at DESC')
     @next_item = Item.where("id > ?", @item).order("id ASC").first
-    
     @prev_item =Item.where("id < ?", @item).order("id DESC").first
-
-
   end
 
   def new
@@ -40,7 +36,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if @item.update(edit_params)
       redirect_to root_path, notice: '商品を編集しました'
     else
       flash.now[:alert] = '必須事項を入力してください'
@@ -83,9 +79,19 @@ class ItemsController < ApplicationController
     @size_parent = Size.where(ancestry: nil)
   end
 
+  def ensure_current_user
+    item = Item.find(params[:id])
+    if item.seller_id != current_user.id
+      redirect_to action: :index
+    end
+  end
+
 
   def item_params
     params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id, :category_id, :size_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destory, :id]).merge(seller_id: current_user.id)
   end
 
+  def edit_params
+    params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id,  :size_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destory, :id]).merge(seller_id: current_user.id)
+  end
 end
