@@ -381,6 +381,10 @@ p {
   background-color: yellowgreen;
   @include style_of_icon
 }
+.Delete-ItemBtn {
+  background-color: rgb(219, 35, 66);
+  @include style_of_icon
+}
 
 a {
   text-decoration: none;
