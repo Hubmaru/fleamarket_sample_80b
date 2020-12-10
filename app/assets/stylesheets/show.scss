@@ -16,49 +16,63 @@ body {
         padding:20px;
         margin: 0 auto;
         text-align:center;
-        &__contentLeftqq{
-            display: block;
-        }
         &__contentRight{
             margin: 0 auto;
             display: block;
             list-style: none; 
             width: 700px;
-            background-color: white;
-            &__topContent{
+            &__topContent {
                 width: 700px;
-                margin: 0;
-                padding: 0;
+                height: 1180px;
                 margin: 0 auto; 
-                &__itemBox{
+                &__itemBox {
                     margin: 0 auto;
-                    list-style-type: disc;
-                    height: 1190px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                     width: 700px;
+                    height: 100%;
                     background-color: white;
-                    &__name{
+                    &__name {
                         font-size:24px;
                         text-align:center;
                         font-weight: bold;
                         padding: 10px 0;
                     }
-                    
-
-                    &__price{
-                        font-weight: bold;
-                        font-size: 46px;
-                        color:black;
+                    &__images {
+                        .itemImage_main {
+                            height: 350px;
+                            margin-bottom: 10px;
                         }
-                    &__price-detail{
+                        .itemImage_sub {
+                            height: 100px;
+                            display: flex;
+                            justify-content: space-around;
+                        }
+                    }
+                    &__priceMark {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 46px;
+
+                        .price {
+                            font-weight: bold;
+                            font-size: 46px;
+                            color:black;
+                            margin-left: 10px;
+                            }
+                    }
+                    &__priceTax {
                         text-align:center;
                         font-size: 16px;
                         }
-                    &__itemDetail{
-                        padding: 10px;
-                        margin: 40 0 0 0px;
-                        line-height: 1.5;
-                        font-size: 18px;
-                        font-weight: bold;
+                    &__text {
+                        width: 90%;
+                        font-size: 20px;
+                        padding: 20px 20px;
+                        word-break: break-all;
+                        text-align: left;
                     }
                     &__table{
                         display: flex;
@@ -70,28 +84,30 @@ body {
                             vertical-align: middle;
                             border-color: inherit;  
                             .table-contents{
-                                padding: 0 0 0 40px;
                                 margin: 0 auto;
+                                height: 50px;
                                 display: flex;
+                                align-items: center;
                                 vertical-align: inherit;
                                 border-color: inherit; 
                                 .table-left{
                                     width: 152px;
+                                    height: 100%;
                                     background-color: #eee;
-                                    font-weight: 400;
-                                    padding: 8px;
                                     border: 1px solid #dedede;
                                     font-size: 14px;
-                                    text-align: center;  
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
                                 }
                                 .table-right{
                                     width: 467px;
-                                    padding: 15px 15px;
+                                    height: 100%;
                                     border: 1px solid #dedede;
                                     font-size: 14px;
-                                    .skyblue{
-                                        color:#3CCACE;   
-                                    }
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
                                 }
                             }
                         }
@@ -117,194 +133,157 @@ body {
                         text-align: center;
                         font-weight: 600;
                     }
-
-
-                
-
-
-
-
-
-
                     &__optionalArea {
-                        .optinalArea2{
-                            list-style: none;
-                            display: flex;
-                            color:white;
-                            margin-top: 20px;
-                            
-                            .optinalArea4{
-                                text-decoration: none;
-                                padding: 6px 10px;
-                                border-radius: 40px;
-                                color: #3CCACE;
-                                border: 1px solid #ffb340;
-                                margin: 0 300px 0 40px;
+                        width: 90%;
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 30px;
 
-                                .like-btn {
-                                    width: 15px;
-                                    height: 10px;
-                                    font-size: 15px;
-                                    color: yellow; 
-                                    margin-left: 20px;
-                                } 
-                                .unlike-btn {
-                                    width: 15px;
-                                    height: 10px;
-                                    font-size: 15px;
-                                    color: #e54747;
-                                    margin-left: 20px;
-                                } 
+                        .optinalArea_likes {
+                            width: 140px;
+                            height: 40px;
+                            padding: 6px 10px;
+                            border-radius: 40px;
+                            color: #3CCACE;
+                            border: 1px solid #ffb340;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .likes_link {
+                                color: #3CCACE;
                             }
-                            .optinalArea6{
-                                text-decoration: none;
-                                padding: 6px 10px;
-                                border-radius: 4px;
+
+                            .like-btn {
+                                width: 15px;
+                                height: 10px;
+                                font-size: 15px;
+                                color: #3CCACE; 
+                            } 
+                        }
+                        .optinalArea_report{
+                            padding: 6px 10px;
+                            border-radius: 4px;
+                            color: black;
+                            border: 1px solid #333;
+
+                            .report_link {
                                 color: black;
-                                border: 1px solid #333;
-                                text-decoration: none;
                             }
+
+                            .report-btn {
+                                width: 15px;
+                                height: 10px;
+                                font-size: 15px;
+                                color: black;
+                            } 
                         }
                     }  
                 } 
             }
-            .commentBox{
-                height: 300px;
-                background-color: #fff;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-around;
-                border-top: 10px solid #f8f8f8;
-                &__commentContents{
-                    width: 100%;
-                    height: 100px;
-                    border: 1px solid black;
-                    
-                }
+
+            &__commentBox {
+                height: 330px;
+                margin-top: 10px;
+                background-color: white;
                 
-                &__noticeMsg {
-                    font-size: 14px;
-                    background-color: #f8f8f8;
-                    display:flex;
-                    justify-content: center;
+                .comment-form {
+                    display: flex;
+                    flex-direction: column;
                     align-items: center;
-                    height: 100px;
-                    width: 95%;
-                    
-                }
-                &__button {
-                    &__commnets__btn {
+                    position: relative;
+
+                    .comment-area {
+                        width: 90%;
+                        height: 125px;
+                        border: 1px, solid;
+                        margin: 30px 0 15px 0;
+                        padding: 10px;
+                    }
+
+                    .comment-btn {
+                        width: 50%;
+                        height: 50px;
                         font-size: 20px;
-                        line-height: 60px;
-                        background: #3CCACE;
-                        border: 1px solid #3CCACE;
-                        color: #fff;
-                        border-radius: 60px;
-                        text-decoration:none;
-                        width: 600px;
-                        height: 40px;
-                        padding: 10px 90px;
+                        font-weight: bold;
+                        color: white;
+                        background-color: #3CCACE;
+                        border: none;
+                        border-radius: 30px;
+                    }
+
+                    .comment-icon {
+                        color: white;
+                        position: absolute;
+                        top: 273px;
+                        left: 272px;
                     }
                 }
+                &__note {
+                    width: 90%;
+                    background-color: whitesmoke;
+                    font-size: 15px;
+                    text-align: left;
+                    padding: 10px;
+                    margin-bottom: 20px;
+                }
             }
-
-            &__links{
+            &__links {
                 background-color: #f8f8f8;
                 height: 30px;
-                list-style:none;
-                
-                .before__item{
-                    float:left;
-                    color:#3CCACE;
-                    margin: 5px 0 0 20px;
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0 10px 0;
+
+                &__prev { 
+                    .before__item{
+                        color:#3CCACE;
+                    }
                 }
-                .after__item{
-                    float:right;
-                    color:#3CCACE;
-                    margin: 5px 20px 0 0;
+                &__next {
+                    .after__item{
+                        color:#3CCACE;
+                    }
                 }
             }
-
-            &__relatedItems{
-                height: 328px;
-                &__relatedItems2{
-                    padding-bottom:20px;
-                    &__relatedItems3{
-                        float:left;
-                        font-size:20px;
-                        display: block;
+            &__relatedItems {
+                height: 300px;
+                &__more {
+                    text-align: left;
+                    margin-bottom: 10px;
+                    .etc-items {
                         color: #3CCACE;
-                        text-decoration: none;
+                        font-size: 25px;
                         font-weight: bold;
-                        padding-bottom:40px;
-                        padding-top:-30px;
                     }
                 }    
-            
-                &__puroductLists{
+                &__lists {
                     padding:20 0 0 0px;
-                    width: 229px;
-                    height: 245px;
-                    text-decoration: none;
                     display:flex;
+                    justify-content: space-around;
 
+                    &__product {
+                        &__body {
+                            text-align: left;
+                            width: 200px;
+                            padding: 15px 15px;
+                            font-size: 15px;
+                            background-color: white;
 
-                    &__puroductList{
-                        display:flex;
-                        justify-content: space-around;
-                        .product--img{
-                            text-decoration: none;
-                            
-                        }
-                        .productList--img{
-                            color:white;
-                            margin-top:50px;
-                            text-decoration: none;
-                        }
-                        .productList--body {
-                            // background-color: white;
-                            overflow: hidden;
-                            line-height: 1.5;
-                            font-size: 16px;
-                            text-align: center;
-                            text-decoration: none;
-                            height: 95px;
-                            width: 230px;
-                            color:black;
-                            .detail{
-                                color:black;
-                                .detail2{
-                                    margin:0;
-                                    display: flex;
-                                    justify-content: center;
-                                    text-decoration: none;
-                                    color:black;
-                                    .detail3{
-                                        display: flex;
-                                        margin-right: 40px;
-                                        margin-left: 45px;
-                                        color:black;
-                                        text-decoration: none;
-                                    }
-                                    .detail4{
-                                        list-style:none;
-                                        margin-right: 10px;
-                                        color:black;
-                                    }
-                                }
-                                .detail5{
-                                    font-size:10px;
-                                    text-align: center;
-                    
+                            .product-name {
+                                color: black;
+                            }
+                            .product-detail {
+                                color: black;
+                                display: flex;
+                                justify-content: space-between;
+                                
+                                &__likes {
+                                    padding-top: 5px;
                                 }
                             }
                         }
                     } 
-
-                    
-
-                    
                 }
             }
         }      
@@ -344,4 +323,3 @@ body {
         }
     }
 }
-
