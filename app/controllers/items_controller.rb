@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :get_category, only: [:new, :create, :edit, :update]
-  before_action :get_size, only: [:new, :create, :edit, :update]
+  before_action :get_category, only: [:new, :create, :edit, :show, :update]
+  before_action :get_size, only: [:new, :create, :show, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,16 +8,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-  
-    @items = Item.all
-
-    @user = User.find(params[:id])
-
+    @user = User.find(@item.seller_id)
+    @items = Item.includes(:images).order('created_at DESC')
     @next_item = Item.where("id > ?", @item).order("id ASC").first
-    
     @prev_item =Item.where("id < ?", @item).order("id DESC").first
-
-
   end
 
   def new
