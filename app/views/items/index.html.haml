@@ -94,7 +94,7 @@
         .Main-category__boxs__lists
           - @items.first(5).each do |item|
             .Main-category__boxs__lists__product
-              = link_to item_path(item.id), class: "List__link" do
+              = link_to item_path(item.id), class: "List-link" do
                 = image_tag item.images.first.photo.url, size: '200x170'
                 .Main-category__boxs__lists__product__body
                   .product-name
