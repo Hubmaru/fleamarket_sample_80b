@@ -106,7 +106,7 @@
                     .product-detail__likes
                       = icon'fas', 'star',class:"like-btn" 
                       
-                - if item.buyer_id.present?
+                - if item.seller_id.present? && item.buyer_id.present?
                   .List__sold
                     .List__sold__inner SOLD
     .Main-brand
@@ -118,7 +118,7 @@
         .Main-category__boxs__lists
           - @items.first(5).each do |item|
             .Main-category__boxs__lists__product
-              = link_to item_path(item.id), class: "List__link" do
+              = link_to item_path(item.id), class: "list-link" do
                 = image_tag item.images.first.photo.url, size: '200x170'
                 .Main-category__boxs__lists__product__body
                   .product-name
@@ -130,7 +130,7 @@
                     .product-detail__likes
                       = icon'fas', 'star',class:"like-btn" 
                       
-                - if item.buyer_id.present?
+                - if item.seller_id.present? && item.buyer_id.present?
                   .List__sold
                     .List__sold__inner SOLD
 

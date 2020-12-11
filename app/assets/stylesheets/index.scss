@@ -256,6 +256,10 @@ p {
 
         &__product {
 
+          .list-link {
+            position: relative;
+          }
+
           &__body {
               text-align: left;
               width: 200px;
