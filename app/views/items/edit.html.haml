@@ -5,7 +5,7 @@
 %body
   .Contents
     .Contents__title 出品内容の編集
-  = form_for @item do |f|
+  = form_with model: @item, local: true do |f|
     .Goods
       .Goods__image
         %div#image-box
@@ -14,15 +14,15 @@
               - @item.images.each_with_index do |image, i|
                 = image_tag image.photo.url, data: {index: i }, width: '100', height: '100'
           = f.fields_for :images do |image|
-            %div.js-file_group{ data: { index: image.index}}
+            .js-file_group{ data: { index: image.index}}
               = image.file_field :photo, class: 'js-file'
               %span.js-remove 削除
             -if @item.persisted?
               = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
           -if @item.persisted?
-            %div.js-file_group{ data: { index: @item.images.count}}
-              = file_field_tag :photo, name: "item[images_attributes][#{@item.images.count}][photo]", class: 'js-file'
-              %div.js-remove 削除
+            .js-file_group{ data: { index: @item.images.count}}
+              = file_field_tag :photo, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+              .js-remove 削除
         
       .Goods__name
         %p1 商品名
@@ -38,6 +38,7 @@
       .Details__title 商品の詳細
       .Details__category#category_box
         %p1 カテゴリー
+        %p2 必須
       .Details__category__current
         %p3 登録されているカテゴリー
         .Details__category__current__name
@@ -61,15 +62,21 @@
               
         .Details__category__change
           カテゴリーの変更
-          %p2 任意
-        .Details__category__parent#parent_box
-          = f.collection_select :category_id, @category_parent, :id, :name, {include_blank: "選択してください"}, { class: "Details__category__parent", id: "parent_category"}
-        .Details__category__children#children_box
-          
-        .Details__category__grandchildren#grandchildren_box
+          -# %p2 必須
+        = f.label :category_id , class: 'wrapper__label category-wrapper-label', id: "wrapper__label--category" do
+          -# カテゴリー：
+          -# %span.required ※必須
+          .category-wrapper-box
+            .category-wrapper-select
+              .Details__category__parent#parent_box
+                = f.select :category_id, @category_parent_array, {selected:@item.category.parent.parent.name},  { class: "Details__category__parent", id: "parent_category"}
 
+              .Details__category__children#children_box
+                = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
 
-        
+              .Details__category__grandchildren#grandchildren_box
+                = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
+
 
       .Details__size#size_box
         %p1 サイズ

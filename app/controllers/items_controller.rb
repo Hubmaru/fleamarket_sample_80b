@@ -31,16 +31,41 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
 
   def update
-    if @item.update(edit_params)
+    if @item.update(item_params)
       redirect_to root_path, notice: '商品を編集しました'
     else
       flash.now[:alert] = '必須事項を入力してください'
       render :edit
     end
+    # exit_ids = []
+    # item_params[:images_attributes].each do |a,b|
+    #   exit_ids << item_params[:images_attributes].dig(:"#{a}",:id).to_i
+    # end
+    # ids = Image.where(item_id: params[:id]).map{|image| image.id }
+    # delete__db = ids - exit_ids
+    # Image.where(id:delete__db).destroy_all
+    # @item.touch
   end
 
   def destroy
