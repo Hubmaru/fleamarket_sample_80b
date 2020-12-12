@@ -62,12 +62,10 @@
         %ul.MainContents__Neck__Business
           %li
             出品数：
-            3
-            -# = @user.items(seller_id).length
+            = @sell_items.count
           %li
             購入数：
-            2
-            -# = @user.items(buyer_id).length
+            = @buy_items.count
         .MainContents__Neck__Profile
           - if @user.introduction
             = safe_join(@user.introduction.split("\n"),tag(:br))
@@ -76,122 +74,35 @@
         .MainContents__Body__Title
           最近出品した商品
         %ul.ItemsList
-          -# この部分は部分テンプレートにすることを検討する
-          -# - @items.each do |item|
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-05.jpg",alt: "画像",class: "image"), root_path
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
-            .item__name
-              仮商品名（出品）
-              -# = item.name
-            .item__info
-              .item__info__price
-                400
-                円
-                -# = item.price
-              .item__info__like
-                = icon('fa', 'star', class: "like__icon")
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-04.jpg",alt: "画像",class: "image"), root_path
-            .item__name
-              仮商品名（出品）
-            .item__info
-              .item__info__price
-                400
-                円
-              .item__info__like
-                = icon('fa', 'star', class: "like__icon")
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
-            .item__name
-              仮商品名（出品）
-            .item__info
-              .item__info__price
-                400
-                円
-              .item__info__like
-                = icon('fa', 'star', class: "like__icon")
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
-            .item__name
-              仮商品名（出品）
-            .item__info
-              .item__info__price
-                400
-                円
-              .item__info__like
-                = icon('fa', 'star', class: "like__icon")
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-01.jpg",alt: "画像",class: "image"), root_path
-            .item__name
-              仮商品名（出品）
-            .item__info
-              .item__info__price
-                400
-                円
-              .item__info__like
-                = icon('fa', 'star', class: "like__icon")
+          - @sell_items.first(5).each do |item|
+            %li.Item
+              - if item.buyer_id.present?
+                .ItemsList__Sold
+                  .ItemsList__Sold__Inner SOLD
+              .Item__image
+                = link_to image_tag(item.images.first.photo.url,alt: "画像",class: "image"), item_path(item.id)
+              .Item__name
+                = item.name
+              .Item__info
+                .Item__info__price
+                  = item.price
+                  円
+                .Item__info__like
+                  = icon('fa', 'star', class: "like__icon")
 
         .MainContents__Body__Title
           最近購入した商品
         %ul.ItemsList
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-05.jpg",alt: "画像",class: "image"), root_path
-              -# 以下は部分テンプレートにすることを検討する
-              -# = @items.each do |item|
-              -# root_path >> item_show_view
-              -# = item.images.photo.select[1]
-            .item__name
-              仮商品名（購入）
-              -# = item.name
-            .item__info
-              .item__info__price
-                400
-                円
-                -# = item.price
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
-            .item__name
-              仮商品名（購入）
-            .item__info
-              .item__info__price
-                400
-                円
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-02.jpg",alt: "画像",class: "image"), root_path
-            .item__name
-              仮商品名（購入）
-            .item__info
-              .item__info__price
-                400
-                円
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-03.jpg",alt: "画像",class: "image"), root_path
-            .item__name
-              仮商品名（購入）
-            .item__info
-              .item__info__price
-                400
-                円
-          %li.item
-            .item__image
-              = link_to image_tag("/images/product-image-01.jpg",alt: "画像",class: "image"), root_path
-            .item__name
-              仮商品名（購入）
-            .item__info
-              .item__info__price
-                400
-                円
+          - @buy_items.first(5).each do |item|
+            %li.Item
+              .Item__image
+                = link_to image_tag(item.images.first.photo.url,alt: "画像",class: "image"), item_path(item.id)
+              .Item__name
+                = item.name
+              .Item__info
+                .Item__info__price
+                  = item.price
+                  円
 
   .ButtomContents
     = render "items/footer"
