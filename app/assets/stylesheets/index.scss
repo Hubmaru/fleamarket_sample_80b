@@ -228,7 +228,7 @@ p {
     }
   }
   .Main-category {
-    padding: 80px 0 0;
+    padding: 30px 0 0;
     background-color: #f8f8f8;
     height: 100%;
     &__title {
@@ -250,65 +250,38 @@ p {
         }
       }
       &__lists {
-        width: 780px;
-        margin: 26px auto;
+        padding: 30px 0;
         display: flex;
         justify-content: space-around;
-        .List {
-          width: 220px;
-          display: inline-block;
-          &__link {
-            position: relative;
+
+        &__product {
+          position: relative;
+          .list-link {
+            
           }
-          &__img {
-            background-color: #fff;
-            display: inline-block;
-            width: 220px;
-            height: 150px;
-            overflow: hidden;
-            margin: 0;
-            z-index: 10;
-          }
+
           &__body {
-            background-color: white;
-            color: #333;
-            padding: 16px;
-            height: 150px;
-            &__name {
-              overflow: hidden;
-              line-height: 1.5;
-              font-size: 16px;
               text-align: left;
-            }
-            &__details {
-              font-size: 16px;
-              ul {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                li {
-                  display: list-item;
-                  text-align: -webkit-match-parent;
-                }
+              width: 200px;
+              padding: 15px 15px;
+              font-size: 15px;
+              background-color: white;
+
+              .product-name {
+                  color: black;
+                  word-break: break-all;
               }
-              &__icon::after{
-                content: "1";
+              .product-detail {
+                  color: black;
+                  display: flex;
+                  justify-content: space-between;
+                  
+                  &__likes {
+                      padding-top: 5px;
+                  }
               }
-              &__icon {
-                display: inline-block;
-                font-size: inherit;
-                text-rendering: auto;
-              }
-              &__tax {
-                font-size: 10px;
-                text-align: left;
-              }
-            }
           }
-          &__link {
-            position: relative;
-          }
-        }
+      } 
       }
     }
   }
