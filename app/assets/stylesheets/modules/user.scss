@@ -290,12 +290,32 @@
           display: flex;
           justify-content: center;
           margin-bottom: 50px;
-          .item {
+          .Item {
             width: 20%;
             height: 100%;
             padding: 5px;
             border: solid 1px #3CCACE;
             margin: 5px;
+            position: relative;
+            .ItemsList__Sold{
+              width: 0;
+              height: 0;
+              border-top: 50px solid #EA352D ;
+              border-right: 50px solid transparent;
+              border-bottom: 50px solid transparent;
+              border-left: 50px solid #EA352D ;
+              z-index:100;
+              position: absolute;
+              top: 0px;
+              left:-1px;
+              &__Inner{
+                transform: rotate(-45deg);
+                font-size: 20px;
+                margin:-25px 0px 0px -45px;
+                color: #fff;
+                font-weight: bold;
+              }
+            }
             &__image {
               .image {
                 width: 100%;

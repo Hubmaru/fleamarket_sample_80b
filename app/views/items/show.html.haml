@@ -174,8 +174,8 @@
           = icon 'fas', 'fas fa-shopping-cart fa-3x', class: 'Purchase_Item_Btn__Icon'
   - else
     .Sign_Item_Btn
-      %span.Sign_Item_Btn__Text 新規登録して購入する
-      = link_to new_user_registration_path do
+      %span.Sign_Item_Btn__Text ログインして購入する
+      = link_to new_user_session_path do
         = icon 'fas', 'fas fa-sign-in-alt fa-3x', class: 'Sign_Item_Btn__Icon'
 - else
   .NoPurchase_Item_Btn
