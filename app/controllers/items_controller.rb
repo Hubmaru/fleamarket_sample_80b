@@ -2,8 +2,9 @@ class ItemsController < ApplicationController
   before_action :get_category, only: [:new, :create, :edit, :show, :update]
   before_action :get_size, only: [:new, :create, :show, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_current_user, only:[:edit, :update]
-
+  before_action :ensure_current_user, only: [:edit, :update]
+  before_action :edit_size, only: [:edit, :update]
+  before_action :edit_category, only: [:edit, :update]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -74,8 +75,46 @@ class ItemsController < ApplicationController
     @category_parent = Category.where(ancestry: nil)
   end
 
+  def edit_category
+    @item = Item.find(params[:id])
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+    
+    @edit_category_grandchild = @item.category
+    if @edit_category_grandchild.present?
+      @edit_category_child = @edit_category_grandchild.parent
+      @edit_category_parent = @edit_category_child.parent
+    else @edit_category_child.present?
+      @edit_category_parent = @edit_category_child.parent
+    end
+  end
+
   def get_size
     @size_parent = Size.where(ancestry: nil)
+  end
+
+  def edit_size
+    @item = Item.find(params[:id])
+    @size_child = Size.where.not(ancestry: nil)
+    @edit_size_child = @item.size
+    if @edit_size_child.present?
+      @edit_size_parent = @edit_size_child.parent
+    end
   end
 
   def ensure_current_user
@@ -85,12 +124,12 @@ class ItemsController < ApplicationController
     end
   end
 
-
   def item_params
-    params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id, :category_id, :size_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destory, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id, :category_id, :size_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
   def edit_params
-    params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id,  :size_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destory, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :price, :brand, :prefecture_id, :category_id, :size_id, :condition_id, :cost_id, :days_id, images_attributes: [:photo, :_destroy, :id]).merge(seller_id: current_user.id)
   end
+
 end

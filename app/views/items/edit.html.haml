@@ -61,14 +61,35 @@
               
         .Details__category__change
           カテゴリーの変更
-          %p2 任意
+
+      - if @edit_category_parent.blank?
         .Details__category__parent#parent_box
           = f.collection_select :category_id, @category_parent, :id, :name, {include_blank: "選択してください"}, { class: "Details__category__parent", id: "parent_category"}
         .Details__category__children#children_box
-          
+         
         .Details__category__grandchildren#grandchildren_box
 
+      - elsif @edit_category_parent.ancestry = nil && @edit_category_parent.id <= 12
+        .Details__category__parent#parent_box
+          = f.collection_select :category_id, @category_parent, :id, :name, {selected: @edit_category_parent.id, include_blank: "選択してください"}, { class: "Details__category__parent", id: "parent_category"}
+        .Details__category__children#children_box
+         
+        .Details__category__grandchildren#grandchildren_box
 
+      - elsif @edit_category_parent.ancestry = nil && @edit_parent.id <= 14
+        .Details__category__parent#parent_box
+          = f.collection_select :category_id, @category_parent, :id, :name, {selected: @edit_category_parent.id, include_blank: "選択してください"}, { class: "Details__category__parent", id: "parent_category"}
+        .Details__category__children#children_box
+          = f.collection_select :category_id, @category_children_array, :id, :name, {selected: @edit_category_child.id, include_blank: "指定なし"}, { class: "Details__category__child", id: "children_category"}
+        .Details__category__grandchildren#grandchildren_box
+
+      - else
+        .Details__category__parent#parent_box
+          = f.collection_select :category_id, @category_parent, :id, :name, {selected: @edit_category_parent.id, include_blank: "指定なし"}, { class: "Details__category__parent", id: "parent_category"}
+        .Details__category__children#children_box
+          = f.collection_select :category_id, @category_children_array, :id, :name, {selected: @edit_category_child.id, include_blank: "指定なし"}, { class: "Details__category__children", id: "children_category"}
+        .Details__category__grandchildren#grandchildren_box
+          = f.collection_select :category_id, @category_grandchildren_array, :id, :name, {selected: @edit_category_grandchild.id, include_blank: "指定なし"}, { class: "Details__category__grandchildren", id: "grandchildren_category"}
         
 
       .Details__size#size_box
@@ -89,10 +110,24 @@
         .Details__size__change
           サイズの変更
           %p2 任意
+
+      - if @edit_size_parent.blank?
         .Details__size__parent#size_parent_box
           = f.collection_select :size_id, @size_parent, :id, :name, {include_blank: "選択してください"}, { class: "Details__size__parent", id: "parent_size"}
         .Details__size__children#size_children_box
 
+      - elsif @edit_size_parent.ancestry = nil && @edit_parent.id <= 14
+        .Details__size__parent#size_parent_box
+          = f.collection_select :size_id, @size_parent, :id, :name, {selected: @edit_size_parent.id, include_blank: "選択してください"}, { class: "Details__size__parent", id: "parent_size"}
+        .Details__size__children#size_children_box
+
+      - else
+        .Details__size__parent#size_parent_box
+          = f.collection_select :size_id, @size_parent, :id, :name, {selected: @edit_size_parent.id, include_blank: "指定なし"}, { class: "Details__size__parent", id: "parent_size"}
+        .Details__size__children#size_children_box
+          = f.collection_select :size_id, @size_child, :id, :name, {selected: @edit_size_child.id, include_blank: "指定なし"}, { class: "Details__size__child", id: "child_size"}
+        
+           
       .Details__brand
         %p1 ブランド
         %p2 任意
