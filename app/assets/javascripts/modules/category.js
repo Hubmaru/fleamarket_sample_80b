@@ -36,6 +36,8 @@ $(function() {
         dataType: 'json'
       })
       .done(function(children) {
+        $("#child_category").remove();
+        $("#grandchild_category").remove();
         $("#children_category").remove();
         $("#grandchildren_category").remove();
         let insertHTML = '';
@@ -50,6 +52,8 @@ $(function() {
       })
 
     }else{
+      $("#child_category").remove();
+      $("#grandchild_category").remove();
       $("#children_category").remove();
       $("#grandchildren_category").remove();
     }
@@ -65,6 +69,7 @@ $(function() {
         datatype: 'json'
       })
       .done(function(grandchildren) {
+        $("#grandchild_category").remove();
         $("#grandchildren_category").remove();
           let insertHTML = '';
           grandchildren.forEach(function(grandchild) {
@@ -79,6 +84,7 @@ $(function() {
     }
 
     else{
+      $("#grandchild_category").remove();
       $("#grandchildren_category").empty();  
     }
   })

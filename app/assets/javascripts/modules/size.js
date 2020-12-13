@@ -26,6 +26,7 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children) {
+        $("#child_size").remove();
         $("#children_size").remove();
         let insertHTML = '';
         children.forEach(function(child) {
@@ -38,6 +39,7 @@ $(function(){
       })
 
     }else{
+      $("#child_size").remove();
       $("#children_size").remove();
     }
   })
