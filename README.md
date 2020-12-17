@@ -14,11 +14,14 @@
 |real_family_name_kana|string|null: false|
 |real_last_name_kana|string|null: false|
 |birth|date|null: false|
+|introduction|text||
 ## Association
 - has_many: seller_items, foreign_key: :seller_id, class_name: :items
 - has_many: buyer_items, foreign_key: :buyer_id, class_name: :items
 - has_one: card, dependent: :destroy
 - has_one: delivery_address, dependent: :destroy
+- has_many: likes
+- has_many: comments
 
 
 ## cardsテーブル
@@ -49,7 +52,7 @@
 |phone|string||
 |user_id|reference|null: false, foreign_key: true|
 ## Association
-- belongs_to: user
+- belongs_to: user, optional: true
 
 
 # itemsテーブル
@@ -59,22 +62,27 @@
 |name|string|null: false|
 |text|text|null: false|
 |price|integer|null: false|
-|shipment_source|string|null: false|
-|condition|string|null: false|
-|brand_id|integer|foreign_key: true|
-|category_id|integer|foreign_key: true|
-|cost_id|integer|foreign_key: true|
-|days_to_ship_id|integer|foreign_key: true|
-|seller_id|integer|null: false, foreign_key: true|
-|buyer_id|integer|foreign_key: true|
+|prefecture_id|integer|index: true, foreign_key: true, null: false|
+|condition_id|integer|index: true, foreign_key: true, null: false|
+|brand|string|index: true|
+|category_id|integer|index: true, foreign_key: true, null: false|
+|cost_id|integer|index: true, foreign_key: true, null: false|
+|days_id|integer|index: true, foreign_key: true, null: false|
+|seller_id|integer|index: true, foreign_key: true, null: false|
+|buyer_id|integer|index: true, foreign_key: true|
+|size_id|integer|index: true, foreign_key: true|
 ## Association
 - has_many: images, dependent: :destroy
+- accepts_nested_attributes_for :images, allow_destroy: true
 - belongs_to: brand
 - belongs_to: category
+- belongs_to: size, optional: true
 - has_one_active_hash: cost
-- has_one_active_hash: days_to_ship
+- has_one_active_hash: days
+- has_one_active_hash: prefecture
+- has_one_active_hash: condition
 - belongs_to: seller, class_name: :user
-- belongs_to: buyer, class_name: :user
+- belongs_to: buyer, class_name: :user, optional: true
 
 
 # imagesテーブル
@@ -87,23 +95,39 @@
 - belongs_to: item
 
 
-# brandsテーブル
-<!-- not update table -->
-|Colum|Type|Options|
-|------|----|------|
-|name|string|null: false|
-## Association
-- has_many: items
-
-
 # categoriesテーブル
 <!-- not update table -->
 |Colum|Type|Options|
 |------|----|------|
-|name|string|null: false|
+|name|string||
+|ancestry|string|index: true|
 ## Association
 - has_many: items
 
+
+# sizesテーブル
+<!-- not update table -->
+|Colum|Type|Options|
+|------|----|------|
+|name|string||
+|ancestry|string|index: true|
+## Association
+- has_many: items
+
+
+## likesテーブル
+
+|Colum|Type|Options|
+|------|----|------|
+|user_id|integer||
+|item_id|integer||
+## Association
+- belongs_to: user
+- belongs_to: item
+
+
+## ER図
+https://gyazo.com/e98a96f06f78278e7eef231292bbe1b5
 
 
 This README would normally document whatever steps are necessary to get the
